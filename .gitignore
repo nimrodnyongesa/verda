@@ -1,0 +1,40 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.mypy_cache/
+.pytest_cache/
+
+# Node / Next
+node_modules/
+.next/
+.turbo/
+out/
+*.log
+.npm/
+*.tsbuildinfo
+
+# Verda runtime (case data, exports, generated bundles)
+runtime/
+**/runtime/
+
+# Secrets — local environment overrides
+.env
+.env.local
+.env.*.local
+
+# Agent / IDE workspaces
+.codex/
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
