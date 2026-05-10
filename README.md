@@ -134,3 +134,25 @@ baseline runs end-to-end and produces the same artifacts.
   client-side first.
 - Self-hosted Docker and USB-bootable build manifests are emitted alongside
   the bundle for partner orgs that cannot trust the cloud.
+
+## Roadmap
+
+The MVP covers Kenya Article 22 / 23. Adding a jurisdiction is a content task,
+not a code task: drop a new `AGENTS.md`, a `procedural_rules.json`, and a
+template pack into `backend/wakili/data/jurisdictions/<code>/`. The same
+generators apply.
+
+- East-Africa expansion: Uganda, Tanzania.
+- Real OCR + Whisper integration (binaries are one subprocess call away).
+- Postgres + pgvector swap-in (the schema is already PG-shaped).
+- Real Codex cloud-agent integration; the deterministic generator already
+  emits the same artifact shape and event stream.
+
+## Lawyer in the loop
+
+Verda produces drafts and tools. A licensed advocate signs and files. The
+Law Society of Kenya rules of professional conduct are met because the human
+lawyer is the responsible practitioner at every step. `SIGN BEFORE FILING`
+markers in every drafted motion enforce that separation.
+
+Built from Nairobi, not exported to it.
