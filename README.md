@@ -44,3 +44,67 @@ wakili/
     ├── components/                   upload-zone, generation-replay, timeline-view, petition-view, precedent-list, procedure-view, audit-log, export-panel
     └── lib/                          api client, types
 ```
+
+## Running locally
+
+You need Python 3.12, Node 20+, and Docker. The repo ships a Python venv
+at `.venv/` with FastAPI and httpx already installed.
+
+### One-shot bring-up (recommended)
+
+```bash
+make stack         # boots Keycloak + backend + frontend, all in one go
+make stack-wait    # blocks until all three are healthy
+make smoke         # walks the full sign-in + API flow end-to-end (8 checks)
+make stack-logs    # tail -f /tmp/wakili-{backend,frontend}.log
+make stack-down    # stops everything cleanly
+```
+
+The first `make stack` pulls Keycloak (~600 MB) and warms the npm cache;
+subsequent runs are seconds. After `make stack && make stack-wait`, open
+**http://localhost:3000** → click **Sign in** → **Continue with Keycloak**.
+
+`make smoke` performs an actual PKCE Authorization Code flow against
+Keycloak using the demo credentials, exchanges the code, opens a session
+cookie, fetches `/api/be/cases`, creates a case stamped with the signed-in
+user's `sub`, and confirms the `/auth/permissions` endpoint returns a
+permission set. If `make smoke` is green, the entire path from browser →
+Keycloak → frontend → proxy → Bearer → FastAPI → SQLite works.
+
+### Demo / test credentials (seeded by the realm import)
+
+| Username | Password | Role |
+| --- | --- | --- |
+| `advocate` | `advocate` | lawyer |
+| `paralegal` | `paralegal` | paralegal |
+| `nimrod` | `nimrod` | admin + lawyer |
+
+These also drive `make smoke` (override with `WAKILI_DEMO_USER` /
+`WAKILI_DEMO_PASSWORD` env vars).
+
+### Manual bring-up (if you want to see each shell)
+
+```bash
+make keycloak               # boots Keycloak; waits for OIDC discovery
+cp .env.example .env        # auth is ON by default in .env.example
+source .env && make backend   # shell A
+source .env && make frontend  # shell B
+```
+
+Then visit `http://localhost:3000`. Sign in with one of the demo creds
+above and drop a case folder on the upload zone. Verda creates the case,
+ingests every readable file, drafts a plan, and routes you to the
+workspace. Approve the plan and click **Generate toolkit** — the Codex
+agent stream replays at the speed of your choice (2× → 16×); the artifacts
+on disk are real Python the lawyer can read.
+
+## Testing
+
+```bash
+cd backend
+PYTHONPATH=. ../.venv/bin/python -m unittest discover -s tests -v
+```
+
+39 tests cover the four generated modules, encryption round-trip + tag
+rejection, packaging, the FastAPI surface, the IAM dependencies, and the
+sample-case end-to-end flow.
