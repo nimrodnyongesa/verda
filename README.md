@@ -108,3 +108,29 @@ PYTHONPATH=. ../.venv/bin/python -m unittest discover -s tests -v
 39 tests cover the four generated modules, encryption round-trip + tag
 rejection, packaging, the FastAPI surface, the IAM dependencies, and the
 sample-case end-to-end flow.
+
+## Optional OpenAI integration
+
+```bash
+export OPENAI_API_KEY="sk-…"
+export WAKILI_OPENAI_MODEL="gpt-4o-mini"
+```
+
+When the key is set, the orchestrator polish-passes the petition through
+OpenAI's no-training endpoint. Per the architecture's threat model, **raw
+evidence is never sent** — only structured, provenance-tagged summaries (the
+Evidence Codex output) cross the network. Without the key, the deterministic
+baseline runs end-to-end and produces the same artifacts.
+
+## Security
+
+- Encrypted bundles use AES-256-GCM with a scrypt KDF (N=2¹⁵, r=8, p=1) and
+  a constant-time tag check.
+- The MCP servers (`kenyalaw-mcp`, `africanlii-mcp`, `case-knowledge-mcp`)
+  log every call to the audit table, viewable per-case on the **Audit** tab.
+- Codex is forbidden from emitting citations that did not come back from a
+  verified MCP call. The verification URL is preserved alongside every cite.
+- No telemetry by default. Anonymised stats are opt-in only and aggregated
+  client-side first.
+- Self-hosted Docker and USB-bootable build manifests are emitted alongside
+  the bundle for partner orgs that cannot trust the cloud.
