@@ -1,0 +1,53 @@
+{
+  "name": "Verda — Codex-built litigation toolkits",
+  "short_name": "Verda",
+  "description": "Codex-built litigation toolkits for human rights defenders. Drop a case folder; get back a deployable per-case toolkit.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui", "browser"],
+  "orientation": "any",
+  "lang": "en",
+  "dir": "ltr",
+  "background_color": "#faf6ec",
+  "theme_color": "#0a1429",
+  "categories": ["productivity", "utilities", "legal", "government"],
+  "icons": [
+    {
+      "src": "/verda-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/verda-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "All cases",
+      "short_name": "Cases",
+      "description": "Browse, search, and organise every case you can see.",
+      "url": "/cases",
+      "icons": [{ "src": "/verda-mark.svg", "sizes": "any", "type": "image/svg+xml" }]
+    },
+    {
+      "name": "Audit log",
+      "short_name": "Audit",
+      "description": "Append-only stream of every MCP call and human action.",
+      "url": "/audit",
+      "icons": [{ "src": "/verda-mark.svg", "sizes": "any", "type": "image/svg+xml" }]
+    },
+    {
+      "name": "My profile",
+      "short_name": "Profile",
+      "description": "Manage your display name, bio, and avatar.",
+      "url": "/profile",
+      "icons": [{ "src": "/verda-mark.svg", "sizes": "any", "type": "image/svg+xml" }]
+    }
+  ]
+}
