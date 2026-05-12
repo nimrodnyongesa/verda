@@ -26,16 +26,30 @@ jobs:
         env:
           BASE: ${{ github.event.pull_request.base.sha }}
           HEAD: ${{ github.event.pull_request.head.sha }}
+          AUTHOR_TYPE: ${{ github.event.pull_request.user.type }}
+          AUTHOR_LOGIN: ${{ github.event.pull_request.user.login }}
         run: |
+          # Bot-authored PRs (Dependabot, github-actions) sign off their
+          # own commits but auto-generated merge commits from
+          # `update-branch` are unsigned and cannot be amended by the bot.
+          # Trust the bot's identity and skip the trailer check entirely.
+          if [ "$AUTHOR_TYPE" = "Bot" ]; then
+            echo "::notice::Skipping DCO check for bot-authored PR (${AUTHOR_LOGIN})."
+            exit 0
+          fi
           set -e
           missing=0
+          # --no-merges skips merge commits — those are created either
+          # automatically by 'Update branch' or by `git merge` during
+          # conflict resolution; neither carries a meaningful author
+          # who could sign off.
           while read -r sha; do
             if ! git log -1 --format=%B "$sha" | grep -qE '^Signed-off-by: .+ <.+@.+>$'; then
               echo "::error::Commit $sha is missing a Signed-off-by trailer."
               echo "  $(git log -1 --pretty='%h %s' "$sha")"
               missing=1
             fi
-          done < <(git rev-list "$BASE..$HEAD")
+          done < <(git rev-list --no-merges "$BASE..$HEAD")
           if [ "$missing" -ne 0 ]; then
             echo ""
             echo "To fix, rebase and add sign-offs:"
