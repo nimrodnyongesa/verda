@@ -1,0 +1,139 @@
+{
+  "realm": "wakili",
+  "enabled": true,
+  "displayName": "Verda",
+  "displayNameHtml": "<strong>Verda</strong>",
+  "loginTheme": "verda",
+  "registrationAllowed": false,
+  "resetPasswordAllowed": true,
+  "rememberMe": true,
+  "verifyEmail": false,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "ssoSessionIdleTimeout": 1800,
+  "ssoSessionMaxLifespan": 36000,
+  "accessTokenLifespan": 600,
+  "accessTokenLifespanForImplicitFlow": 900,
+  "offlineSessionIdleTimeout": 2592000,
+  "internationalizationEnabled": false,
+  "supportedLocales": ["en"],
+  "defaultLocale": "en",
+  "roles": {
+    "realm": [
+      { "name": "lawyer", "description": "Licensed advocate of record" },
+      { "name": "paralegal", "description": "Case manager / paralegal" },
+      { "name": "admin", "description": "Verda instance administrator" }
+    ]
+  },
+  "users": [
+    {
+      "username": "advocate",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Demo",
+      "lastName": "Advocate",
+      "email": "advocate@wakili.local",
+      "credentials": [
+        { "type": "password", "value": "advocate", "temporary": false }
+      ],
+      "realmRoles": ["lawyer"]
+    },
+    {
+      "username": "paralegal",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Demo",
+      "lastName": "Paralegal",
+      "email": "paralegal@wakili.local",
+      "credentials": [
+        { "type": "password", "value": "paralegal", "temporary": false }
+      ],
+      "realmRoles": ["paralegal"]
+    },
+    {
+      "username": "nimrod",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Nimrod",
+      "lastName": "Admin",
+      "email": "nimrod@wakili.local",
+      "credentials": [
+        { "type": "password", "value": "nimrod", "temporary": false }
+      ],
+      "realmRoles": ["admin", "lawyer"]
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "wakili-frontend",
+      "name": "Wakili (frontend)",
+      "enabled": true,
+      "publicClient": false,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "wakili-dev-secret",
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "implicitFlowEnabled": false,
+      "serviceAccountsEnabled": false,
+      "redirectUris": [
+        "http://localhost:3000/api/auth/callback",
+        "http://127.0.0.1:3000/api/auth/callback"
+      ],
+      "webOrigins": [
+        "http://localhost:3000",
+        "http://127.0.0.1:3000"
+      ],
+      "attributes": {
+        "pkce.code.challenge.method": "S256",
+        "post.logout.redirect.uris": "http://localhost:3000/*##http://127.0.0.1:3000/*"
+      },
+      "defaultClientScopes": ["web-origins", "profile", "roles", "email"],
+      "optionalClientScopes": ["address", "phone", "offline_access"],
+      "protocolMappers": [
+        {
+          "name": "wakili-audience",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "consentRequired": false,
+          "config": {
+            "included.client.audience": "wakili-frontend",
+            "id.token.claim": "false",
+            "access.token.claim": "true"
+          }
+        }
+      ]
+    },
+    {
+      "clientId": "wakili-public",
+      "name": "Wakili (public PKCE)",
+      "enabled": true,
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": true,
+      "redirectUris": [
+        "http://localhost:3000/api/auth/callback",
+        "http://127.0.0.1:3000/api/auth/callback"
+      ],
+      "webOrigins": [
+        "http://localhost:3000",
+        "http://127.0.0.1:3000"
+      ],
+      "attributes": {
+        "pkce.code.challenge.method": "S256"
+      },
+      "protocolMappers": [
+        {
+          "name": "wakili-audience",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "consentRequired": false,
+          "config": {
+            "included.client.audience": "wakili-frontend",
+            "id.token.claim": "false",
+            "access.token.claim": "true"
+          }
+        }
+      ]
+    }
+  ]
+}
