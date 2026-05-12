@@ -1,0 +1,64 @@
+name: Feature request
+description: Suggest a capability or improvement.
+title: "feat: "
+labels: [enhancement, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Verda is opinionated. Features that pull the project away from
+        its mission ("working software per case for human-rights
+        defenders") are usually closed. A clear *why* makes acceptance
+        much more likely.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What can't you do today? Who is affected?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed direction
+      description: A sketch of the solution. UI sketches and API shape welcome.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What other shapes did you think about?
+
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Surface
+      options:
+        - Backend
+        - Frontend
+        - Jurisdiction pack (Kenya / Uganda / Tanzania / other)
+        - MCP server
+        - Documentation
+        - DX / tooling
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Self-check
+      options:
+        - label: This stays inside the project's mission and threat model.
+          required: true
+        - label: I'm willing to help implement / review this (otherwise mark as "wishlist").
+          required: false
+
+  - type: checkboxes
+    id: code-of-conduct
+    attributes:
+      label: Code of Conduct
+      options:
+        - label: I agree to follow this project's [Code of Conduct](../CODE_OF_CONDUCT.md).
+          required: true
