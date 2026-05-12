@@ -1,0 +1,15 @@
+{
+  "include": ["backend"],
+  "exclude": ["**/node_modules", "**/__pycache__", ".venv", "frontend"],
+  "venvPath": ".",
+  "venv": ".venv",
+  "pythonVersion": "3.12",
+  "typeCheckingMode": "basic",
+  "reportMissingImports": "warning",
+  "executionEnvironments": [
+    {
+      "root": "backend",
+      "extraPaths": ["backend"]
+    }
+  ]
+}
