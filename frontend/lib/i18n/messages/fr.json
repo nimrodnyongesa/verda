@@ -1,0 +1,498 @@
+{
+  "skipToContent": "Aller au contenu principal",
+  "header": {
+    "tagline": "Codex · contentieux · Afrique",
+    "cases": "Dossiers",
+    "audit": "Audit",
+    "about": "À propos",
+    "signIn": "Se connecter",
+    "anonymous": "mode anonyme"
+  },
+  "footer": {
+    "blurb": "Outils construits avec Codex pour celles et ceux qui défendent la société ouverte. Avocat dans la boucle. Télémétrie désactivée par défaut.",
+    "product": "Produit",
+    "trust": "Confiance",
+    "trustExports": "Exports AES-256-GCM",
+    "trustHosted": "Docker auto-hébergé",
+    "trustViewer": "Visionneuse portable USB",
+    "builtFrom": "Construit depuis",
+    "builtFromValue": "Nairobi, Kenya · github.com/nyongesa637",
+    "auditLog": "Journal d'audit",
+    "architecture": "Architecture"
+  },
+  "bottomNav": {
+    "home": "Accueil",
+    "cases": "Dossiers",
+    "audit": "Audit",
+    "me": "Moi"
+  },
+  "userMenu": {
+    "openProfileMenu": "Ouvrir le menu profil de {name}",
+    "myProfile": "Mon profil",
+    "auditLog": "Journal d'audit",
+    "language": "Langue",
+    "signOut": "Se déconnecter",
+    "signOutTitle": "Se déconnecter de Verda ?",
+    "signOutBody": "Vous serez redirigé vers {provider} pour terminer votre session. Tout dossier en cours reste enregistré sur le serveur — vous pourrez le reprendre depuis l'onglet Dossiers à votre prochaine connexion.",
+    "signOutConfirm": "Se déconnecter",
+    "signOutCancel": "Rester connecté",
+    "via": "via {provider}"
+  },
+  "language": {
+    "label": "Langue",
+    "current": "Langue actuelle : {name}",
+    "change": "Changer de langue"
+  },
+  "signIn": {
+    "title": "Bienvenue sur Verda.",
+    "subtitle": "Authentifiez-vous via le fournisseur d'identité de votre organisation. Verda fédère Keycloak, Auth0, Microsoft Entra, Google, GitHub, SAML et plus encore — choisissez un fournisseur et continuez.",
+    "continue": "Connexion · Authentification unique",
+    "providerCta": "Continuer avec {provider}",
+    "errorTitle": "La connexion n'a pas pu aboutir",
+    "errorHint": "Essayez {resetCmd} si vous avez modifié le realm intégré, ou {statusCmd} pour vérifier que Keycloak est accessible.",
+    "demoCreds": "Identifiants de démo / test",
+    "demoBody": "Pré-remplis dans le realm Keycloak intégré au premier {makeCmd}. Choisissez-en un et cliquez sur Continuer avec Keycloak ci-dessus.",
+    "demoRole": "rôle · {role}",
+    "footer": "Cookie HTTP-only · PKCE · vérifié par JWKS · journalisé pour audit.",
+    "footerExtra": "Ajouter un fournisseur ne demande qu'une entrée dans {file} et une dans le registre de fournisseurs Verda côté backend.",
+    "authDisabled": "L'authentification est désactivée",
+    "authDisabledBody": "Définissez {frontendVar} côté frontend et {backendVar} côté backend, puis lancez Keycloak ({makeCmd}) et rechargez.",
+    "backHome": "← Retour à l'accueil"
+  },
+  "cases": {
+    "kicker": "Dossiers",
+    "headingOne": "1 dossier sur cette instance Verda",
+    "headingOther": "{count} dossiers sur cette instance Verda",
+    "folders": {
+      "headingRoot": "Dossiers · racine",
+      "headingIn": "Dossiers · dans {name}",
+      "tooltip": "Les dossiers regroupent les affaires par client, juridiction ou thème. Glissez n'importe quelle ligne d'affaire sur une carte de dossier pour la classer. Les dossiers peuvent être imbriqués sans limite.",
+      "tooltipDragBold": "Glissez n'importe quelle ligne d'affaire",
+      "newButton": "+ Nouveau dossier",
+      "viewAll": "Voir tous les dossiers",
+      "collapse": "Réduire",
+      "emptyRoot": "Aucun dossier à la racine pour l'instant. Cliquez sur + Nouveau dossier pour organiser vos affaires.",
+      "emptySubfolder": "Ce dossier ne contient aucun sous-dossier.",
+      "subFoldersOne": "1 sous-dossier",
+      "subFoldersOther": "{count} sous-dossiers",
+      "open": "ouvert",
+      "openTitle": "Ouvrir {name}",
+      "actionsLabel": "Actions du dossier {name}",
+      "actions": {
+        "open": "Ouvrir le dossier",
+        "subfolder": "Nouveau sous-dossier",
+        "rename": "Renommer",
+        "renameFolder": "Renommer le dossier",
+        "delete": "Supprimer le dossier"
+      }
+    },
+    "tableCaption": {
+      "root": "Affaires hors dossier",
+      "in": "Affaires dans {name}",
+      "tooltipPrefix": "Le tableau affiche",
+      "tooltipSuffix": "Utilisez ⌘K (ou Ctrl+K) n'importe où dans l'application pour rechercher dans toute l'arborescence, y compris les affaires déjà classées dans d'autres dossiers."
+    },
+    "allCases": "Tous les dossiers",
+    "empty": "Aucune affaire ici pour l'instant. Déposez un dossier sur la zone d'envoi ci-dessus pour en créer une, ou ouvrez un dossier pour voir ce qui y est classé.",
+    "table": {
+      "title": "Titre",
+      "track": "Filière",
+      "files": "Fichiers",
+      "updated": "Mise à jour",
+      "updatedTooltip": "Horodatage de la dernière activité — envoi de fichier, changement de plan, exécution de génération ou renommage. Survolez la valeur pour voir la date ISO complète.",
+      "status": "Statut",
+      "actions": "Actions",
+      "loading": "Chargement…"
+    },
+    "row": {
+      "open": "Ouvrir l'affaire",
+      "rename": "Modifier le nom",
+      "moveTo": "Déplacer vers le dossier…",
+      "exportReady": "Exporter…",
+      "exportNeedsGenerate": "Exporter (générer d'abord)",
+      "exportDisabledHint": "Approuvez le plan et lancez la génération avant d'exporter.",
+      "delete": "Supprimer l'affaire"
+    },
+    "pagination": {
+      "showing": "Affichage de {start}–{end} sur {total}",
+      "prev": "← Précédent",
+      "next": "Suivant →"
+    },
+    "refresh": "Actualiser",
+    "breadcrumb": {
+      "allCases": "← Tous les dossiers",
+      "actionsLabel": "Actions du dossier {name}"
+    },
+    "modals": {
+      "move": {
+        "kicker": "Déplacer · #{id}",
+        "title": "Choisissez un dossier de destination",
+        "close": "Fermer",
+        "root": "Racine (non classé)"
+      },
+      "export": {
+        "kicker": "Exporter · affaire #{id}",
+        "status": "Plan approuvé + boîte à outils générée. Choisissez une cible ci-dessous.",
+        "statusTooltip": "Chaque cible écrit un artefact autonome sur le disque. Le bundle chiffré exige une phrase secrète ≥ 8 caractères ; Verda ne la stocke jamais.",
+        "close": "Fermer",
+        "passphraseLabel": "Phrase secrète du bundle chiffré (≥ 8 caractères)",
+        "passphrasePlaceholder": "Requise uniquement pour la cible chiffrée",
+        "passphraseError": "La cible chiffrée requiert une phrase secrète d'au moins 8 caractères.",
+        "building": "Construction…",
+        "download": "Télécharger →",
+        "targets": {
+          "zip": { "label": "Zip standard", "sub": "Tous les artefacts, non chiffrés" },
+          "encrypted": { "label": "Bundle chiffré", "sub": "AES-256-GCM · déchiffreur stdlib inclus" },
+          "docker": { "label": "Visionneuse Docker auto-hébergée", "sub": "tar.gz · `docker compose up`" },
+          "usb": { "label": "Visionneuse portable USB", "sub": "viewer.html + lanceur stdlib" }
+        }
+      }
+    },
+    "dialogs": {
+      "createFolder": {
+        "title": "Nouveau dossier",
+        "titleNested": "Nouveau dossier sous \"{parent}\"",
+        "body": "Regroupez les affaires par client, juridiction ou thème. Les dossiers peuvent être imbriqués sans limite.",
+        "label": "Nom du dossier",
+        "placeholder": "ex. Contentieux stratégique · 2026",
+        "confirm": "Créer le dossier",
+        "emptyError": "Le nom du dossier ne peut pas être vide"
+      },
+      "renameFolder": {
+        "title": "Renommer \"{name}\"",
+        "body": "Le contenu du dossier et le journal d'audit ne sont pas affectés.",
+        "label": "Nom du dossier",
+        "confirm": "Renommer",
+        "emptyError": "Le nom du dossier ne peut pas être vide"
+      },
+      "deleteFolder": {
+        "title": "Supprimer \"{name}\" ?",
+        "body": "Les sous-dossiers sont supprimés avec lui. Les affaires contenues dans ces dossiers ne sont PAS supprimées — elles retournent à la racine.",
+        "confirm": "Supprimer le dossier"
+      },
+      "renameCase": {
+        "title": "Renommer l'affaire",
+        "body": "Le suffixe d'horodatage (ex. ' · 5/5/2026') est conservé automatiquement.",
+        "label": "Titre de l'affaire",
+        "confirm": "Enregistrer",
+        "emptyError": "Le titre ne peut pas être vide"
+      },
+      "deleteCase": {
+        "title": "Supprimer l'affaire \"{title}\" ?",
+        "body": "Les fichiers, le plan, l'historique d'exécution et les artefacts générés sont supprimés. Les entrées du journal d'audit pour cette affaire sont conservées (l'audit est en append-only). Cette action est irréversible.",
+        "confirm": "Supprimer l'affaire"
+      },
+      "cancel": "Annuler"
+    },
+    "toasts": {
+      "loadFailed": "Impossible de charger les affaires",
+      "folderCreated": "Dossier créé",
+      "folderCreateFailed": "Impossible de créer le dossier",
+      "folderRenamed": "Dossier renommé",
+      "folderRenameFailed": "Impossible de renommer le dossier",
+      "folderDeleted": "Dossier supprimé",
+      "folderDeleteFailed": "Impossible de supprimer le dossier",
+      "caseMoved": "Affaire déplacée",
+      "caseMovedTo": "Maintenant dans {dest}",
+      "caseMoveFailed": "Impossible de déplacer l'affaire",
+      "caseRenamed": "Affaire renommée",
+      "caseRenameFailed": "Impossible de renommer l'affaire",
+      "caseDeleted": "Affaire supprimée",
+      "caseDeleteFailed": "Impossible de supprimer l'affaire"
+    }
+  },
+  "caseList": {
+    "emptyTitle": "Aucune affaire pour l'instant",
+    "emptyBody": "Déposez un dossier d'affaire dans la zone d'envoi pour démarrer — Verda classera les preuves et rédigera un plan.",
+    "metaCase": "affaire #{id}",
+    "metaFiles": "{count} fichiers",
+    "metaUpdated": "mis à jour"
+  },
+  "home": {
+    "hero": {
+      "titlePrefix": "Boîtes à outils contentieuses construites avec Codex",
+      "titleAccent": "pour les défenseurs des droits humains.",
+      "body": "Déposez le dossier d'un défenseur. Verda analyse les preuves, rédige la requête, relie les autorités de Kenya Law et produit une boîte à outils que l'avocat peut auditer, modifier et déposer. Open source. Auto-hébergeable. L'avocat signe.",
+      "badge": "Article 22 / 23 · Kenya"
+    },
+    "stats": {
+      "killed": "Défenseurs tués (2024)",
+      "backlog": "Affaires en attente",
+      "ratio": "Magistrats : citoyens",
+      "cost": "Coût / boîte à outils"
+    },
+    "impact": {
+      "kicker": "Partenaire d'impact",
+      "logoAlt": "Open Society Foundations",
+      "body": "Verda est construit en partenariat avec {partner}. OSF finance la filière kenyane Article 22 / 23 et l'expansion en Afrique de l'Est (Ouganda, Tanzanie) qui suit, avec une feuille de route revue chaque trimestre avec leur équipe de contentieux stratégique et les avocats qu'ils financent.",
+      "partnerName": "Open Society Foundations"
+    },
+    "start": {
+      "title": "Démarrer une affaire",
+      "body": "Déposez un dossier d'affaire. Verda classe les preuves, rédige un plan de boîte à outils, et attend votre approbation avant de générer.",
+      "anonymousTitle": "Connectez-vous pour voir vos affaires.",
+      "anonymousBody": "Verda authentifie chaque action. Une fois connecté, votre liste d'affaires et la zone d'envoi s'activent.",
+      "anonymousCta": "Continuer la connexion →",
+      "backendDownTitle": "Le backend Verda est inaccessible.",
+      "backendDownBody": "Démarrez-le avec {makeStack} (ou {makeBackend}).",
+      "recentCases": "Affaires récentes",
+      "seeAll": "Tout voir →"
+    },
+    "modules": {
+      "title": "Quatre modules par affaire",
+      "evidence": { "name": "Codex de preuves", "desc": "Parseur dédié → chronologie interrogeable + provenance." },
+      "procedural": { "name": "Moteur procédural", "desc": "Machine à états Article 22 / 23, délais, requêtes rédigées." },
+      "precedent": { "name": "Lieur de jurisprudence", "desc": "Résultats Kenya Law classés, chaque URL vérifiée." },
+      "safety": { "name": "Build de sécurité du défenseur", "desc": "Bundle chiffré · Docker · portable USB." }
+    },
+    "lawyer": {
+      "title": "Avocat dans la boucle",
+      "bodyPrefix": "Chaque sortie apparaît en vue diff. L'avocat révise, édite à la main, ou relance la génération.",
+      "bodySuffix": "sur chaque requête rédigée font respecter la limite.",
+      "boundary": "SIGNER AVANT DÉPÔT"
+    },
+    "evidenceTypes": {
+      "kicker": "Ce que Verda lit déjà",
+      "title": "Dix types de preuves, analysés sans chatbot.",
+      "body": "Un dossier kenyan réel, c'est surtout des OB de police scannés, des exports WhatsApp, des notes vocales en swahili — pas des contrats anglais propres. Verda détecte le type, classe la provenance, et produit un parseur par affaire que l'avocat peut parcourir ligne par ligne.",
+      "items": {
+        "policeObs":    { "name": "OB de police",        "sub": "scannés · qualité variable" },
+        "whatsapp":     { "name": "Exports WhatsApp",    "sub": "_chat.txt · pièces jointes" },
+        "voiceNotes":   { "name": "Notes vocales",       "sub": "Swahili · Sheng · Anglais" },
+        "phonePhotos":  { "name": "Photos de téléphone", "sub": "JPG · HEIC · avec EXIF" },
+        "medical":      { "name": "Rapports médicaux",   "sub": "P3 · clinique · PDF" },
+        "bankSlips":    { "name": "Reçus bancaires",     "sub": "M-PESA · virements · reçus" },
+        "courtRecords": { "name": "Actes judiciaires",   "sub": "jugements · rôles · ordonnances" },
+        "scannedPdfs":  { "name": "PDF scannés",         "sub": "OCR-prêts · multi-pages" },
+        "familyThreads":{ "name": "Fils familiaux",      "sub": "SMS · groupes · horodatages" },
+        "exif":         { "name": "Métadonnées EXIF",    "sub": "géo · appareil · horodatage" }
+      }
+    }
+  },
+  "about": {
+    "kicker": "À propos",
+    "title": "Des logiciels pour celles et ceux qui défendent la société ouverte.",
+    "intro1": "Verda est une plateforme native Codex qui prend le dossier désordonné d'un défenseur — PDF, photos, audio en swahili, exports WhatsApp — et génère de manière autonome une boîte à outils de contentieux personnalisée, en code. Chaque boîte contient quatre modules construits spécifiquement pour cette affaire : un parseur Codex de preuves, une machine à états Moteur procédural, un Lieur de jurisprudence, et un Build de sécurité du défenseur (Docker / USB déployables hors ligne). Les avocats n'ont pas un chatbot — ils ont un logiciel qui marche, généré en moins d'une heure.",
+    "intro2": "La plateforme est open-core et fédérée. Chaque organisation partenaire fait tourner sa propre instance Verda. Aucune base de données centrale ne contient les données des affaires. L'équipe centrale soutient les organisations par la documentation, les modèles et les mises à jour packagées — pas en exploitant leurs données.",
+    "intro3Prefix": "Verda est construit depuis Nairobi par un développeur dont les produits ont été déployés dans l'espace civique kenyan — Somo (tuteur IA pour le CBC) et Lipa (séquestre M-Pesa) — pour les partenaires qui construisent l'Open Society. La première juridiction est le Kenya. L'expansion en Afrique de l'Est (Ouganda, Tanzanie) est une tâche de contenu : un avocat local rédige un ",
+    "intro3Suffix": " avec des modèles de requêtes et des règles procédurales, et Verda prend immédiatement en charge les affaires sur place.",
+    "architectureTitle": "Architecture",
+    "architecture": {
+      "intake": { "label": "Intake", "body": "Interface d'envoi Next.js + Tailwind. Multi-modale : PDF, photos, audio, exports WhatsApp, texte brut." },
+      "knowledge": { "label": "Connaissance", "body": "SQLite (forme PG) + magasin de preuves sur disque. Les intégrations Whisper / Tesseract sont mockées pour le MVP." },
+      "orchestration": { "label": "Orchestration", "body": "Orchestrateur FastAPI avec journal d'audit. Génération in-process ; Celery / Redis est l'étape suivante évidente." },
+      "generation": { "label": "Génération", "body": "Codex Skills + AGENTS.md par juridiction. Repli déterministe sans clé d'API." },
+      "deployment": { "label": "Déploiement", "body": "Manifeste Docker, manifeste USB-bootable, et bundles chiffrés AES-256-GCM avec une KDF scrypt." }
+    },
+    "lawyerTitle": "Avocat dans la boucle",
+    "lawyerBody": "Verda produit des brouillons et des outils. Un avocat licencié signe et dépose. Les règles de déontologie de la Law Society of Kenya sont respectées car l'avocat humain est le praticien responsable à chaque étape."
+  },
+  "audit": {
+    "kicker": "Audit",
+    "title": "Journal d'audit",
+    "body": "Enregistrement immuable de chaque appel MCP, chaque prompt Codex, chaque export sur cette instance Verda."
+  },
+  "upload": {
+    "uploadingProgress": "Envoi {uploaded}/{total}",
+    "uploading": "Envoi…",
+    "prompt": "Déposez un dossier d'affaire ou des fichiers ici",
+    "blurb": "PDF · photos · exports WhatsApp · audio · texte brut. Déposez un dossier complet ou choisissez les fichiers individuellement. Verda hache, déduplique et classe chaque élément avant de rédiger un plan.",
+    "browseFiles": "Parcourir les fichiers",
+    "browseFolder": "Parcourir le dossier",
+    "dialogs": {
+      "folderConfirm": {
+        "title": "Envoyer ce dossier à Verda ?",
+        "bodyWithCount": "Verda hachera, classera et stockera chaque fichier lisible du dossier déposé ({count} fichiers). Les fichiers restent sur le serveur où vous êtes connecté jusqu'à ce que vous choisissiez de les exporter. Continuez pour ingérer, ou annulez pour ignorer.",
+        "bodyNoCount": "Verda hachera, classera et stockera chaque fichier lisible du dossier déposé. Les fichiers restent sur le serveur où vous êtes connecté jusqu'à ce que vous choisissiez de les exporter. Continuez pour ingérer, ou annulez pour ignorer.",
+        "confirm": "Continuer · envoyer le dossier"
+      },
+      "folderPick": {
+        "title": "Choisir un dossier à envoyer ?",
+        "body": "Vous êtes sur le point d'envoyer un dossier entier à Verda. Chaque fichier lisible qu'il contient (et ses sous-dossiers) sera haché, classé et stocké sous votre affaire.\n\nAprès avoir cliqué sur Continuer, votre navigateur affichera sa propre confirmation de sécurité — celle-ci est imposée par le navigateur et nous ne pouvons pas la remplacer. Approuvez-la pour ouvrir le sélecteur de dossier.",
+        "confirm": "Continuer"
+      },
+      "cancel": "Annuler"
+    },
+    "toasts": {
+      "nothing": "Rien à envoyer",
+      "nothingHint": "Le dépôt ne contenait aucun fichier. Si vous avez déposé un dossier, votre navigateur l'a peut-être bloqué — essayez les boutons Parcourir.",
+      "dropFailed": "Échec du dépôt",
+      "dropFailedFallback": "Impossible de lire les éléments déposés",
+      "uploadFailed": "Échec de l'envoi",
+      "uploadFailedSignedOut": "Vous n'êtes pas connecté. Cliquez sur Se connecter, puis réessayez.",
+      "successTitle": "Preuves ingérées",
+      "successBodyOne": "1 fichier analysé et un plan a été rédigé.",
+      "successBodyOther": "{count} fichiers analysés et un plan a été rédigé."
+    },
+    "untitledTitle": "Affaire sans titre · {date}",
+    "untitledDescription": "Créée depuis le glisser-déposer."
+  },
+  "palette": {
+    "placeholder": "Sauter n'importe où…",
+    "empty": "Aucun résultat. Cherchez par nom d'affaire ou retournez à l'accueil.",
+    "footer": "↑↓ naviguer · ⏎ choisir · esc fermer",
+    "groups": {
+      "navigate": "Naviguer",
+      "actions": "Actions",
+      "recentCases": "Affaires récentes"
+    },
+    "actions": {
+      "home": "Aller à l'accueil",
+      "allCases": "Aller à toutes les affaires",
+      "audit": "Ouvrir le journal d'audit global",
+      "profile": "Ouvrir mon profil",
+      "newCase": "Créer une nouvelle affaire",
+      "newCaseHint": "déposez les fichiers sur l'accueil",
+      "casePrefix": "Affaire #{id}"
+    }
+  },
+  "notFound": {
+    "kicker": "404 · Introuvable",
+    "title": "Cette page n'existe pas dans le dossier.",
+    "body": "Le lien est cassé, l'affaire a été supprimée, ou vous n'y avez pas accès. Verda renvoie 404 (plutôt que 403) pour les affaires que vous ne pouvez pas lire afin que les identifiants ne puissent pas être énumérés.",
+    "backHome": "Retour à l'accueil",
+    "allCases": "Tous les dossiers"
+  },
+  "error": {
+    "kicker": "500 · Quelque chose a cassé",
+    "title": "Verda a rencontré une erreur inattendue.",
+    "body": "L'action que vous avez tentée n'a pas abouti. Vos données d'affaire sont intactes — Verda persiste chaque changement dans SQLite avant de rendre l'écran. Réessayez ; si l'échec persiste, demandez à l'opérateur de consulter le log backend de Verda.",
+    "tryAgain": "Réessayer",
+    "backHome": "Retour à l'accueil"
+  },
+  "forbidden": {
+    "kicker": "403 · Interdit",
+    "title": "Votre rôle n'a pas la permission pour cette action.",
+    "body": "La couche IAM de Verda a refusé cette requête. Les actions Avocat-dans-la-boucle (approbation de plan, export chiffré) sont réservées au rôle {role}. L'accès en écriture par affaire est aussi gardé par la propriété ou l'appartenance. Demandez au propriétaire de l'affaire un accès membre, ou demandez à un administrateur de vous attribuer le bon rôle realm dans Keycloak.",
+    "allCases": "Tous les dossiers",
+    "backHome": "Retour à l'accueil"
+  },
+  "loading": "Chargement",
+  "workspace": {
+    "panelsLabel": "Panneaux du dossier",
+    "panels": {
+      "overview": "Vue d'ensemble",
+      "plan": "Plan",
+      "generation": "Génération",
+      "timeline": "Chronologie",
+      "petition": "Requête",
+      "precedents": "Jurisprudence",
+      "procedure": "Procédure",
+      "audit": "Audit",
+      "export": "Export"
+    },
+    "caseHeader": {
+      "casesCrumb": "Dossiers",
+      "caseNumber": "dossier #{id}",
+      "approving": "Approbation…",
+      "approvePlan": "Approuver le plan",
+      "generating": "Génération…",
+      "regenerate": "Relancer la génération",
+      "generate": "Générer la boîte à outils",
+      "export": "Exporter",
+      "rerunTitle": "Relancer la génération ?",
+      "rerunBody": "Cela écrase le bundle existant sur le disque. Les brouillons non signés et la requête seront régénérés à partir des preuves actuelles et du dernier plan. Les exports déjà téléchargés ne sont pas affectés.",
+      "rerunConfirm": "Relancer",
+      "rerunCancel": "Conserver le bundle actuel",
+      "approvedTitle": "Plan approuvé",
+      "approvedBody": "Prêt à générer la boîte à outils.",
+      "approveFailed": "Échec de l'approbation",
+      "generatedTitle": "Boîte à outils générée",
+      "generatedBody": "Run #{run} · {seconds}s · {events} événements",
+      "generationFailed": "Échec de la génération",
+      "deadlineOverdue": "{days}j de retard",
+      "deadlineDue": "{days}j avant {label}",
+      "titleEmptyError": "Le titre ne peut pas être vide",
+      "titleSaved": "Titre enregistré",
+      "renameFailed": "Impossible de renommer",
+      "titleAriaLabel": "Titre du dossier",
+      "titleEditAria": "Modifier le titre du dossier ({prefix})",
+      "titleEditTooltip": "Cliquez pour renommer"
+    }
+  },
+  "profile": {
+    "kicker": "Profil",
+    "kickerSignedIn": "connecté",
+    "kickerAnonymous": "mode anonyme",
+    "backendDownTitle": "Le backend Verda est inaccessible.",
+    "backendDownBody": "Lancez-le avec {makeCmd} et actualisez.",
+    "globalScope": "Portée globale",
+    "globalScopeTip": "Ce rôle voit toutes les affaires de l'instance. Les autres rôles ne voient que les affaires qu'ils possèdent ou dont ils sont membres.",
+    "bioPlaceholder": "Pas encore de bio. Ajoutez-en une ci-dessous — elle apparaît à côté de vos entrées d'audit pour donner du contexte au reste de l'équipe.",
+    "avatar": {
+      "uploading": "Envoi…",
+      "limits": "PNG · JPG · WebP · ≤ 2 Mo",
+      "remove": "Supprimer l'avatar",
+      "change": "Changer d'avatar",
+      "removeTitle": "Supprimer l'avatar ?",
+      "removeBody": "Votre initiale s'affichera à la place. Vous pouvez en charger un nouveau à tout moment.",
+      "removeConfirm": "Supprimer",
+      "removeCancel": "Annuler"
+    },
+    "display": {
+      "heading": "Affichage",
+      "source": "Source · Keycloak + surcharge locale",
+      "sourceTipPrefix": "L'identité (sub, email, rôles realm) provient de votre IdP et ne se modifie pas ici.",
+      "sourceTipBold": "Le nom affiché",
+      "sourceTipSuffix": " et la bio sont des surcharges locales — utiles quand votre compte Keycloak utilise un identifiant différent de celui par lequel vos collègues vous connaissent.",
+      "fieldDisplayName": "Nom affiché",
+      "fieldSub": "Sujet (sub)",
+      "fieldSubHint": "Lecture seule · depuis votre token IdP",
+      "fieldBio": "Bio",
+      "fieldBioHint": "Visible aux collègues à côté de vos entrées d'audit",
+      "bioInputPlaceholder": "Une note courte sur votre façon de collaborer. Restez sous un paragraphe.",
+      "discard": "Annuler les modifications",
+      "saving": "Enregistrement…",
+      "save": "Enregistrer le profil"
+    },
+    "permissions": {
+      "canDo": "Ce que vous pouvez faire",
+      "canDoTipPrefix": "Les permissions viennent de vos",
+      "canDoTipBold": "rôles realm",
+      "canDoTipSuffix": ". Demandez à un administrateur de vous attribuer un rôle différent dans Keycloak pour étendre cette liste.",
+      "canDoEmpty": "Aucune permission actionnable — votre rôle est en lecture seule.",
+      "needsRole": "Ce qui demande un autre rôle",
+      "needsRoleTip": "Les permissions de cette liste demandent un rôle que vous n'avez pas (ex. avocat pour approuver un plan, admin pour l'audit global).",
+      "noneNeeded": "Vous détenez toutes les permissions exposées par Verda aujourd'hui.",
+      "matrix": {
+        "casesRead":      { "label": "Lire les dossiers",      "hint": "Voir le détail, les preuves, les plans et les artefacts générés." },
+        "casesCreate":    { "label": "Créer des dossiers",     "hint": "Démarrer un nouveau dossier depuis un dossier de preuves." },
+        "casesWrite":     { "label": "Modifier des dossiers",  "hint": "Renommer, ajouter des preuves, régénérer le plan." },
+        "casesDelete":    { "label": "Supprimer des dossiers", "hint": "Supprimer définitivement un dossier et ses lignes dépendantes. L'audit est conservé." },
+        "casesShare":     { "label": "Partager des dossiers",  "hint": "Ajouter ou retirer des membres (ACL par dossier)." },
+        "planApprove":    { "label": "Approuver des plans",    "hint": "Porte avocat-dans-la-boucle qui autorise l'exécution de la génération." },
+        "generationRun":  { "label": "Exécuter la génération", "hint": "Lancer le générateur d'outils une fois le plan approuvé." },
+        "exportsBasic":   { "label": "Exporter des bundles",   "hint": "Construire des exports zip / Docker / USB." },
+        "exportsEncrypted": { "label": "Exporter des bundles chiffrés", "hint": "Construire des bundles AES-256-GCM pour livraison hors plateforme." },
+        "auditCase":      { "label": "Lire l'audit du dossier","hint": "Voir le journal d'audit d'un dossier que vous voyez déjà." },
+        "auditGlobal":    { "label": "Lire l'audit global",    "hint": "Voir le flux d'audit de la plateforme sur tous les dossiers." },
+        "usersRead":      { "label": "Lire les utilisateurs",  "hint": "Consulter le profil et l'état d'appartenance d'un autre utilisateur." },
+        "usersManage":    { "label": "Gérer les utilisateurs", "hint": "Réservé aux opérations admin sur les enregistrements utilisateur." }
+      }
+    },
+    "links": {
+      "heading": "Où aller ensuite",
+      "casesTitle": "Dossiers",
+      "casesHint": "Parcourir, organiser et chercher chaque dossier visible.",
+      "auditTitle": "Journal d'audit",
+      "auditHint": "Flux append-only de chaque appel MCP, changement de plan et export.",
+      "approveTitle": "Approuver un plan",
+      "approveHint": "Les plans en attente de votre approbation bloquent la génération.",
+      "uploadTitle": "Charger des preuves",
+      "uploadHint": "Déposez un dossier sur la page d'accueil pour démarrer un nouveau dossier."
+    },
+    "footer": {
+      "sub": "sub",
+      "joined": "rejoint",
+      "updated": "mis à jour"
+    },
+    "toasts": {
+      "saved": "Profil enregistré",
+      "saveFailed": "Impossible d'enregistrer le profil",
+      "avatarUploaded": "Avatar mis à jour",
+      "avatarUploadFailed": "Échec de l'envoi de l'avatar",
+      "avatarRemoved": "Avatar supprimé",
+      "avatarRemoveFailed": "Impossible de supprimer l'avatar"
+    }
+  }
+}
