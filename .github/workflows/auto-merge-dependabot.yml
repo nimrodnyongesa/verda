@@ -1,0 +1,75 @@
+name: Auto-merge Dependabot
+
+# Auto-merges Dependabot PRs as soon as the repo's required checks pass.
+# Triggered via pull_request_target so the workflow runs in the base
+# branch's context with write access (Dependabot's own GITHUB_TOKEN is
+# read-only by GitHub's 2021 security tightening).
+#
+# Two paths:
+#   1. If the repo has branch protection with required status checks,
+#      `gh pr merge --auto --merge` queues the merge to fire when all
+#      gates pass. This is the verda / public-repo path.
+#   2. If branch protection isn't available (free private), the
+#      fallback polls statusCheckRollup until all checks complete and
+#      then merges directly. This is the somo path.
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: auto-merge-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  auto-merge:
+    name: Auto-merge Dependabot
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
+    timeout-minutes: 20
+    steps:
+      - name: Dependabot metadata
+        id: meta
+        uses: dependabot/fetch-metadata@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Try branch-protection auto-merge
+        id: enable_auto
+        continue-on-error: true
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr merge --auto --merge "$PR_URL"
+
+      - name: Fallback — poll for green checks then merge
+        if: steps.enable_auto.outcome == 'failure'
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          for i in $(seq 1 30); do
+            sleep 30
+            state=$(gh pr view "$PR_URL" --json statusCheckRollup --jq '
+              if (.statusCheckRollup | length) == 0 then "no_checks"
+              elif any(.statusCheckRollup[]; .conclusion == "FAILURE" or .conclusion == "CANCELLED" or .conclusion == "TIMED_OUT" or .conclusion == "ACTION_REQUIRED") then "failed"
+              elif all(.statusCheckRollup[]; .conclusion == "SUCCESS" or .conclusion == "NEUTRAL" or .conclusion == "SKIPPED") then "passed"
+              else "pending" end')
+            echo "[$i/30] checks: $state"
+            case "$state" in
+              passed|no_checks)
+                gh pr merge "$PR_URL" --merge --delete-branch
+                echo "::notice::Merged Dependabot PR via fallback path."
+                exit 0 ;;
+              failed)
+                echo "::error::A required check failed; not auto-merging."
+                exit 1 ;;
+            esac
+          done
+          echo "::error::Timed out (15 min) waiting for checks."
+          exit 1
