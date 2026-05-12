@@ -1,0 +1,18 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security report
+    url: https://github.com/nyongesa637/verda/security/advisories/new
+    about: >-
+      Please do NOT file public issues for security vulnerabilities.
+      Use GitHub Private Vulnerability Reporting (link). See SECURITY.md
+      for the full disclosure policy and our commitments.
+  - name: Trademark / brand question
+    url: https://github.com/nyongesa637/verda/issues/new?labels=trademark&template=trademark.yml
+    about: >-
+      Want to use the Verda name or mark for something? Open a
+      [trademark]-tagged issue. See TRADEMARK.md.
+  - name: Question / discussion
+    url: https://github.com/nyongesa637/verda/discussions
+    about: >-
+      For how-to and design questions, open a Discussion instead of an
+      issue.
