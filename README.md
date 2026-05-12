@@ -156,3 +156,18 @@ lawyer is the responsible practitioner at every step. `SIGN BEFORE FILING`
 markers in every drafted motion enforce that separation.
 
 Built from Nairobi, not exported to it. 🇰🇪
+
+## License
+
+This project is licensed under the **GNU Affero General Public License
+v3.0** — see [`LICENSE`](./LICENSE) and [`NOTICE`](./NOTICE).
+
+> **Why AGPL?** Anyone who *hosts* a modified version of Verda as a
+> network service must publish their changes under the same license.
+> That keeps every hosted clone open and prevents a closed-source SaaS
+> fork of a tool built for at-risk defenders.
+
+"Verda" is a trademark of the project. The AGPL grants you rights to
+the code; it does not grant you the right to use the Verda name or
+mark to brand a fork. See [`TRADEMARK.md`](./TRADEMARK.md) for the
+trademark policy.
