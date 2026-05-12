@@ -1,0 +1,498 @@
+{
+  "skipToContent": "Saltar para o conteúdo principal",
+  "header": {
+    "tagline": "Codex · litígio · África",
+    "cases": "Processos",
+    "audit": "Auditoria",
+    "about": "Sobre",
+    "signIn": "Entrar",
+    "anonymous": "modo anónimo"
+  },
+  "footer": {
+    "blurb": "Ferramentas construídas com Codex para quem defende a sociedade aberta. Advogado no circuito. Telemetria desligada por padrão.",
+    "product": "Produto",
+    "trust": "Confiança",
+    "trustExports": "Exportações AES-256-GCM",
+    "trustHosted": "Docker auto-hospedado",
+    "trustViewer": "Visualizador portátil em USB",
+    "builtFrom": "Construído a partir de",
+    "builtFromValue": "Nairobi, Quénia · github.com/nyongesa637",
+    "auditLog": "Registo de auditoria",
+    "architecture": "Arquitetura"
+  },
+  "bottomNav": {
+    "home": "Início",
+    "cases": "Processos",
+    "audit": "Auditoria",
+    "me": "Eu"
+  },
+  "userMenu": {
+    "openProfileMenu": "Abrir menu de perfil de {name}",
+    "myProfile": "Meu perfil",
+    "auditLog": "Registo de auditoria",
+    "language": "Idioma",
+    "signOut": "Sair",
+    "signOutTitle": "Sair do Verda?",
+    "signOutBody": "Será redirecionado para {provider} para terminar a sessão. Qualquer processo em curso fica guardado no servidor — pode retomá-lo no separador Processos quando voltar a entrar.",
+    "signOutConfirm": "Sair",
+    "signOutCancel": "Continuar ligado",
+    "via": "via {provider}"
+  },
+  "language": {
+    "label": "Idioma",
+    "current": "Idioma atual: {name}",
+    "change": "Mudar de idioma"
+  },
+  "signIn": {
+    "title": "Bem-vindo ao Verda.",
+    "subtitle": "Autentique-se com o fornecedor de identidade da sua organização. O Verda federa Keycloak, Auth0, Microsoft Entra, Google, GitHub, SAML e mais — escolha um fornecedor e continue.",
+    "continue": "Entrar · Início de sessão único",
+    "providerCta": "Continuar com {provider}",
+    "errorTitle": "O início de sessão não pôde concluir-se",
+    "errorHint": "Tente {resetCmd} se alterou o realm incluído, ou {statusCmd} para confirmar que o Keycloak está acessível.",
+    "demoCreds": "Credenciais de demo / teste",
+    "demoBody": "Semeadas no realm Keycloak incluído na primeira execução de {makeCmd}. Escolha uma e clique em Continuar com Keycloak acima.",
+    "demoRole": "função · {role}",
+    "footer": "Cookie HTTP-only · PKCE · verificado por JWKS · auditado.",
+    "footerExtra": "Adicionar um fornecedor é uma entrada em {file} e outra no registo de fornecedores Verda no backend.",
+    "authDisabled": "Autenticação desativada",
+    "authDisabledBody": "Defina {frontendVar} no frontend e {backendVar} no backend, depois suba o Keycloak ({makeCmd}), e recarregue.",
+    "backHome": "← Voltar ao início"
+  },
+  "cases": {
+    "kicker": "Processos",
+    "headingOne": "1 processo nesta instância Verda",
+    "headingOther": "{count} processos nesta instância Verda",
+    "folders": {
+      "headingRoot": "Pastas · raiz",
+      "headingIn": "Pastas · em {name}",
+      "tooltip": "As pastas agrupam processos por cliente, jurisdição ou tema. Arraste qualquer linha de processo para um cartão de pasta para o arquivar. As pastas podem ser aninhadas sem limite.",
+      "tooltipDragBold": "Arraste qualquer linha de processo",
+      "newButton": "+ Nova pasta",
+      "viewAll": "Ver todas as pastas",
+      "collapse": "Recolher",
+      "emptyRoot": "Ainda não há pastas na raiz. Clique em + Nova pasta para organizar processos.",
+      "emptySubfolder": "Esta pasta ainda não tem subpastas.",
+      "subFoldersOne": "1 subpasta",
+      "subFoldersOther": "{count} subpastas",
+      "open": "aberta",
+      "openTitle": "Abrir {name}",
+      "actionsLabel": "Ações da pasta {name}",
+      "actions": {
+        "open": "Abrir pasta",
+        "subfolder": "Nova subpasta",
+        "rename": "Renomear",
+        "renameFolder": "Renomear pasta",
+        "delete": "Eliminar pasta"
+      }
+    },
+    "tableCaption": {
+      "root": "Processos sem pasta",
+      "in": "Processos em {name}",
+      "tooltipPrefix": "A tabela mostra",
+      "tooltipSuffix": "Use ⌘K (ou Ctrl+K) em qualquer ponto da aplicação para procurar em toda a árvore, incluindo processos já arquivados em outras pastas."
+    },
+    "allCases": "Todos os processos",
+    "empty": "Ainda não há processos aqui. Largue uma pasta na zona de envio acima para criar um, ou abra uma pasta para ver o que está arquivado.",
+    "table": {
+      "title": "Título",
+      "track": "Via",
+      "files": "Ficheiros",
+      "updated": "Atualizado",
+      "updatedTooltip": "Marca temporal da última atividade — envio de ficheiro, alteração de plano, geração ou renomeação. Passe o rato sobre o valor para ver a data ISO completa.",
+      "status": "Estado",
+      "actions": "Ações",
+      "loading": "A carregar…"
+    },
+    "row": {
+      "open": "Abrir processo",
+      "rename": "Editar nome",
+      "moveTo": "Mover para pasta…",
+      "exportReady": "Exportar…",
+      "exportNeedsGenerate": "Exportar (gerar primeiro)",
+      "exportDisabledHint": "Aprove o plano e execute a geração antes de exportar.",
+      "delete": "Eliminar processo"
+    },
+    "pagination": {
+      "showing": "A mostrar {start}–{end} de {total}",
+      "prev": "← Anterior",
+      "next": "Seguinte →"
+    },
+    "refresh": "Atualizar",
+    "breadcrumb": {
+      "allCases": "← Todos os processos",
+      "actionsLabel": "Ações da pasta {name}"
+    },
+    "modals": {
+      "move": {
+        "kicker": "Mover · #{id}",
+        "title": "Escolha uma pasta de destino",
+        "close": "Fechar",
+        "root": "Raiz (sem pasta)"
+      },
+      "export": {
+        "kicker": "Exportar · processo #{id}",
+        "status": "Plano aprovado + ferramentas geradas. Escolha um destino abaixo.",
+        "statusTooltip": "Cada destino escreve um artefacto autónomo no disco. O destino encriptado exige uma frase secreta ≥ 8 caracteres; o Verda nunca a guarda.",
+        "close": "Fechar",
+        "passphraseLabel": "Frase secreta do pacote encriptado (≥ 8 caracteres)",
+        "passphrasePlaceholder": "Apenas para o destino encriptado",
+        "passphraseError": "O destino encriptado exige uma frase secreta de pelo menos 8 caracteres.",
+        "building": "A construir…",
+        "download": "Transferir →",
+        "targets": {
+          "zip": { "label": "Zip simples", "sub": "Todos os artefactos, sem encriptação" },
+          "encrypted": { "label": "Pacote encriptado", "sub": "AES-256-GCM · descodificador stdlib incluído" },
+          "docker": { "label": "Visualizador Docker auto-hospedado", "sub": "tar.gz · `docker compose up`" },
+          "usb": { "label": "Visualizador portátil em USB", "sub": "viewer.html + lançador stdlib" }
+        }
+      }
+    },
+    "dialogs": {
+      "createFolder": {
+        "title": "Nova pasta",
+        "titleNested": "Nova pasta dentro de \"{parent}\"",
+        "body": "Agrupe processos por cliente, jurisdição ou tema. As pastas podem ser aninhadas sem limite.",
+        "label": "Nome da pasta",
+        "placeholder": "ex.: Litígio estratégico · 2026",
+        "confirm": "Criar pasta",
+        "emptyError": "O nome da pasta não pode estar vazio"
+      },
+      "renameFolder": {
+        "title": "Renomear \"{name}\"",
+        "body": "O conteúdo da pasta e o registo de auditoria não são afetados.",
+        "label": "Nome da pasta",
+        "confirm": "Renomear",
+        "emptyError": "O nome da pasta não pode estar vazio"
+      },
+      "deleteFolder": {
+        "title": "Eliminar \"{name}\"?",
+        "body": "As subpastas são eliminadas com ela. Os processos dentro destas pastas NÃO são eliminados — voltam à listagem da raiz.",
+        "confirm": "Eliminar pasta"
+      },
+      "renameCase": {
+        "title": "Renomear processo",
+        "body": "O sufixo de data (por exemplo ' · 5/5/2026') é mantido automaticamente.",
+        "label": "Título do processo",
+        "confirm": "Guardar",
+        "emptyError": "O título não pode estar vazio"
+      },
+      "deleteCase": {
+        "title": "Eliminar o processo \"{title}\"?",
+        "body": "Ficheiros, plano, histórico de execuções e artefactos gerados são removidos. As entradas do registo de auditoria deste processo são mantidas (a auditoria é só de adição). Esta ação é irreversível.",
+        "confirm": "Eliminar processo"
+      },
+      "cancel": "Cancelar"
+    },
+    "toasts": {
+      "loadFailed": "Não foi possível carregar processos",
+      "folderCreated": "Pasta criada",
+      "folderCreateFailed": "Não foi possível criar pasta",
+      "folderRenamed": "Pasta renomeada",
+      "folderRenameFailed": "Não foi possível renomear pasta",
+      "folderDeleted": "Pasta eliminada",
+      "folderDeleteFailed": "Não foi possível eliminar pasta",
+      "caseMoved": "Processo movido",
+      "caseMovedTo": "Agora em {dest}",
+      "caseMoveFailed": "Não foi possível mover processo",
+      "caseRenamed": "Processo renomeado",
+      "caseRenameFailed": "Não foi possível renomear processo",
+      "caseDeleted": "Processo eliminado",
+      "caseDeleteFailed": "Não foi possível eliminar processo"
+    }
+  },
+  "caseList": {
+    "emptyTitle": "Ainda sem processos",
+    "emptyBody": "Largue uma pasta de processo na zona de envio para começar — o Verda classifica as provas e elabora um plano.",
+    "metaCase": "processo #{id}",
+    "metaFiles": "{count} ficheiros",
+    "metaUpdated": "atualizado"
+  },
+  "home": {
+    "hero": {
+      "titlePrefix": "Ferramentas de litígio construídas com Codex",
+      "titleAccent": "para defensores dos direitos humanos.",
+      "body": "Largue a pasta do processo de um defensor. O Verda analisa as provas, redige a petição, liga as autoridades do Kenya Law e produz um conjunto de ferramentas que o advogado pode auditar, editar e apresentar. Código aberto. Auto-hospedável. O advogado assina.",
+      "badge": "Artigo 22 / 23 · Quénia"
+    },
+    "stats": {
+      "killed": "Defensores mortos (2024)",
+      "backlog": "Processos pendentes",
+      "ratio": "Magistrados : cidadãos",
+      "cost": "Custo / ferramenta"
+    },
+    "impact": {
+      "kicker": "Parceiro de impacto",
+      "logoAlt": "Open Society Foundations",
+      "body": "O Verda é construído em parceria com {partner}. A OSF financia a via queniana do Artigo 22 / 23 e a expansão para a África Oriental (Uganda, Tanzânia) que se segue, com o roadmap revisto trimestralmente com a sua equipa de litígio estratégico e os advogados que apoia.",
+      "partnerName": "Open Society Foundations"
+    },
+    "start": {
+      "title": "Iniciar um processo",
+      "body": "Largue uma pasta de processo. O Verda classifica as provas, redige um plano de ferramentas e aguarda a sua aprovação antes de gerar.",
+      "anonymousTitle": "Inicie sessão para ver os seus processos.",
+      "anonymousBody": "O Verda autentica todas as ações. Após iniciar sessão, a sua lista de processos e a zona de envio ativam-se.",
+      "anonymousCta": "Continuar para iniciar sessão →",
+      "backendDownTitle": "Não foi possível alcançar o backend do Verda.",
+      "backendDownBody": "Inicie-o com {makeStack} (ou {makeBackend}).",
+      "recentCases": "Processos recentes",
+      "seeAll": "Ver todos →"
+    },
+    "modules": {
+      "title": "Quatro módulos por processo",
+      "evidence": { "name": "Codex de provas", "desc": "Analisador dedicado → linha temporal pesquisável + proveniência." },
+      "procedural": { "name": "Motor processual", "desc": "Máquina de estados Artigo 22 / 23, prazos, requerimentos redigidos." },
+      "precedent": { "name": "Ligador de jurisprudência", "desc": "Resultados ordenados do Kenya Law, cada URL verificado." },
+      "safety": { "name": "Build de segurança do defensor", "desc": "Pacote encriptado · Docker · portátil em USB." }
+    },
+    "lawyer": {
+      "title": "Advogado no circuito",
+      "bodyPrefix": "Cada saída aparece em vista diff. O advogado revê, edita à mão, ou volta a executar a geração.",
+      "bodySuffix": "em cada requerimento redigido fazem cumprir o limite.",
+      "boundary": "ASSINAR ANTES DE APRESENTAR"
+    },
+    "evidenceTypes": {
+      "kicker": "O que o Verda já lê",
+      "title": "Dez tipos de provas, analisados sem chatbot.",
+      "body": "Um processo queniano real é sobretudo OB de polícia digitalizados, exportações WhatsApp e notas de voz em suaíli — não contratos em inglês limpo. O Verda deteta o tipo, classifica a proveniência e produz um analisador por processo que o advogado percorre linha a linha.",
+      "items": {
+        "policeObs":    { "name": "OB da polícia",      "sub": "digitalizados · qualidade variável" },
+        "whatsapp":     { "name": "Exportações WhatsApp","sub": "_chat.txt · anexos" },
+        "voiceNotes":   { "name": "Notas de voz",       "sub": "Suaíli · Sheng · Inglês" },
+        "phonePhotos":  { "name": "Fotos de telemóvel", "sub": "JPG · HEIC · com EXIF" },
+        "medical":      { "name": "Relatórios médicos", "sub": "P3 · clínico · PDF" },
+        "bankSlips":    { "name": "Recibos bancários",  "sub": "M-PESA · transferências · recibos" },
+        "courtRecords": { "name": "Atos judiciais",     "sub": "decisões · pautas · ordens" },
+        "scannedPdfs":  { "name": "PDFs digitalizados", "sub": "OCR-pronto · multi-página" },
+        "familyThreads":{ "name": "Conversas familiares","sub": "SMS · grupos · marcas temporais" },
+        "exif":         { "name": "Metadados EXIF",     "sub": "geo · dispositivo · marca temporal" }
+      }
+    }
+  },
+  "about": {
+    "kicker": "Sobre",
+    "title": "Software para quem defende a sociedade aberta.",
+    "intro1": "O Verda é uma plataforma nativa Codex que pega no processo desorganizado de um defensor — PDFs, fotos, áudio em suaíli, exportações WhatsApp — e gera autonomamente um conjunto de ferramentas de litígio personalizado, em código. Cada conjunto contém quatro módulos construídos especificamente para esse processo: um analisador Codex de provas, uma máquina de estados Motor processual, um Ligador de jurisprudência e um Build de segurança do defensor (Docker / USB implantáveis offline). Os advogados não recebem um chatbot — recebem software que funciona, gerado em menos de uma hora.",
+    "intro2": "A plataforma é open-core e federada. Cada organização parceira corre a sua própria instância Verda. Não há base de dados central com dados de processos. A equipa central apoia as organizações com documentação, modelos e atualizações empacotadas — não operando os dados delas.",
+    "intro3Prefix": "O Verda é construído desde Nairobi por um programador com produtos lançados no espaço cívico queniano — Somo (tutor IA do CBC) e Lipa (escrow M-Pesa) — para os parceiros que constroem a sociedade aberta. A primeira jurisdição é o Quénia. A expansão para a África Oriental (Uganda, Tanzânia) é uma tarefa de conteúdo: um advogado local redige um ",
+    "intro3Suffix": " com modelos de requerimentos e regras processuais, e o Verda passa a apoiar processos ali imediatamente.",
+    "architectureTitle": "Arquitetura",
+    "architecture": {
+      "intake": { "label": "Entrada", "body": "UI de envio Next.js + Tailwind. Multi-modal: PDFs, fotos, áudio, exportações WhatsApp, texto simples." },
+      "knowledge": { "label": "Conhecimento", "body": "SQLite (forma PG) + armazém de provas em disco. Integrações Whisper / Tesseract estão preparadas para o MVP." },
+      "orchestration": { "label": "Orquestração", "body": "Orquestrador FastAPI com registo de auditoria. Geração in-process; Celery / Redis é o passo seguinte óbvio." },
+      "generation": { "label": "Geração", "body": "Codex Skills + AGENTS.md por jurisdição. Fallback determinístico funciona sem chave de API." },
+      "deployment": { "label": "Implantação", "body": "Manifesto Docker, manifesto USB-bootable e pacotes encriptados AES-256-GCM com KDF scrypt." }
+    },
+    "lawyerTitle": "Advogado no circuito",
+    "lawyerBody": "O Verda produz rascunhos e ferramentas. Um advogado licenciado assina e apresenta. As regras de conduta profissional da Law Society of Kenya são cumpridas porque o advogado humano é o profissional responsável em todas as etapas."
+  },
+  "audit": {
+    "kicker": "Auditoria",
+    "title": "Registo de auditoria",
+    "body": "Registo imutável de cada chamada MCP, cada prompt Codex e cada exportação nesta instância Verda."
+  },
+  "upload": {
+    "uploadingProgress": "A enviar {uploaded}/{total}",
+    "uploading": "A enviar…",
+    "prompt": "Largue uma pasta de processo ou ficheiros aqui",
+    "blurb": "PDFs · fotos · exportações WhatsApp · áudio · texto simples. Largue uma pasta inteira ou escolha ficheiros individualmente. O Verda calcula hash, deduplica e classifica cada item antes de redigir um plano.",
+    "browseFiles": "Procurar ficheiros",
+    "browseFolder": "Procurar pasta",
+    "dialogs": {
+      "folderConfirm": {
+        "title": "Enviar esta pasta para o Verda?",
+        "bodyWithCount": "O Verda vai calcular hash, classificar e guardar todos os ficheiros legíveis na pasta largada ({count} ficheiros). Os ficheiros ficam no servidor onde iniciou sessão até decidir exportar. Continue para ingerir ou cancele para descartar.",
+        "bodyNoCount": "O Verda vai calcular hash, classificar e guardar todos os ficheiros legíveis na pasta largada. Os ficheiros ficam no servidor onde iniciou sessão até decidir exportar. Continue para ingerir ou cancele para descartar.",
+        "confirm": "Continuar · enviar pasta"
+      },
+      "folderPick": {
+        "title": "Escolher uma pasta para enviar?",
+        "body": "Está prestes a enviar uma pasta inteira para o Verda. Cada ficheiro legível dentro dela (e das suas subpastas) será calculado hash, classificado e guardado no seu processo.\n\nApós clicar em Continuar, o seu navegador mostrará a sua própria confirmação de segurança — essa é imposta pelo navegador e não a podemos substituir. Aprove-a para abrir o seletor de pastas.",
+        "confirm": "Continuar"
+      },
+      "cancel": "Cancelar"
+    },
+    "toasts": {
+      "nothing": "Nada para enviar",
+      "nothingHint": "O drop não tinha ficheiros. Se largou uma pasta, o navegador pode tê-la bloqueado — tente os botões Procurar.",
+      "dropFailed": "Falha ao largar",
+      "dropFailedFallback": "Não foi possível ler os itens largados",
+      "uploadFailed": "Falha no envio",
+      "uploadFailedSignedOut": "Não tem sessão iniciada. Clique em Entrar e tente novamente.",
+      "successTitle": "Provas ingeridas",
+      "successBodyOne": "1 ficheiro analisado e foi redigido um plano.",
+      "successBodyOther": "{count} ficheiros analisados e foi redigido um plano."
+    },
+    "untitledTitle": "Processo sem título · {date}",
+    "untitledDescription": "Criado por arrastar e largar."
+  },
+  "palette": {
+    "placeholder": "Saltar para qualquer lado…",
+    "empty": "Sem resultados. Pesquise pelo nome do processo ou volte à página inicial.",
+    "footer": "↑↓ navegar · ⏎ selecionar · esc fechar",
+    "groups": {
+      "navigate": "Navegar",
+      "actions": "Ações",
+      "recentCases": "Processos recentes"
+    },
+    "actions": {
+      "home": "Ir para o início",
+      "allCases": "Ir para todos os processos",
+      "audit": "Abrir registo de auditoria global",
+      "profile": "Abrir o meu perfil",
+      "newCase": "Criar novo processo",
+      "newCaseHint": "largue ficheiros na página inicial",
+      "casePrefix": "Processo #{id}"
+    }
+  },
+  "notFound": {
+    "kicker": "404 · Não encontrado",
+    "title": "Essa página não está em arquivo.",
+    "body": "O link está partido, o processo foi eliminado, ou não tem acesso. O Verda devolve 404 (em vez de 403) para processos que não pode ler, para que os ids não possam ser enumerados.",
+    "backHome": "Voltar ao início",
+    "allCases": "Todos os processos"
+  },
+  "error": {
+    "kicker": "500 · Algo falhou",
+    "title": "O Verda encontrou um erro inesperado.",
+    "body": "A ação que tentou não terminou. Os seus dados de processo não são afetados — o Verda persiste cada alteração no SQLite antes de renderizar. Tente novamente; se continuar a falhar, peça ao operador para verificar o log do backend.",
+    "tryAgain": "Tentar novamente",
+    "backHome": "Voltar ao início"
+  },
+  "forbidden": {
+    "kicker": "403 · Proibido",
+    "title": "A sua função não tem permissão para essa ação.",
+    "body": "A camada IAM do Verda recusou este pedido. As ações de Advogado-no-circuito (aprovação de plano, exportação encriptada) estão restritas à função {role}. O acesso de escrita por processo também é regulado por propriedade ou pertença. Peça ao dono do processo um acesso de membro, ou peça a um administrador para lhe atribuir a função correta no Keycloak.",
+    "allCases": "Todos os processos",
+    "backHome": "Voltar ao início"
+  },
+  "loading": "A carregar",
+  "workspace": {
+    "panelsLabel": "Painéis do processo",
+    "panels": {
+      "overview": "Visão geral",
+      "plan": "Plano",
+      "generation": "Geração",
+      "timeline": "Linha temporal",
+      "petition": "Petição",
+      "precedents": "Jurisprudência",
+      "procedure": "Procedimento",
+      "audit": "Auditoria",
+      "export": "Exportar"
+    },
+    "caseHeader": {
+      "casesCrumb": "Processos",
+      "caseNumber": "processo #{id}",
+      "approving": "A aprovar…",
+      "approvePlan": "Aprovar plano",
+      "generating": "A gerar…",
+      "regenerate": "Voltar a gerar",
+      "generate": "Gerar ferramentas",
+      "export": "Exportar",
+      "rerunTitle": "Voltar a executar a geração?",
+      "rerunBody": "Isto sobrescreve o pacote existente no disco. Quaisquer rascunhos não assinados e a minuta da petição serão regenerados a partir das provas atuais e do último plano. Exportações que já transferiu não são afetadas.",
+      "rerunConfirm": "Voltar a executar",
+      "rerunCancel": "Manter pacote atual",
+      "approvedTitle": "Plano aprovado",
+      "approvedBody": "Pronto para gerar as ferramentas.",
+      "approveFailed": "Falha na aprovação",
+      "generatedTitle": "Ferramentas geradas",
+      "generatedBody": "Execução #{run} · {seconds}s · {events} eventos",
+      "generationFailed": "Falha na geração",
+      "deadlineOverdue": "{days}d em atraso",
+      "deadlineDue": "{days}d até {label}",
+      "titleEmptyError": "O título não pode estar vazio",
+      "titleSaved": "Título guardado",
+      "renameFailed": "Não foi possível renomear",
+      "titleAriaLabel": "Título do processo",
+      "titleEditAria": "Editar título do processo ({prefix})",
+      "titleEditTooltip": "Clique para renomear"
+    }
+  },
+  "profile": {
+    "kicker": "Perfil",
+    "kickerSignedIn": "com sessão",
+    "kickerAnonymous": "modo anónimo",
+    "backendDownTitle": "Não foi possível alcançar o backend Verda.",
+    "backendDownBody": "Inicie-o com {makeCmd} e atualize.",
+    "globalScope": "Escopo global",
+    "globalScopeTip": "Esta função vê todos os processos da instância. Outras funções só veem os processos que possuem ou de que são membros.",
+    "bioPlaceholder": "Ainda sem bio. Adicione uma abaixo — aparece junto às suas entradas de auditoria para dar contexto à equipa.",
+    "avatar": {
+      "uploading": "A enviar…",
+      "limits": "PNG · JPG · WebP · ≤ 2 MB",
+      "remove": "Remover avatar",
+      "change": "Alterar avatar",
+      "removeTitle": "Remover avatar?",
+      "removeBody": "Em vez dele será mostrada a sua inicial. Pode carregar um novo a qualquer momento.",
+      "removeConfirm": "Remover",
+      "removeCancel": "Cancelar"
+    },
+    "display": {
+      "heading": "Apresentação",
+      "source": "Origem · Keycloak + sobreposição local",
+      "sourceTipPrefix": "A identidade (sub, email, funções do realm) vem do seu IdP e não pode ser editada aqui.",
+      "sourceTipBold": "O nome a apresentar",
+      "sourceTipSuffix": " e a bio são sobreposições locais — úteis quando a sua conta Keycloak usa um nome diferente do que os colegas conhecem.",
+      "fieldDisplayName": "Nome a apresentar",
+      "fieldSub": "Sujeito (sub)",
+      "fieldSubHint": "Só leitura · do token do IdP",
+      "fieldBio": "Bio",
+      "fieldBioHint": "Visível para colegas junto às entradas de auditoria",
+      "bioInputPlaceholder": "Uma nota curta sobre como gosta de colaborar. Mantenha menos de um parágrafo.",
+      "discard": "Descartar alterações",
+      "saving": "A guardar…",
+      "save": "Guardar perfil"
+    },
+    "permissions": {
+      "canDo": "O que pode fazer",
+      "canDoTipPrefix": "As permissões vêm das suas",
+      "canDoTipBold": "funções do realm",
+      "canDoTipSuffix": ". Peça a um administrador para lhe atribuir uma função diferente no Keycloak para alargar esta lista.",
+      "canDoEmpty": "Sem permissões acionáveis — a sua função é só de leitura.",
+      "needsRole": "O que requer outra função",
+      "needsRoleTip": "As permissões nesta lista requerem uma função que não tem (ex.: advogado para aprovar plano, admin para auditoria global).",
+      "noneNeeded": "Tem todas as permissões que o Verda expõe hoje.",
+      "matrix": {
+        "casesRead":      { "label": "Ler processos",      "hint": "Ver detalhe, provas, planos e artefactos gerados." },
+        "casesCreate":    { "label": "Criar processos",    "hint": "Iniciar um novo processo a partir de uma pasta de provas." },
+        "casesWrite":     { "label": "Editar processos",   "hint": "Renomear, carregar mais provas, regenerar o plano." },
+        "casesDelete":    { "label": "Eliminar processos", "hint": "Eliminar definitivamente um processo e linhas dependentes. A auditoria mantém-se." },
+        "casesShare":     { "label": "Partilhar processos","hint": "Adicionar ou remover membros (ACL por processo)." },
+        "planApprove":    { "label": "Aprovar planos",     "hint": "Porta advogado-no-circuito que autoriza a geração." },
+        "generationRun":  { "label": "Executar geração",   "hint": "Iniciar o gerador de ferramentas após o plano ser aprovado." },
+        "exportsBasic":   { "label": "Exportar pacotes",   "hint": "Construir zip / Docker / USB." },
+        "exportsEncrypted": { "label": "Exportar pacotes encriptados", "hint": "Construir pacotes AES-256-GCM para entrega fora da plataforma." },
+        "auditCase":      { "label": "Ler auditoria do processo", "hint": "Ver o registo de auditoria de um processo que já vê." },
+        "auditGlobal":    { "label": "Ler auditoria global","hint": "Ver o fluxo de auditoria da plataforma em todos os processos." },
+        "usersRead":      { "label": "Ler utilizadores",   "hint": "Consultar perfil e estado de pertença de outro utilizador." },
+        "usersManage":    { "label": "Gerir utilizadores", "hint": "Reservado para operações de admin sobre registos de utilizadores." }
+      }
+    },
+    "links": {
+      "heading": "Onde ir a partir daqui",
+      "casesTitle": "Processos",
+      "casesHint": "Procurar, organizar e pesquisar todos os processos visíveis.",
+      "auditTitle": "Registo de auditoria",
+      "auditHint": "Fluxo append-only de cada chamada MCP, alteração de plano e exportação.",
+      "approveTitle": "Aprovar um plano",
+      "approveHint": "Planos a aguardar a sua aprovação bloqueiam a geração.",
+      "uploadTitle": "Carregar provas",
+      "uploadHint": "Largue uma pasta na página inicial para iniciar um novo processo."
+    },
+    "footer": {
+      "sub": "sub",
+      "joined": "ingressou",
+      "updated": "atualizado"
+    },
+    "toasts": {
+      "saved": "Perfil guardado",
+      "saveFailed": "Não foi possível guardar o perfil",
+      "avatarUploaded": "Avatar atualizado",
+      "avatarUploadFailed": "Falha ao enviar avatar",
+      "avatarRemoved": "Avatar removido",
+      "avatarRemoveFailed": "Não foi possível remover o avatar"
+    }
+  }
+}
