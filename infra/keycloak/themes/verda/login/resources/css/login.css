@@ -1,0 +1,572 @@
+/*
+ * Verda — Keycloak login skin.
+ *
+ * Re-skins the upstream `keycloak` parent templates with Verda's design
+ * tokens (paper / ink / gold). The OAuth flow is bit-identical to the
+ * inherited theme: form action URLs, field names (username, password,
+ * credentialId), and CSRF tokens are unchanged. Only the visual chrome
+ * is replaced — `make smoke` keeps passing.
+ */
+
+:root {
+  --v-ink: #0a1429;
+  --v-ink-soft: #14223e;
+  --v-paper: #faf6ec;
+  --v-paper-deep: #f1ead7;
+  --v-paper-hover: #f6efde;
+  --v-gold: #d4a534;
+  --v-gold-bright: #f0c14b;
+  --v-gold-soft: #fbe9c1;
+  --v-rust: #b85c20;
+  --v-fern: #4f7a4f;
+  --v-shadow: 0 24px 60px -28px rgba(10, 20, 41, 0.35);
+  --v-radius: 14px;
+  --v-radius-sm: 10px;
+  --v-font-sans: "Inter", "ui-sans-serif", "system-ui", "-apple-system",
+    "BlinkMacSystemFont", "Segoe UI", "Roboto", sans-serif;
+  --v-font-serif: "Source Serif 4", "Source Serif Pro", "ui-serif", Georgia,
+    "Cambria", "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--v-paper);
+  color: var(--v-ink);
+  font-family: var(--v-font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100dvh;
+}
+
+body.login-pf,
+body.login-pf-page,
+.login-pf body,
+.background {
+  background: var(--v-paper) !important;
+  background-image: none !important;
+}
+
+a {
+  color: var(--v-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(10, 20, 41, 0.25);
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+a:hover {
+  color: var(--v-rust);
+  text-decoration-color: var(--v-rust);
+}
+
+/* ---------- Page chrome ---------- */
+.login-pf-page,
+#kc-container,
+#kc-container-wrapper {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  padding: 32px 16px;
+}
+
+#kc-header,
+.login-pf-page-header {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 0 18px 0;
+  padding: 0;
+  text-align: center;
+  background: transparent;
+  border: 0;
+}
+
+/* Realm display name as the heading. The logo lives above it. */
+#kc-header-wrapper {
+  display: block;
+  font-family: var(--v-font-serif);
+  font-feature-settings: "ss01";
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--v-ink);
+  padding: 0;
+  background: none;
+  border: 0;
+  text-shadow: none;
+}
+
+/* Verda logomark above the realm name. Loaded from
+   resources/img/verda-mark.svg in the theme. */
+#kc-header-wrapper::before {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 14px;
+  background-image: url("../img/verda-mark.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* ---------- Card ---------- */
+.card-pf,
+.login-pf-page .card-pf {
+  background: #ffffff;
+  border: 1px solid rgba(10, 20, 41, 0.08);
+  border-radius: var(--v-radius);
+  box-shadow: var(--v-shadow);
+  padding: 28px 28px 24px;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+@media (max-width: 540px) {
+  .card-pf,
+  .login-pf-page .card-pf {
+    padding: 22px 20px 20px;
+    border-radius: var(--v-radius-sm);
+  }
+}
+
+#kc-page-title {
+  font-family: var(--v-font-serif);
+  font-feature-settings: "ss01";
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 6px;
+  color: var(--v-ink);
+}
+
+#kc-info-message,
+.instruction {
+  font-size: 13px;
+  color: rgba(10, 20, 41, 0.65);
+  margin: 0 0 18px;
+}
+
+/* ---------- Form fields ---------- */
+.form-group { margin-bottom: 14px; }
+
+.control-label,
+label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(10, 20, 41, 0.55);
+  margin-bottom: 6px;
+}
+
+.form-control,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+input[type="url"],
+select,
+textarea {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px;
+  border-radius: var(--v-radius-sm);
+  border: 1px solid rgba(10, 20, 41, 0.14);
+  background: var(--v-paper);
+  color: var(--v-ink);
+  font-size: 15px;
+  font-family: var(--v-font-sans);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease,
+    background-color 0.15s ease;
+  box-shadow: none;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+textarea {
+  height: auto;
+  padding: 12px 14px;
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-control:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--v-gold);
+  background: #ffffff;
+  box-shadow: 0 0 0 4px var(--v-gold-soft);
+}
+
+.form-control::placeholder { color: rgba(10, 20, 41, 0.35); }
+
+/* ---------- Password input + reveal button ---------- */
+/* Keycloak 25 wraps the password field in a flex input-group with a
+   "Show password" toggle on the right. Style the wrapper so the input
+   and button render as one cohesive control rather than two boxes. */
+.pf-c-input-group,
+.pf-v5-c-input-group,
+.input-group {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  background: transparent;
+  border: 0;
+  gap: 0;
+}
+
+.pf-c-input-group > .pf-c-form-control,
+.pf-v5-c-input-group > .pf-v5-c-form-control,
+.input-group > input,
+.input-group > .form-control {
+  flex: 1 1 auto;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.pf-c-input-group > button,
+.pf-v5-c-input-group > button,
+.input-group > .input-group-btn > button,
+.input-group > button {
+  flex: 0 0 auto;
+  height: 44px;
+  width: 44px;
+  padding: 0;
+  border: 1px solid rgba(10, 20, 41, 0.14);
+  border-left: 0;
+  border-top-right-radius: var(--v-radius-sm);
+  border-bottom-right-radius: var(--v-radius-sm);
+  background: var(--v-paper);
+  color: rgba(10, 20, 41, 0.55);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+.pf-c-input-group > button:hover,
+.pf-v5-c-input-group > button:hover,
+.input-group > button:hover {
+  color: var(--v-ink);
+  background: var(--v-paper-hover);
+}
+.pf-c-input-group > button:focus,
+.pf-v5-c-input-group > button:focus {
+  outline: none;
+  border-color: var(--v-gold);
+  box-shadow: 0 0 0 4px var(--v-gold-soft);
+}
+.pf-c-input-group > button > i,
+.pf-c-input-group > button > svg,
+.pf-v5-c-input-group > button > i,
+.pf-v5-c-input-group > button > svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* ---------- Buttons ---------- */
+.btn,
+.btn-primary,
+.btn-default,
+input[type="submit"],
+button[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 18px;
+  border-radius: var(--v-radius-sm);
+  border: 1px solid transparent;
+  font-family: var(--v-font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease,
+    border-color 0.15s ease, transform 0.05s ease;
+  text-decoration: none;
+  background: var(--v-ink);
+  color: var(--v-paper);
+}
+
+.btn:hover,
+.btn-primary:hover,
+input[type="submit"]:hover,
+button[type="submit"]:hover { background: var(--v-ink-soft); }
+.btn:active,
+input[type="submit"]:active,
+button[type="submit"]:active { transform: translateY(1px); }
+.btn:focus,
+input[type="submit"]:focus,
+button[type="submit"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--v-gold-soft);
+}
+
+.btn-default,
+button.btn-default,
+a.btn-default {
+  background: #ffffff;
+  color: var(--v-ink);
+  border-color: rgba(10, 20, 41, 0.14);
+}
+.btn-default:hover {
+  border-color: rgba(10, 20, 41, 0.32);
+  background: var(--v-paper-hover);
+}
+
+#kc-form-buttons,
+#kc-form-options { margin-top: 18px; }
+#kc-form-buttons input[type="submit"] { width: 100%; }
+
+/* ---------- Form options row (remember me + forgot password) ----------
+ * The keycloak parent template renders this row with two children:
+ *   left:  the "Remember me" checkbox (when realm.rememberMe is on)
+ *   right: a <span><a href="…loginResetCredentialsUrl">Forgot your
+ *          password?</a></span> (when realm.resetPasswordAllowed is on).
+ * Both flags are TRUE in realm-wakili.json, so both render. The CSS
+ * below makes that row a single flex line with the link on the right
+ * AND explicitly preserves the link's visibility so a defensive `display:
+ * none` rule elsewhere can't accidentally suppress it.
+ */
+#kc-form-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: rgba(10, 20, 41, 0.65);
+  gap: 12px;
+  flex-wrap: wrap;
+}
+#kc-form-options > * { display: inline-flex; align-items: center; }
+#kc-form-options .checkbox label {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+  font-size: 13px;
+  color: rgba(10, 20, 41, 0.7);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+#kc-form-options input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--v-gold);
+  margin: 0;
+}
+/* Forgot-password link — pinned visible. Some Keycloak builds wrap it
+   in `.login-pf-settings`, others in `.kc-form-options-wrapper`, others
+   in a bare span. Cover all three so the link survives any parent-theme
+   class collisions. */
+#kc-form-options span,
+#kc-form-options a,
+#kc-form-options .kc-form-options-wrapper,
+#kc-form-options .kc-form-options-wrapper > *,
+#kc-form-options .login-pf-settings,
+#kc-form-options .login-pf-settings > * {
+  display: inline-flex !important;
+  visibility: visible !important;
+}
+#kc-form-options a {
+  font-weight: 600;
+  color: var(--v-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(10, 20, 41, 0.25);
+}
+#kc-form-options a:hover {
+  color: var(--v-rust);
+  text-decoration-color: var(--v-rust);
+}
+
+/* ---------- Social / IdP federation block ---------- */
+#kc-social-providers {
+  margin-top: 18px;
+  border-top: 1px solid rgba(10, 20, 41, 0.08);
+  padding-top: 18px;
+}
+#kc-social-providers h2,
+#kc-social-providers h4 {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(10, 20, 41, 0.55);
+  margin: 0 0 10px;
+}
+#kc-social-providers ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+#kc-social-providers a,
+.kc-social-provider-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 14px;
+  border-radius: var(--v-radius-sm);
+  background: #ffffff;
+  border: 1px solid rgba(10, 20, 41, 0.14);
+  color: var(--v-ink);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+#kc-social-providers a:hover {
+  border-color: rgba(10, 20, 41, 0.32);
+  background: var(--v-paper-hover);
+}
+
+/* ---------- Registration / sign-up link below the form ---------- */
+#kc-registration-container,
+#kc-registration {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 13px;
+  color: rgba(10, 20, 41, 0.65);
+}
+#kc-registration a { font-weight: 600; }
+
+/* ---------- Alerts ---------- */
+.alert,
+.pf-c-alert,
+.pf-v5-c-alert {
+  border-radius: var(--v-radius-sm);
+  padding: 12px 14px;
+  font-size: 13px;
+  line-height: 1.45;
+  margin: 0 0 16px;
+  border: 1px solid transparent;
+  background: #ffffff;
+}
+.alert-error,
+.pf-m-danger,
+.pf-c-alert.pf-m-danger,
+.pf-v5-c-alert.pf-m-danger {
+  border-color: rgba(184, 92, 32, 0.35);
+  background: #fdeee2;
+  color: var(--v-rust);
+}
+.alert-warning,
+.pf-m-warning {
+  border-color: rgba(212, 165, 52, 0.45);
+  background: var(--v-gold-soft);
+  color: #6d4f0d;
+}
+.alert-success,
+.pf-m-success {
+  border-color: rgba(79, 122, 79, 0.4);
+  background: #e7efe1;
+  color: var(--v-fern);
+}
+.alert-info,
+.pf-m-info {
+  border-color: rgba(10, 20, 41, 0.18);
+  background: var(--v-paper-deep);
+  color: var(--v-ink);
+}
+
+/* ---------- Locale switcher ----------
+ * Hidden defensively. The realm has internationalization disabled, but
+ * if it's re-enabled later without re-skinning, this keeps the page
+ * tidy until proper locale styling is added.
+ *
+ * Selectors are deliberately narrow — locale-specific only. We do NOT
+ * blanket-hide `.login-pf-settings` because in some Keycloak builds
+ * that class wraps the Forgot-password link rather than the locale
+ * dropdown. The `:not(...)` clause on it keeps the row visible whenever
+ * a forgot-password anchor is inside.
+ */
+#kc-locale,
+#kc-locale-dropdown,
+.kc-locale-dropdown,
+.pf-c-dropdown.kc-locale-dropdown,
+[data-kc-locale] { display: none !important; }
+
+/* `.login-pf-settings` is locale-switcher in some Keycloak builds and
+ * the forgot-password container in others. Hide it only when it does
+ * NOT contain a reset-credentials link. `:has()` is unsupported in
+ * older browsers — in that case this rule is silently ignored and the
+ * row remains visible, which is the safe failure mode. */
+.login-pf-page .login-pf-settings:not(:has(a[href*="reset-credentials"])):not(:has(#kc-current-locale-link)) {
+  display: none !important;
+}
+
+/* ---------- Tabs ---------- */
+.nav,
+.nav-tabs,
+ul.nav.nav-tabs {
+  border-bottom: 1px solid rgba(10, 20, 41, 0.1);
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px;
+  display: flex;
+  gap: 4px;
+}
+.nav-tabs > li > a,
+.nav-tabs > li.active > a,
+.nav-tabs > li > a:hover {
+  border-radius: 8px 8px 0 0;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  padding: 8px 14px;
+  font-size: 13px;
+  background: transparent;
+  color: rgba(10, 20, 41, 0.6);
+  text-decoration: none;
+}
+.nav-tabs > li.active > a {
+  background: #ffffff;
+  border-color: rgba(10, 20, 41, 0.1);
+  color: var(--v-ink);
+  font-weight: 600;
+}
+
+/* ---------- Misc ---------- */
+hr {
+  border: 0;
+  border-top: 1px solid rgba(10, 20, 41, 0.08);
+  margin: 18px 0;
+}
+
+::selection {
+  background: var(--v-gold);
+  color: var(--v-ink);
+}
+
+#kc-attempted-username,
+.subtitle,
+.login-pf-signup,
+.kc-feedback-text {
+  font-size: 13px;
+  color: rgba(10, 20, 41, 0.55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
