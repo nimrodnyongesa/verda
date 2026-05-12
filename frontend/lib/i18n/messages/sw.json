@@ -1,0 +1,498 @@
+{
+  "skipToContent": "Ruka hadi kwenye yaliyomo",
+  "header": {
+    "tagline": "Codex · kesi · Afrika",
+    "cases": "Kesi",
+    "audit": "Ukaguzi",
+    "about": "Kuhusu",
+    "signIn": "Ingia",
+    "anonymous": "hali ya kutotambulika"
+  },
+  "footer": {
+    "blurb": "Zana zilizojengwa kwa Codex kwa watetezi wa jamii huru. Mwanasheria ndani ya mzunguko. Telemetry imezimwa kwa chaguo-msingi.",
+    "product": "Bidhaa",
+    "trust": "Uaminifu",
+    "trustExports": "Hifadhi za AES-256-GCM",
+    "trustHosted": "Docker ya kibinafsi",
+    "trustViewer": "Kisoma cha USB",
+    "builtFrom": "Imejengwa kutoka",
+    "builtFromValue": "Nairobi, Kenya · github.com/nyongesa637",
+    "auditLog": "Kumbukumbu za ukaguzi",
+    "architecture": "Muundo"
+  },
+  "bottomNav": {
+    "home": "Nyumbani",
+    "cases": "Kesi",
+    "audit": "Ukaguzi",
+    "me": "Mimi"
+  },
+  "userMenu": {
+    "openProfileMenu": "Fungua menyu ya wasifu kwa {name}",
+    "myProfile": "Wasifu wangu",
+    "auditLog": "Kumbukumbu za ukaguzi",
+    "language": "Lugha",
+    "signOut": "Toka",
+    "signOutTitle": "Toka kwenye Verda?",
+    "signOutBody": "Utaelekezwa kwa {provider} ili kumaliza kipindi chako. Kesi yoyote inayoendelea itahifadhiwa kwenye seva — unaweza kuiendeleza kutoka kichupo cha Kesi utakaporudi kuingia.",
+    "signOutConfirm": "Toka",
+    "signOutCancel": "Endelea kuingia",
+    "via": "kupitia {provider}"
+  },
+  "language": {
+    "label": "Lugha",
+    "current": "Lugha ya sasa: {name}",
+    "change": "Badilisha lugha"
+  },
+  "signIn": {
+    "title": "Karibu Verda.",
+    "subtitle": "Thibitisha kupitia mtoaji wa utambulisho wa shirika lako. Verda inashirikisha Keycloak, Auth0, Microsoft Entra, Google, GitHub, SAML na zaidi — chagua mtoaji uendelee.",
+    "continue": "Ingia · Uthibitishaji mmoja",
+    "providerCta": "Endelea na {provider}",
+    "errorTitle": "Uthibitishaji haukukamilika",
+    "errorHint": "Jaribu {resetCmd} ikiwa umebadilisha eneo lililofungwa, au {statusCmd} kuthibitisha Keycloak inafikika.",
+    "demoCreds": "Vitambulisho vya majaribio",
+    "demoBody": "Vimeingizwa katika eneo la Keycloak la kifurushi mara ya kwanza unapoendesha {makeCmd}. Chagua kimoja kisha ubofye Endelea na Keycloak hapo juu.",
+    "demoRole": "jukumu · {role}",
+    "footer": "Cookie ya HTTP-only · PKCE · iliyothibitishwa kwa JWKS · imerekodiwa.",
+    "footerExtra": "Kuongeza mtoaji huchukua ingizo moja katika {file} na moja katika rejista ya watoaji wa Verda upande wa nyuma.",
+    "authDisabled": "Uthibitishaji umezimwa",
+    "authDisabledBody": "Weka {frontendVar} upande wa mbele na {backendVar} upande wa nyuma, kisha washa Keycloak ({makeCmd}), na upakie tena.",
+    "backHome": "← Rudi nyumbani"
+  },
+  "cases": {
+    "kicker": "Kesi",
+    "headingOne": "Kesi 1 kwenye mfumo huu wa Verda",
+    "headingOther": "Kesi {count} kwenye mfumo huu wa Verda",
+    "folders": {
+      "headingRoot": "Folda · mzizi",
+      "headingIn": "Folda · ndani ya {name}",
+      "tooltip": "Folda hupanga kesi kwa mteja, mamlaka, au mada. Vuta safu yoyote ya kesi kwenye kadi ya folda kuihifadhi. Folda zinaweza kupangwa ndani-ndani.",
+      "tooltipDragBold": "Vuta safu yoyote ya kesi",
+      "newButton": "+ Folda mpya",
+      "viewAll": "Tazama folda zote",
+      "collapse": "Kunja",
+      "emptyRoot": "Hakuna folda kwenye mzizi bado. Bofya + Folda mpya kupanga kesi.",
+      "emptySubfolder": "Folda hii haina folda ndogo bado.",
+      "subFoldersOne": "Folda ndogo 1",
+      "subFoldersOther": "Folda ndogo {count}",
+      "open": "wazi",
+      "openTitle": "Fungua {name}",
+      "actionsLabel": "Vitendo vya folda kwa {name}",
+      "actions": {
+        "open": "Fungua folda",
+        "subfolder": "Folda ndogo mpya",
+        "rename": "Badilisha jina",
+        "renameFolder": "Badilisha jina la folda",
+        "delete": "Futa folda"
+      }
+    },
+    "tableCaption": {
+      "root": "Kesi zisizoko kwenye folda yoyote",
+      "in": "Kesi katika {name}",
+      "tooltipPrefix": "Jedwali linaonyesha",
+      "tooltipSuffix": "Tumia ⌘K (au Ctrl+K) popote katika programu kutafuta kesi yoyote katika mti, ikiwa ni pamoja na zile zilizo ndani ya folda nyingine."
+    },
+    "allCases": "Kesi zote",
+    "empty": "Hakuna kesi hapa bado. Dondosha folda kwenye eneo la upakiaji hapo juu kuunda moja, au fungua folda kuona kilicho ndani.",
+    "table": {
+      "title": "Kichwa",
+      "track": "Mstari",
+      "files": "Faili",
+      "updated": "Imesasishwa",
+      "updatedTooltip": "Muhuri wa wakati wa shughuli ya mwisho — upakiaji wa faili, mabadiliko ya mpango, uzalishaji, au kubadilisha jina. Sogeza juu ya thamani kuona tarehe kamili ya ISO.",
+      "status": "Hali",
+      "actions": "Vitendo",
+      "loading": "Inapakia…"
+    },
+    "row": {
+      "open": "Fungua kesi",
+      "rename": "Hariri jina",
+      "moveTo": "Hamisha kwenye folda…",
+      "exportReady": "Hamisha…",
+      "exportNeedsGenerate": "Hamisha (zalisha kwanza)",
+      "exportDisabledHint": "Idhinisha mpango na endesha uzalishaji kabla ya kuhamisha.",
+      "delete": "Futa kesi"
+    },
+    "pagination": {
+      "showing": "Inaonyesha {start}–{end} kati ya {total}",
+      "prev": "← Iliyotangulia",
+      "next": "Inayofuata →"
+    },
+    "refresh": "Onyesha upya",
+    "breadcrumb": {
+      "allCases": "← Kesi zote",
+      "actionsLabel": "Vitendo vya folda kwa {name}"
+    },
+    "modals": {
+      "move": {
+        "kicker": "Hamisha kesi · #{id}",
+        "title": "Chagua folda lengwa",
+        "close": "Funga",
+        "root": "Mzizi (haijahifadhiwa)"
+      },
+      "export": {
+        "kicker": "Hamisha · kesi #{id}",
+        "status": "Mpango umeidhinishwa + zana zimezalishwa. Chagua lengo hapa chini.",
+        "statusTooltip": "Kila lengo huandika faili huru kwenye diski. Iliyofungwa kwa siri inahitaji nenosiri ≥ herufi 8; Verda haihifadhi nenosiri.",
+        "close": "Funga",
+        "passphraseLabel": "Nenosiri la kifurushi kilichofungwa (≥ 8)",
+        "passphrasePlaceholder": "Inahitajika kwa lengo la kufungwa kwa siri tu",
+        "passphraseError": "Lengo la kufungwa kwa siri linahitaji nenosiri lenye herufi 8 angalau.",
+        "building": "Inajenga…",
+        "download": "Pakua →",
+        "targets": {
+          "zip": { "label": "Zip ya kawaida", "sub": "Faili zote, hazijafungwa" },
+          "encrypted": { "label": "Kifurushi kilichofungwa", "sub": "AES-256-GCM · kifungua-stdlib kimejumuishwa" },
+          "docker": { "label": "Kisoma cha Docker cha kibinafsi", "sub": "tar.gz · `docker compose up`" },
+          "usb": { "label": "Kisoma cha USB", "sub": "viewer.html + kifungua-stdlib" }
+        }
+      }
+    },
+    "dialogs": {
+      "createFolder": {
+        "title": "Folda mpya",
+        "titleNested": "Folda mpya ndani ya \"{parent}\"",
+        "body": "Panga kesi kwa mteja, mamlaka, au mada. Folda zinaweza kupangwa ndani-ndani.",
+        "label": "Jina la folda",
+        "placeholder": "k.m. Mashauri ya kimkakati · 2026",
+        "confirm": "Unda folda",
+        "emptyError": "Jina la folda haliwezi kuwa wazi"
+      },
+      "renameFolder": {
+        "title": "Badilisha jina la \"{name}\"",
+        "body": "Yaliyomo na rekodi ya ukaguzi haziathiriwi.",
+        "label": "Jina la folda",
+        "confirm": "Badilisha",
+        "emptyError": "Jina la folda haliwezi kuwa wazi"
+      },
+      "deleteFolder": {
+        "title": "Futa \"{name}\"?",
+        "body": "Folda ndogo zitafutwa pamoja nayo. Kesi ndani ya folda hizi HAZITAFUTWA — zitarudi kwenye orodha ya mzizi.",
+        "confirm": "Futa folda"
+      },
+      "renameCase": {
+        "title": "Badilisha jina la kesi",
+        "body": "Kiambishi cha tarehe ya kesi (mfano ' · 5/5/2026') kitahifadhiwa kiotomatiki.",
+        "label": "Kichwa cha kesi",
+        "confirm": "Hifadhi",
+        "emptyError": "Kichwa hakiwezi kuwa wazi"
+      },
+      "deleteCase": {
+        "title": "Futa kesi \"{title}\"?",
+        "body": "Faili, mpango, historia ya uendeshaji, na vitu vilivyozalishwa vinaondolewa. Rekodi za ukaguzi za kesi hii zinabaki (ukaguzi unaongezwa tu). Hili haliwezi kubadilishwa.",
+        "confirm": "Futa kesi"
+      },
+      "cancel": "Ghairi"
+    },
+    "toasts": {
+      "loadFailed": "Haikuweza kupakia kesi",
+      "folderCreated": "Folda imeundwa",
+      "folderCreateFailed": "Haikuweza kuunda folda",
+      "folderRenamed": "Jina la folda limebadilishwa",
+      "folderRenameFailed": "Haikuweza kubadilisha jina la folda",
+      "folderDeleted": "Folda imefutwa",
+      "folderDeleteFailed": "Haikuweza kufuta folda",
+      "caseMoved": "Kesi imehamishwa",
+      "caseMovedTo": "Sasa iko {dest}",
+      "caseMoveFailed": "Haikuweza kuhamisha kesi",
+      "caseRenamed": "Jina la kesi limebadilishwa",
+      "caseRenameFailed": "Haikuweza kubadilisha jina la kesi",
+      "caseDeleted": "Kesi imefutwa",
+      "caseDeleteFailed": "Haikuweza kufuta kesi"
+    }
+  },
+  "caseList": {
+    "emptyTitle": "Hakuna kesi bado",
+    "emptyBody": "Dondosha folda ya kesi kwenye eneo la upakiaji kuanza — Verda itaainisha ushahidi na kuandaa mpango.",
+    "metaCase": "kesi #{id}",
+    "metaFiles": "faili {count}",
+    "metaUpdated": "imesasishwa"
+  },
+  "home": {
+    "hero": {
+      "titlePrefix": "Zana za madai zilizojengwa kwa Codex",
+      "titleAccent": "kwa watetezi wa haki za binadamu.",
+      "body": "Dondosha folda ya kesi ya mtetezi. Verda inachambua ushahidi, inaandaa hati ya madai, inaunganisha mamlaka ya Kenya Law, na inatoa zana ambazo wakili anaweza kukagua, kuhariri, na kuwasilisha. Chanzo wazi. Inajiwezesha. Wakili anasaini.",
+      "badge": "Ibara 22 / 23 · Kenya"
+    },
+    "stats": {
+      "killed": "Watetezi waliouawa (2024)",
+      "backlog": "Kesi zinazosubiri",
+      "ratio": "Mahakimu : raia",
+      "cost": "Gharama / zana"
+    },
+    "impact": {
+      "kicker": "Mshirika wa athari",
+      "logoAlt": "Open Society Foundations",
+      "body": "Verda imejengwa kwa ushirikiano na {partner}. OSF inafadhili msitari wa Ibara 22 / 23 wa Kenya na upanuzi wa Afrika Mashariki (Uganda, Tanzania) unaokuja, na ramani ikipitiwa kila robo pamoja na timu yao ya mashauri ya kimkakati na mawakili wanaowafadhili.",
+      "partnerName": "Open Society Foundations"
+    },
+    "start": {
+      "title": "Anzisha kesi",
+      "body": "Dondosha folda ya kesi. Verda itaainisha ushahidi, kuandaa mpango wa zana, na kusubiri idhini yako kabla ya kuzalisha.",
+      "anonymousTitle": "Ingia ili kuona kesi zako.",
+      "anonymousBody": "Verda inathibitisha kila kitendo. Mara baada ya kuingia, orodha ya kesi yako na eneo la upakiaji vinawashwa.",
+      "anonymousCta": "Endelea kuingia →",
+      "backendDownTitle": "Haikuweza kufikia upande wa nyuma wa Verda.",
+      "backendDownBody": "Anzisha kwa {makeStack} (au {makeBackend}).",
+      "recentCases": "Kesi za hivi karibuni",
+      "seeAll": "Ona zote →"
+    },
+    "modules": {
+      "title": "Moduli nne kwa kila kesi",
+      "evidence": { "name": "Codex ya Ushahidi", "desc": "Mchambuzi wa kibinafsi → ratiba inayotafutika + chanzo." },
+      "procedural": { "name": "Injini ya Utaratibu", "desc": "Mashine ya hali ya Ibara 22 / 23, mwisho wa muda, hati zilizoandaliwa." },
+      "precedent": { "name": "Kiunganishi cha Mfano", "desc": "Matokeo ya Kenya Law yaliyopangwa, kila URL imethibitishwa." },
+      "safety": { "name": "Ujenzi wa Usalama wa Mtetezi", "desc": "Kifurushi kilichofungwa · Docker · Kinabebeka kwa USB." }
+    },
+    "lawyer": {
+      "title": "Wakili katika mzunguko",
+      "bodyPrefix": "Kila tokeo huonekana katika mwonekano wa diff. Wakili huangalia, anahariri kwa mkono, au anaendesha tena uzalishaji.",
+      "bodySuffix": "alama kwenye kila hati iliyoandaliwa zinatekeleza mpaka.",
+      "boundary": "SAINI KABLA YA KUWASILISHA"
+    },
+    "evidenceTypes": {
+      "kicker": "Kile Verda tayari inasoma",
+      "title": "Aina kumi za ushahidi, zinachambuliwa bila chatbot.",
+      "body": "Faili halisi ya kesi ya Kenya kwa kiasi kikubwa ni OB za polisi zilizoskaniwa, hifadhi za WhatsApp, na sauti za Kiswahili — sio mikataba safi ya Kiingereza. Verda inatambua aina, inaainisha chanzo, na inazalisha mchambuzi wa kesi-kwa-kesi ambao wakili anaweza kupitia mstari kwa mstari.",
+      "items": {
+        "policeObs":    { "name": "OB za polisi",        "sub": "zilizoskaniwa · ubora mchanganyiko" },
+        "whatsapp":     { "name": "Hifadhi za WhatsApp", "sub": "_chat.txt · viambatisho" },
+        "voiceNotes":   { "name": "Sauti",               "sub": "Kiswahili · Sheng · Kiingereza" },
+        "phonePhotos":  { "name": "Picha za simu",       "sub": "JPG · HEIC · zenye EXIF" },
+        "medical":      { "name": "Ripoti za matibabu",  "sub": "P3 · kliniki · PDF" },
+        "bankSlips":    { "name": "Stakabadhi za benki", "sub": "M-PESA · uhamisho · risiti" },
+        "courtRecords": { "name": "Rekodi za mahakama",  "sub": "amri · orodha · maagizo" },
+        "scannedPdfs":  { "name": "PDF zilizoskaniwa",   "sub": "OCR-tayari · kurasa nyingi" },
+        "familyThreads":{ "name": "Mazungumzo ya familia","sub": "SMS · vikundi · muhuri wa wakati" },
+        "exif":         { "name": "Metadata ya EXIF",    "sub": "geo · kifaa · muhuri wa wakati" }
+      }
+    }
+  },
+  "about": {
+    "kicker": "Kuhusu",
+    "title": "Programu kwa wale wanaolinda jamii huru.",
+    "intro1": "Verda ni jukwaa la asili la Codex ambalo huchukua faili changamani ya mtetezi — PDF, picha, sauti za Kiswahili, hifadhi za WhatsApp — na kuzalisha kiotomatiki zana maalum za madai katika msimbo. Kila zana ina moduli nne zilizojengwa mahsusi kwa kesi hiyo: mchambuzi wa Codex ya Ushahidi, mashine ya hali ya Injini ya Utaratibu, Kiunganishi cha Mfano, na Ujenzi wa Usalama wa Mtetezi (Docker / USB inayoweza kupelekwa nje ya mtandao). Mawakili hawapati chatbot — wanapata programu inayofanya kazi, iliyozalishwa chini ya saa moja.",
+    "intro2": "Jukwaa ni open-core na limesambazwa. Kila shirika mshirika linaendesha mfumo wake wa Verda. Hakuna hifadhidata kuu inayoshikilia data ya kesi. Timu kuu inasaidia mashirika kupitia nyaraka, violezo, na masasisho yaliyofungashwa — sio kwa kuendesha data yao.",
+    "intro3Prefix": "Verda imejengwa kutoka Nairobi na msanidi mwenye bidhaa zilizotumika katika maeneo ya kiraia ya Kenya — Somo (Mwalimu wa AI wa CBC) na Lipa (M-Pesa escrow) — kwa washirika wanaojenga Jamii Huru. Mamlaka ya kwanza ni Kenya. Upanuzi wa Afrika Mashariki (Uganda, Tanzania) ni kazi ya maudhui: wakili wa eneo huandika ",
+    "intro3Suffix": " yenye violezo vya hati na sheria za utaratibu, na Verda mara moja inasaidia kesi hapo.",
+    "architectureTitle": "Muundo",
+    "architecture": {
+      "intake": { "label": "Kupokea", "body": "Next.js + Tailwind UI ya upakiaji. Modi mbalimbali: PDF, picha, sauti, hifadhi za WhatsApp, maandishi sahili." },
+      "knowledge": { "label": "Maarifa", "body": "SQLite (mfano wa PG) + hifadhi ya ushahidi diskini. Whisper / Tesseract zimepangwa kwa MVP." },
+      "orchestration": { "label": "Uratibu", "body": "Mratibu wa FastAPI mwenye kumbukumbu za ukaguzi. Uzalishaji ndani ya mchakato; Celery / Redis ndio hatua inayofuata." },
+      "generation": { "label": "Uzalishaji", "body": "Codex Skills + AGENTS.md kwa kila mamlaka. Kushuka kwa kuamua bila ufunguo wa API." },
+      "deployment": { "label": "Upelekaji", "body": "Manifesto ya Docker, manifesto ya USB-bootable, na vifurushi vilivyofungwa AES-256-GCM kwa scrypt KDF." }
+    },
+    "lawyerTitle": "Wakili katika mzunguko",
+    "lawyerBody": "Verda hutoa rasimu na zana. Wakili aliyepewa leseni anasaini na kuwasilisha. Sheria za Chama cha Wanasheria Kenya za maadili ya kitaaluma zinatimizwa kwa sababu wakili wa binadamu ndiye mtaalamu mwajibika kwa kila hatua."
+  },
+  "audit": {
+    "kicker": "Ukaguzi",
+    "title": "Kumbukumbu za ukaguzi",
+    "body": "Rekodi isiyobadilika ya kila wito wa MCP, kila tashtushi ya Codex, kila uhamishaji katika mfumo huu wa Verda."
+  },
+  "upload": {
+    "uploadingProgress": "Inapakia {uploaded}/{total}",
+    "uploading": "Inapakia…",
+    "prompt": "Dondosha folda ya kesi au faili hapa",
+    "blurb": "PDF · picha · hifadhi za WhatsApp · sauti · maandishi sahili. Dondosha folda nzima au chagua faili moja moja. Verda hupima, huondoa marudio, na kuainisha kila kitu kabla ya kuandaa mpango.",
+    "browseFiles": "Vinjari faili",
+    "browseFolder": "Vinjari folda",
+    "dialogs": {
+      "folderConfirm": {
+        "title": "Pakia folda hii kwenye Verda?",
+        "bodyWithCount": "Verda itapima, kuainisha, na kuhifadhi kila faili inayosomeka katika folda iliyodondoshwa (faili {count}). Faili zinabaki kwenye seva uliyoingia hadi utakapochagua kuhamisha. Endelea kupokea, au ghairi kutupa.",
+        "bodyNoCount": "Verda itapima, kuainisha, na kuhifadhi kila faili inayosomeka katika folda iliyodondoshwa. Faili zinabaki kwenye seva uliyoingia hadi utakapochagua kuhamisha. Endelea kupokea, au ghairi kutupa.",
+        "confirm": "Endelea · pakia folda"
+      },
+      "folderPick": {
+        "title": "Chagua folda ya kupakia?",
+        "body": "Unakaribia kupakia folda nzima kwenye Verda. Kila faili inayosomeka ndani yake (na folda zake ndogo) itapimwa, kuainishwa, na kuhifadhiwa chini ya kesi yako.\n\nBaada ya kubofya Endelea, kivinjari chako kitaonyesha uthibitisho wake wa usalama — huo unatekelezwa na kivinjari na hatuwezi kuubadilisha. Idhinisha ili kufungua kichagua-folda.",
+        "confirm": "Endelea"
+      },
+      "cancel": "Ghairi"
+    },
+    "toasts": {
+      "nothing": "Hakuna cha kupakia",
+      "nothingHint": "Dondosho halikuwa na faili. Ikiwa ulidondosha folda, kivinjari chako huenda kilizuia — jaribu vitufe vya Vinjari.",
+      "dropFailed": "Kudondosha kumeshindwa",
+      "dropFailedFallback": "Haikuweza kusoma vipande vilivyodondoshwa",
+      "uploadFailed": "Upakiaji umeshindwa",
+      "uploadFailedSignedOut": "Hujaingia. Bofya Ingia, kisha jaribu tena.",
+      "successTitle": "Ushahidi umepokelewa",
+      "successBodyOne": "Faili 1 imechambuliwa na mpango umeandaliwa.",
+      "successBodyOther": "Faili {count} zimechambuliwa na mpango umeandaliwa."
+    },
+    "untitledTitle": "Kesi bila kichwa · {date}",
+    "untitledDescription": "Imeundwa kutoka kwa kupokea kwa kuburuta-na-kudondosha."
+  },
+  "palette": {
+    "placeholder": "Ruka popote…",
+    "empty": "Hakuna mafanikio. Jaribu kutafuta kwa jina la kesi au rudi nyumbani.",
+    "footer": "↑↓ pitia · ⏎ chagua · esc funga",
+    "groups": {
+      "navigate": "Pitia",
+      "actions": "Vitendo",
+      "recentCases": "Kesi za hivi karibuni"
+    },
+    "actions": {
+      "home": "Nenda nyumbani",
+      "allCases": "Nenda kwenye kesi zote",
+      "audit": "Fungua kumbukumbu za ukaguzi",
+      "profile": "Fungua wasifu wangu",
+      "newCase": "Unda kesi mpya",
+      "newCaseHint": "dondosha faili ukurasa wa nyumbani",
+      "casePrefix": "Kesi #{id}"
+    }
+  },
+  "notFound": {
+    "kicker": "404 · Haijapatikana",
+    "title": "Ukurasa huo haupo kwenye faili.",
+    "body": "Kiungo kimevunjika, kesi imefutwa, au huna ufikiaji. Verda hurudisha 404 (badala ya 403) kwa kesi usizoweza kusoma ili nambari za kesi zisihesabike.",
+    "backHome": "Rudi nyumbani",
+    "allCases": "Kesi zote"
+  },
+  "error": {
+    "kicker": "500 · Kuna kosa",
+    "title": "Verda imekutana na hitilafu isiyotarajiwa.",
+    "body": "Kitendo ulichojaribu hakikukamilika. Data ya kesi yako haiathiriwi — Verda huhifadhi kila mabadiliko kwenye SQLite kabla ya kuonyesha. Jaribu tena; ikiwa inaendelea kushindwa, mwambie mwendeshaji aangalie kumbukumbu za nyuma za Verda.",
+    "tryAgain": "Jaribu tena",
+    "backHome": "Rudi nyumbani"
+  },
+  "forbidden": {
+    "kicker": "403 · Imepigwa marufuku",
+    "title": "Jukumu lako halina ruhusa ya kitendo hicho.",
+    "body": "Tabaka la IAM la Verda limekataa ombi hili. Vitendo vya wakili-katika-mzunguko (idhini ya mpango, uhamishaji uliofungwa) vinaruhusiwa kwa jukumu la {role} pekee. Ufikiaji wa kuandika kwa kila kesi pia unalindwa na umiliki au uanachama. Mwombe mmiliki wa kesi akupe ruhusa ya mwanachama, au msimamizi akupe jukumu sahihi la eneo katika Keycloak.",
+    "allCases": "Kesi zote",
+    "backHome": "Rudi nyumbani"
+  },
+  "loading": "Inapakia",
+  "workspace": {
+    "panelsLabel": "Paneli za kesi",
+    "panels": {
+      "overview": "Muhtasari",
+      "plan": "Mpango",
+      "generation": "Uzalishaji",
+      "timeline": "Ratiba",
+      "petition": "Hati ya madai",
+      "precedents": "Mifano",
+      "procedure": "Utaratibu",
+      "audit": "Ukaguzi",
+      "export": "Hamisha"
+    },
+    "caseHeader": {
+      "casesCrumb": "Kesi",
+      "caseNumber": "kesi #{id}",
+      "approving": "Inaidhinisha…",
+      "approvePlan": "Idhinisha mpango",
+      "generating": "Inazalisha…",
+      "regenerate": "Endesha tena uzalishaji",
+      "generate": "Zalisha zana",
+      "export": "Hamisha",
+      "rerunTitle": "Endesha tena uzalishaji?",
+      "rerunBody": "Hili linafuta kifurushi kilichopo kwenye diski. Rasimu zisizosainiwa na rasimu ya hati ya madai zitazalishwa upya kutokana na ushahidi wa sasa na mpango wa karibuni. Hifadhi ulizopakua tayari hazitaathiriwa.",
+      "rerunConfirm": "Endesha tena",
+      "rerunCancel": "Bakiza kifurushi cha sasa",
+      "approvedTitle": "Mpango umeidhinishwa",
+      "approvedBody": "Tayari kuzalisha zana.",
+      "approveFailed": "Uidhinishaji umeshindwa",
+      "generatedTitle": "Zana zimezalishwa",
+      "generatedBody": "Endesho #{run} · sek {seconds} · matukio {events}",
+      "generationFailed": "Uzalishaji umeshindwa",
+      "deadlineOverdue": "siku {days} zimepita",
+      "deadlineDue": "siku {days} hadi {label}",
+      "titleEmptyError": "Kichwa hakiwezi kuwa wazi",
+      "titleSaved": "Kichwa kimehifadhiwa",
+      "renameFailed": "Haikuweza kubadilisha jina",
+      "titleAriaLabel": "Kichwa cha kesi",
+      "titleEditAria": "Hariri kichwa cha kesi ({prefix})",
+      "titleEditTooltip": "Bofya kubadilisha jina"
+    }
+  },
+  "profile": {
+    "kicker": "Wasifu",
+    "kickerSignedIn": "umeingia",
+    "kickerAnonymous": "hali ya kutotambulika",
+    "backendDownTitle": "Haikuweza kufikia upande wa nyuma wa Verda.",
+    "backendDownBody": "Anzisha kwa {makeCmd} kisha onyesha upya.",
+    "globalScope": "Wigo wa kesi za jumla",
+    "globalScopeTip": "Jukumu hili linaona kila kesi katika mfumo. Majukumu mengine yanaona kesi tu zinazomilikiwa au wanakomember.",
+    "bioPlaceholder": "Hakuna wasifu mfupi bado. Ongeza mmoja hapa chini — utaonekana karibu na rekodi zako za ukaguzi ili timu yote ipate muktadha wa vitendo unavyofanya.",
+    "avatar": {
+      "uploading": "Inapakia…",
+      "limits": "PNG · JPG · WebP · ≤ MB 2",
+      "remove": "Ondoa avatar",
+      "change": "Badilisha avatar",
+      "removeTitle": "Ondoa avatar?",
+      "removeBody": "Herufi yako ya kwanza itaonyeshwa badala yake. Unaweza kupakia mpya wakati wowote.",
+      "removeConfirm": "Ondoa",
+      "removeCancel": "Ghairi"
+    },
+    "display": {
+      "heading": "Onyesha",
+      "source": "Chanzo · Keycloak + ubadilishaji wa ndani",
+      "sourceTipPrefix": "Utambulisho (sub, barua pepe, majukumu ya eneo) hutoka kwa IdP wako na hauwezi kuhaririwa hapa.",
+      "sourceTipBold": "Jina la kuonyesha",
+      "sourceTipSuffix": " na wasifu mfupi ni ubadilishaji wa ndani — ni muhimu wakati akaunti yako ya Keycloak inatumia jina la mtumiaji ambalo si jinsi wenzako wanavyokujua.",
+      "fieldDisplayName": "Jina la kuonyesha",
+      "fieldSub": "Mhusika (sub)",
+      "fieldSubHint": "Soma tu · kutoka kwa tokeni yako ya IdP",
+      "fieldBio": "Wasifu mfupi",
+      "fieldBioHint": "Inaonekana kwa wenzako karibu na rekodi zako za ukaguzi",
+      "bioInputPlaceholder": "Kumbuka fupi kuhusu jinsi ungependa kushirikiana. Iweke chini ya aya moja.",
+      "discard": "Tupa mabadiliko",
+      "saving": "Inahifadhi…",
+      "save": "Hifadhi wasifu"
+    },
+    "permissions": {
+      "canDo": "Unayoweza kufanya",
+      "canDoTipPrefix": "Ruhusa hutoka kwa",
+      "canDoTipBold": "majukumu ya eneo",
+      "canDoTipSuffix": " yako. Mwombe msimamizi akupe jukumu tofauti katika Keycloak ili kuongeza orodha hii.",
+      "canDoEmpty": "Hakuna ruhusa za kitendo bado — jukumu lako ni kusoma tu.",
+      "needsRole": "Yanayohitaji jukumu jingine",
+      "needsRoleTip": "Ruhusa katika orodha hii zinahitaji jukumu ambalo huliko nalo sasa (mfano wakili kwa idhini ya mpango, msimamizi kwa ukaguzi wa jumla).",
+      "noneNeeded": "Una kila ruhusa ambayo Verda inafichua leo.",
+      "matrix": {
+        "casesRead":      { "label": "Soma kesi",        "hint": "Tazama maelezo ya kesi, ushahidi, mipango, na vitu vilivyozalishwa." },
+        "casesCreate":    { "label": "Unda kesi",        "hint": "Anzisha kesi mpya kutoka kwa folda ya ushahidi." },
+        "casesWrite":     { "label": "Hariri kesi",      "hint": "Badilisha jina, pakia ushahidi zaidi, zalisha mpango upya." },
+        "casesDelete":    { "label": "Futa kesi",        "hint": "Futa kabisa kesi na safu zake tegemezi. Rekodi ya ukaguzi inabaki." },
+        "casesShare":     { "label": "Shiriki kesi",     "hint": "Ongeza au ondoa wanachama wa kesi (ACL ya kila kesi)." },
+        "planApprove":    { "label": "Idhinisha mipango","hint": "Lango la wakili-katika-mzunguko linaloruhusu uzalishaji kuendesha." },
+        "generationRun":  { "label": "Endesha uzalishaji","hint": "Anzisha jenereta ya zana mara mpango ukiidhinishwa." },
+        "exportsBasic":   { "label": "Hamisha vifurushi","hint": "Jenga zip / Docker / USB." },
+        "exportsEncrypted": { "label": "Hamisha vifurushi vilivyofungwa", "hint": "Jenga vifurushi vya AES-256-GCM kwa utumaji wa nje." },
+        "auditCase":      { "label": "Soma ukaguzi wa kesi", "hint": "Tazama kumbukumbu za ukaguzi za kesi unayoiona tayari." },
+        "auditGlobal":    { "label": "Soma ukaguzi wa jumla", "hint": "Tazama mtiririko wa ukaguzi wa jukwaa zima kwa kila kesi." },
+        "usersRead":      { "label": "Soma watumiaji",   "hint": "Tazama wasifu wa mtumiaji mwingine na hali ya uanachama." },
+        "usersManage":    { "label": "Simamia watumiaji","hint": "Imehifadhiwa kwa shughuli za msimamizi kwa rekodi za watumiaji." }
+      }
+    },
+    "links": {
+      "heading": "Mahali pa kwenda kutoka hapa",
+      "casesTitle": "Kesi",
+      "casesHint": "Vinjari, panga, na tafuta kila kesi unayoona.",
+      "auditTitle": "Kumbukumbu za ukaguzi",
+      "auditHint": "Mtiririko wa kuongeza-tu wa kila wito wa MCP, mabadiliko ya mpango, na uhamishaji.",
+      "approveTitle": "Idhinisha mpango",
+      "approveHint": "Mipango inayosubiri idhini yako inazuia uzalishaji.",
+      "uploadTitle": "Pakia ushahidi",
+      "uploadHint": "Dondosha folda kwenye ukurasa wa nyumbani kuanza kesi mpya."
+    },
+    "footer": {
+      "sub": "sub",
+      "joined": "ulijiunga",
+      "updated": "imesasishwa"
+    },
+    "toasts": {
+      "saved": "Wasifu umehifadhiwa",
+      "saveFailed": "Haikuweza kuhifadhi wasifu",
+      "avatarUploaded": "Avatar imesasishwa",
+      "avatarUploadFailed": "Upakiaji wa avatar umeshindwa",
+      "avatarRemoved": "Avatar imeondolewa",
+      "avatarRemoveFailed": "Haikuweza kuondoa avatar"
+    }
+  }
+}

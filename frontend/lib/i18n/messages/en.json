@@ -1,0 +1,498 @@
+{
+  "skipToContent": "Skip to main content",
+  "header": {
+    "tagline": "Codex · litigation · Africa",
+    "cases": "Cases",
+    "audit": "Audit",
+    "about": "About",
+    "signIn": "Sign in",
+    "anonymous": "anonymous mode"
+  },
+  "footer": {
+    "blurb": "Codex-built tools for the people defending the open society. Lawyer-in-the-loop. Telemetry off by default.",
+    "product": "Product",
+    "trust": "Trust",
+    "trustExports": "AES-256-GCM exports",
+    "trustHosted": "Self-hosted Docker",
+    "trustViewer": "USB-portable viewer",
+    "builtFrom": "Built from",
+    "builtFromValue": "Nairobi, Kenya · github.com/nyongesa637",
+    "auditLog": "Audit log",
+    "architecture": "Architecture"
+  },
+  "bottomNav": {
+    "home": "Home",
+    "cases": "Cases",
+    "audit": "Audit",
+    "me": "Me"
+  },
+  "userMenu": {
+    "openProfileMenu": "Open profile menu for {name}",
+    "myProfile": "My profile",
+    "auditLog": "Audit log",
+    "language": "Language",
+    "signOut": "Sign out",
+    "signOutTitle": "Sign out of Verda?",
+    "signOutBody": "You'll be redirected to {provider} to end your session. Any case in flight stays saved on the server — you can pick it up from the Cases tab when you sign back in.",
+    "signOutConfirm": "Sign out",
+    "signOutCancel": "Stay signed in",
+    "via": "via {provider}"
+  },
+  "language": {
+    "label": "Language",
+    "current": "Current language: {name}",
+    "change": "Change language"
+  },
+  "signIn": {
+    "title": "Welcome to Verda.",
+    "subtitle": "Authenticate through your organisation's identity provider. Verda federates Keycloak, Auth0, Microsoft Entra, Google, GitHub, SAML and more — pick a provider and continue.",
+    "continue": "Sign in · Single sign-on",
+    "providerCta": "Continue with {provider}",
+    "errorTitle": "Sign-in could not complete",
+    "errorHint": "Try {resetCmd} if you've changed the bundled realm, or {statusCmd} to confirm Keycloak is reachable.",
+    "demoCreds": "Demo / test credentials",
+    "demoBody": "Seeded into the bundled Keycloak realm on first {makeCmd}. Pick one and click Continue with Keycloak above.",
+    "demoRole": "role · {role}",
+    "footer": "HTTP-only cookie · PKCE · JWKS-verified · audit-logged.",
+    "footerExtra": "Adding a provider takes one entry in {file} and one in the backend Verda providers registry.",
+    "authDisabled": "Authentication is disabled",
+    "authDisabledBody": "Set {frontendVar} on the frontend and {backendVar} on the backend, then bring up Keycloak ({makeCmd}), and reload.",
+    "backHome": "← Back home"
+  },
+  "cases": {
+    "kicker": "Cases",
+    "headingOne": "1 case on this Verda instance",
+    "headingOther": "{count} cases on this Verda instance",
+    "folders": {
+      "headingRoot": "Folders · root",
+      "headingIn": "Folders · in {name}",
+      "tooltip": "Folders group cases by client, jurisdiction, or theme. Drag any case row onto a folder card to file it. Folders can be nested arbitrarily.",
+      "tooltipDragBold": "Drag any case row",
+      "newButton": "+ New folder",
+      "viewAll": "View all folders",
+      "collapse": "Collapse",
+      "emptyRoot": "No folders at the root yet. Click + New folder to organise cases.",
+      "emptySubfolder": "This folder has no subfolders yet.",
+      "subFoldersOne": "1 sub-folder",
+      "subFoldersOther": "{count} sub-folders",
+      "open": "open",
+      "openTitle": "Open {name}",
+      "actionsLabel": "Folder actions for {name}",
+      "actions": {
+        "open": "Open folder",
+        "subfolder": "New subfolder",
+        "rename": "Rename",
+        "renameFolder": "Rename folder",
+        "delete": "Delete folder"
+      }
+    },
+    "tableCaption": {
+      "root": "Cases not in any folder",
+      "in": "Cases in {name}",
+      "tooltipPrefix": "The table shows",
+      "tooltipSuffix": "Use ⌘K (or Ctrl+K) anywhere in the app to search every case in the tree, including the ones already filed inside other folders."
+    },
+    "allCases": "All cases",
+    "empty": "No cases here yet. Drop a folder on the upload zone above to create one, or open a folder to see what's filed inside.",
+    "table": {
+      "title": "Title",
+      "track": "Track",
+      "files": "Files",
+      "updated": "Updated",
+      "updatedTooltip": "Last activity timestamp — file upload, plan change, generation run, or rename. Hover the value to see the full ISO date.",
+      "status": "Status",
+      "actions": "Actions",
+      "loading": "Loading…"
+    },
+    "row": {
+      "open": "Open case",
+      "rename": "Edit name",
+      "moveTo": "Move to folder…",
+      "exportReady": "Export…",
+      "exportNeedsGenerate": "Export (generate first)",
+      "exportDisabledHint": "Approve the plan and run generation before exporting.",
+      "delete": "Delete case"
+    },
+    "pagination": {
+      "showing": "Showing {start}–{end} of {total}",
+      "prev": "← Prev",
+      "next": "Next →"
+    },
+    "refresh": "Refresh",
+    "breadcrumb": {
+      "allCases": "← All cases",
+      "actionsLabel": "Folder actions for {name}"
+    },
+    "modals": {
+      "move": {
+        "kicker": "Move case · #{id}",
+        "title": "Pick a destination folder",
+        "close": "Close",
+        "root": "Root (unfiled)"
+      },
+      "export": {
+        "kicker": "Export · case #{id}",
+        "status": "Plan approved + toolkit generated. Pick a target below.",
+        "statusTooltip": "Each target writes a standalone artifact to disk. Encrypted requires a passphrase ≥ 8 chars; Verda never stores it.",
+        "close": "Close",
+        "passphraseLabel": "Encrypted-bundle passphrase (≥ 8 chars)",
+        "passphrasePlaceholder": "Required for the encrypted target only",
+        "passphraseError": "Encrypted target requires a passphrase of at least 8 characters.",
+        "building": "Building…",
+        "download": "Download →",
+        "targets": {
+          "zip": { "label": "Plain zip", "sub": "All artifacts, unencrypted" },
+          "encrypted": { "label": "Encrypted bundle", "sub": "AES-256-GCM · stdlib decrypter included" },
+          "docker": { "label": "Self-hosted Docker viewer", "sub": "tar.gz · `docker compose up`" },
+          "usb": { "label": "USB-portable viewer", "sub": "viewer.html + stdlib launcher" }
+        }
+      }
+    },
+    "dialogs": {
+      "createFolder": {
+        "title": "New folder",
+        "titleNested": "New folder under \"{parent}\"",
+        "body": "Group cases by client, jurisdiction, or theme. Folders can be nested arbitrarily.",
+        "label": "Folder name",
+        "placeholder": "e.g. Strategic litigation · 2026",
+        "confirm": "Create folder",
+        "emptyError": "Folder name cannot be empty"
+      },
+      "renameFolder": {
+        "title": "Rename \"{name}\"",
+        "body": "Folder contents and audit trail are unaffected.",
+        "label": "Folder name",
+        "confirm": "Rename",
+        "emptyError": "Folder name cannot be empty"
+      },
+      "deleteFolder": {
+        "title": "Delete \"{name}\"?",
+        "body": "Subfolders are deleted with it. Cases inside any of these folders are NOT deleted — they return to the root listing.",
+        "confirm": "Delete folder"
+      },
+      "renameCase": {
+        "title": "Rename case",
+        "body": "The case timestamp suffix (e.g. ' · 5/5/2026') is preserved automatically.",
+        "label": "Case title",
+        "confirm": "Save",
+        "emptyError": "Title cannot be empty"
+      },
+      "deleteCase": {
+        "title": "Delete case \"{title}\"?",
+        "body": "Files, plan, run history, and generated artifacts are removed. Audit log entries for this case are kept (audit is append-only). This cannot be undone.",
+        "confirm": "Delete case"
+      },
+      "cancel": "Cancel"
+    },
+    "toasts": {
+      "loadFailed": "Could not load cases",
+      "folderCreated": "Folder created",
+      "folderCreateFailed": "Could not create folder",
+      "folderRenamed": "Folder renamed",
+      "folderRenameFailed": "Could not rename folder",
+      "folderDeleted": "Folder deleted",
+      "folderDeleteFailed": "Could not delete folder",
+      "caseMoved": "Case moved",
+      "caseMovedTo": "Now in {dest}",
+      "caseMoveFailed": "Could not move case",
+      "caseRenamed": "Case renamed",
+      "caseRenameFailed": "Could not rename case",
+      "caseDeleted": "Case deleted",
+      "caseDeleteFailed": "Could not delete case"
+    }
+  },
+  "caseList": {
+    "emptyTitle": "No cases yet",
+    "emptyBody": "Drop a case folder on the upload zone to get started — Verda will classify the evidence and draft a plan.",
+    "metaCase": "case #{id}",
+    "metaFiles": "{count} files",
+    "metaUpdated": "updated"
+  },
+  "home": {
+    "hero": {
+      "titlePrefix": "Codex-built litigation toolkits",
+      "titleAccent": "for human rights defenders.",
+      "body": "Drop a defender's case folder. Verda parses the evidence, drafts the petition, links Kenya Law authorities, and emits a toolkit the advocate can audit, edit, and file. Open-source. Self-hostable. Lawyer signs.",
+      "badge": "Article 22 / 23 · Kenya"
+    },
+    "stats": {
+      "killed": "HRDs killed (2024)",
+      "backlog": "Pending case backlog",
+      "ratio": "Magistrates : citizens",
+      "cost": "Cost / toolkit"
+    },
+    "impact": {
+      "kicker": "Impact partner",
+      "logoAlt": "Open Society Foundations",
+      "body": "Verda is built in partnership with {partner}. OSF underwrites the Kenya Article 22 / 23 track and the East-Africa expansion (Uganda, Tanzania) shipping next, with the roadmap reviewed quarterly alongside their strategic-litigation team and the advocates they fund.",
+      "partnerName": "Open Society Foundations"
+    },
+    "start": {
+      "title": "Start a case",
+      "body": "Drop a case folder. Verda classifies the evidence, drafts a toolkit plan, and waits for your approval before generating.",
+      "anonymousTitle": "Sign in to view your cases.",
+      "anonymousBody": "Verda authenticates every action. Once you sign in, your case list and the upload zone activate.",
+      "anonymousCta": "Continue to sign in →",
+      "backendDownTitle": "Could not reach the Verda backend.",
+      "backendDownBody": "Start it with {makeStack} (or {makeBackend}).",
+      "recentCases": "Recent cases",
+      "seeAll": "See all →"
+    },
+    "modules": {
+      "title": "Four modules per case",
+      "evidence": { "name": "Evidence Codex", "desc": "Custom parser → queryable timeline + provenance." },
+      "procedural": { "name": "Procedural Engine", "desc": "Article 22 / 23 state machine, deadlines, drafted motions." },
+      "precedent": { "name": "Precedent Linker", "desc": "Ranked Kenya Law results, every URL verified." },
+      "safety": { "name": "Defender Safety Build", "desc": "Encrypted bundle · Docker · USB-portable." }
+    },
+    "lawyer": {
+      "title": "Lawyer in the loop",
+      "bodyPrefix": "Every output appears in a diff view. The lawyer reviews, edits by hand, or re-runs generation.",
+      "bodySuffix": "markers on every drafted motion enforce the boundary.",
+      "boundary": "SIGN BEFORE FILING"
+    },
+    "evidenceTypes": {
+      "kicker": "What Verda already reads",
+      "title": "Ten evidence kinds, parsed without a chatbot.",
+      "body": "A real Kenyan case file is mostly scanned police OBs, WhatsApp exports, and Swahili voice notes — not clean English contracts. Verda detects the kind, classifies provenance, and produces a per-case parser the lawyer can step through line by line.",
+      "items": {
+        "policeObs":    { "name": "Police OBs",        "sub": "scanned · mixed quality" },
+        "whatsapp":     { "name": "WhatsApp exports",  "sub": "_chat.txt · attachments" },
+        "voiceNotes":   { "name": "Voice notes",       "sub": "Swahili · Sheng · English" },
+        "phonePhotos":  { "name": "Phone photos",      "sub": "JPG · HEIC · with EXIF" },
+        "medical":      { "name": "Medical reports",   "sub": "P3 · clinical · PDF" },
+        "bankSlips":    { "name": "Bank slips",        "sub": "M-PESA · transfers · receipts" },
+        "courtRecords": { "name": "Court records",     "sub": "rulings · cause lists · orders" },
+        "scannedPdfs":  { "name": "Scanned PDFs",      "sub": "OCR-ready · multi-page" },
+        "familyThreads":{ "name": "Family threads",    "sub": "SMS · group chats · timestamps" },
+        "exif":         { "name": "EXIF metadata",     "sub": "geo · device · timestamp" }
+      }
+    }
+  },
+  "about": {
+    "kicker": "About",
+    "title": "Software for the people defending the open society.",
+    "intro1": "Verda is a Codex-native platform that takes a defender's messy case file — PDFs, photos, Swahili audio, WhatsApp exports — and autonomously generates a custom litigation toolkit in code. Each toolkit contains four modules built specifically for that case: an Evidence Codex parser, a Procedural Engine state machine, a Precedent Linker, and a Defender Safety Build (offline-deployable Docker / USB). Lawyers don't get a chatbot — they get working software, generated in under an hour.",
+    "intro2": "The platform is open-core and federated. Each partner organisation runs their own Verda instance. No central database holds case data. The core team supports orgs through documentation, templates, and packaged updates — not by operating their data.",
+    "intro3Prefix": "Verda is built from Nairobi by a developer with shipped products in Kenyan civic spaces — Somo (CBC AI tutor) and Lipa (M-Pesa escrow) — for the partners building the Open Society. The first jurisdiction is Kenya. East Africa expansion (Uganda, Tanzania) is a content task: a local lawyer authors an ",
+    "intro3Suffix": " with template motions and procedural rules, and Verda immediately supports cases there.",
+    "architectureTitle": "Architecture",
+    "architecture": {
+      "intake": { "label": "Intake", "body": "Next.js + Tailwind upload UI. Multi-modal: PDFs, photos, audio, WhatsApp exports, plain text." },
+      "knowledge": { "label": "Knowledge", "body": "SQLite (PG-shaped) + on-disk evidence store. Whisper / Tesseract integrations are stubbed for the MVP." },
+      "orchestration": { "label": "Orchestration", "body": "FastAPI orchestrator with audit log. In-process generation; Celery / Redis is the obvious next step." },
+      "generation": { "label": "Generation", "body": "Codex Skills + AGENTS.md per jurisdiction. Deterministic fallback runs without any API key." },
+      "deployment": { "label": "Deployment", "body": "Docker manifest, USB-bootable manifest, and AES-256-GCM encrypted bundles with a scrypt KDF." }
+    },
+    "lawyerTitle": "Lawyer in the loop",
+    "lawyerBody": "Verda produces drafts and tools. A licensed advocate signs and files. The Law Society of Kenya rules of professional conduct are met because the human lawyer is the responsible practitioner at every step."
+  },
+  "audit": {
+    "kicker": "Audit",
+    "title": "Audit log",
+    "body": "Immutable record of every MCP call, every Codex prompt, every export across this Verda instance."
+  },
+  "upload": {
+    "uploadingProgress": "Uploading {uploaded}/{total}",
+    "uploading": "Uploading…",
+    "prompt": "Drop a case folder or files here",
+    "blurb": "PDFs · photos · WhatsApp exports · audio · plain text. Drop a whole folder or pick files individually. Verda hashes, deduplicates, and classifies every item before drafting a plan.",
+    "browseFiles": "Browse files",
+    "browseFolder": "Browse folder",
+    "dialogs": {
+      "folderConfirm": {
+        "title": "Upload this folder to Verda?",
+        "bodyWithCount": "Verda will hash, classify, and store every readable file in the dropped folder ({count} files). Files stay on the server you signed into until you choose to export. Continue to ingest, or cancel to discard.",
+        "bodyNoCount": "Verda will hash, classify, and store every readable file in the dropped folder. Files stay on the server you signed into until you choose to export. Continue to ingest, or cancel to discard.",
+        "confirm": "Continue · upload folder"
+      },
+      "folderPick": {
+        "title": "Pick a folder to upload?",
+        "body": "You're about to upload an entire folder to Verda. Every readable file inside it (and its subfolders) will be hashed, classified, and stored under your case.\n\nAfter you click Continue, your browser will show its own security confirmation — that one is enforced by the browser and we can't replace it. Approve it to actually open the folder picker.",
+        "confirm": "Continue"
+      },
+      "cancel": "Cancel"
+    },
+    "toasts": {
+      "nothing": "Nothing to upload",
+      "nothingHint": "The drop contained no files. If you dropped a folder, your browser may have blocked it — try the Browse buttons.",
+      "dropFailed": "Drop failed",
+      "dropFailedFallback": "Could not read dropped items",
+      "uploadFailed": "Upload failed",
+      "uploadFailedSignedOut": "You're not signed in. Click Sign in, then retry.",
+      "successTitle": "Evidence ingested",
+      "successBodyOne": "1 file parsed and a plan was drafted.",
+      "successBodyOther": "{count} files parsed and a plan was drafted."
+    },
+    "untitledTitle": "Untitled case · {date}",
+    "untitledDescription": "Created from drag-and-drop intake."
+  },
+  "palette": {
+    "placeholder": "Jump anywhere…",
+    "empty": "No matches. Try searching by case name or jump back home.",
+    "footer": "↑↓ navigate · ⏎ select · esc close",
+    "groups": {
+      "navigate": "Navigate",
+      "actions": "Actions",
+      "recentCases": "Recent cases"
+    },
+    "actions": {
+      "home": "Go to home",
+      "allCases": "Go to all cases",
+      "audit": "Open global audit log",
+      "profile": "Open my profile",
+      "newCase": "Create a new case",
+      "newCaseHint": "drop files on the home page",
+      "casePrefix": "Case #{id}"
+    }
+  },
+  "notFound": {
+    "kicker": "404 · Not found",
+    "title": "That page is not on file.",
+    "body": "The link is broken, the case was deleted, or you do not have access to it. Verda returns 404 (rather than 403) for cases you cannot read so case ids cannot be enumerated.",
+    "backHome": "Back home",
+    "allCases": "All cases"
+  },
+  "error": {
+    "kicker": "500 · Something broke",
+    "title": "Verda hit an unexpected error.",
+    "body": "The action you tried did not complete. Your case data is unaffected — Verda persists every change to the SQLite store before it renders. Retry the action; if it keeps failing, ask the operator to check the Verda backend log.",
+    "tryAgain": "Try again",
+    "backHome": "Back home"
+  },
+  "forbidden": {
+    "kicker": "403 · Forbidden",
+    "title": "Your role does not have permission for that action.",
+    "body": "Verda's IAM layer denied this request. Lawyer-in-the-loop actions (plan approval, encrypted export) are restricted to the {role} role. Per-case write access is also gated by ownership or membership. Ask the case owner for a member grant, or have an administrator assign you the right realm role in Keycloak.",
+    "allCases": "All cases",
+    "backHome": "Back home"
+  },
+  "loading": "Loading",
+  "workspace": {
+    "panelsLabel": "Case panels",
+    "panels": {
+      "overview": "Overview",
+      "plan": "Plan",
+      "generation": "Generation",
+      "timeline": "Timeline",
+      "petition": "Petition",
+      "precedents": "Precedents",
+      "procedure": "Procedure",
+      "audit": "Audit",
+      "export": "Export"
+    },
+    "caseHeader": {
+      "casesCrumb": "Cases",
+      "caseNumber": "case #{id}",
+      "approving": "Approving…",
+      "approvePlan": "Approve plan",
+      "generating": "Generating…",
+      "regenerate": "Re-run generation",
+      "generate": "Generate toolkit",
+      "export": "Export",
+      "rerunTitle": "Re-run generation?",
+      "rerunBody": "This overwrites the existing bundle on disk. Any unsigned drafts and the petition draft will be regenerated from current evidence and the latest plan. Earlier exports you've already downloaded are unaffected.",
+      "rerunConfirm": "Re-run",
+      "rerunCancel": "Keep current bundle",
+      "approvedTitle": "Plan approved",
+      "approvedBody": "Ready to generate the toolkit.",
+      "approveFailed": "Approve failed",
+      "generatedTitle": "Toolkit generated",
+      "generatedBody": "Run #{run} · {seconds}s · {events} events",
+      "generationFailed": "Generation failed",
+      "deadlineOverdue": "{days}d overdue",
+      "deadlineDue": "{days}d to {label}",
+      "titleEmptyError": "Title cannot be empty",
+      "titleSaved": "Title saved",
+      "renameFailed": "Could not rename",
+      "titleAriaLabel": "Case title",
+      "titleEditAria": "Edit case title ({prefix})",
+      "titleEditTooltip": "Click to rename"
+    }
+  },
+  "profile": {
+    "kicker": "Profile",
+    "kickerSignedIn": "signed in",
+    "kickerAnonymous": "anonymous mode",
+    "backendDownTitle": "Could not reach the Verda backend.",
+    "backendDownBody": "Start it with {makeCmd} and refresh.",
+    "globalScope": "Global case scope",
+    "globalScopeTip": "This role sees every case in the instance. Other roles only see cases they own or are members of.",
+    "bioPlaceholder": "No bio yet. Add one below — it appears next to your audit-log entries so the rest of the team has context for the actions you take.",
+    "avatar": {
+      "uploading": "Uploading…",
+      "limits": "PNG · JPG · WebP · ≤ 2 MB",
+      "remove": "Remove avatar",
+      "change": "Change avatar",
+      "removeTitle": "Remove avatar?",
+      "removeBody": "Your initial will be shown instead. You can upload a new one any time.",
+      "removeConfirm": "Remove",
+      "removeCancel": "Cancel"
+    },
+    "display": {
+      "heading": "Display",
+      "source": "Source · Keycloak + local override",
+      "sourceTipPrefix": "Identity (sub, email, realm roles) flows from your IdP and cannot be edited here.",
+      "sourceTipBold": "Display name",
+      "sourceTipSuffix": " and bio are local overrides — useful when your Keycloak account uses a username that isn't how teammates know you.",
+      "fieldDisplayName": "Display name",
+      "fieldSub": "Subject (sub)",
+      "fieldSubHint": "Read-only · from your IdP token",
+      "fieldBio": "Bio",
+      "fieldBioHint": "Visible to teammates next to your audit entries",
+      "bioInputPlaceholder": "A short note about how you'd like to collaborate. Keep it under a paragraph.",
+      "discard": "Discard changes",
+      "saving": "Saving…",
+      "save": "Save profile"
+    },
+    "permissions": {
+      "canDo": "What you can do",
+      "canDoTipPrefix": "Permissions come from your",
+      "canDoTipBold": "realm roles",
+      "canDoTipSuffix": ". Ask an administrator to grant a different role in Keycloak to expand this list.",
+      "canDoEmpty": "No actionable permissions yet — your role is read-only.",
+      "needsRole": "What requires another role",
+      "needsRoleTip": "Permissions in this list need a role you don't currently hold (e.g. lawyer for plan approval, admin for global audit).",
+      "noneNeeded": "You hold every permission Verda exposes today.",
+      "matrix": {
+        "casesRead":      { "label": "Read cases",       "hint": "View case detail, evidence, plans, and generated artifacts." },
+        "casesCreate":    { "label": "Create cases",     "hint": "Start a new case from a folder of evidence." },
+        "casesWrite":     { "label": "Edit cases",       "hint": "Rename, upload more evidence, regenerate the plan." },
+        "casesDelete":    { "label": "Delete cases",     "hint": "Hard-delete a case and its dependent rows. Audit trail is kept." },
+        "casesShare":     { "label": "Share cases",      "hint": "Add or remove case members (per-case ACL)." },
+        "planApprove":    { "label": "Approve plans",    "hint": "Lawyer-in-the-loop gate that authorises generation to run." },
+        "generationRun":  { "label": "Run generation",   "hint": "Kick off the toolkit generator once a plan is approved." },
+        "exportsBasic":   { "label": "Export bundles",   "hint": "Build zip / Docker / USB exports." },
+        "exportsEncrypted": { "label": "Export encrypted bundles", "hint": "Build AES-256-GCM encrypted bundles for off-platform delivery." },
+        "auditCase":      { "label": "Read case audit",  "hint": "View the audit log for a case you can already see." },
+        "auditGlobal":    { "label": "Read global audit","hint": "View the platform-wide audit stream across every case." },
+        "usersRead":      { "label": "Read users",       "hint": "Look up another user's profile and case-membership state." },
+        "usersManage":    { "label": "Manage users",     "hint": "Reserved for admin operations on user records." }
+      }
+    },
+    "links": {
+      "heading": "Where to go from here",
+      "casesTitle": "Cases",
+      "casesHint": "Browse, organise, and search every case you can see.",
+      "auditTitle": "Audit log",
+      "auditHint": "Append-only stream of every MCP call, plan change, and export.",
+      "approveTitle": "Approve a plan",
+      "approveHint": "Plans pending your approval gate generation.",
+      "uploadTitle": "Upload evidence",
+      "uploadHint": "Drop a folder on the home page to start a new case."
+    },
+    "footer": {
+      "sub": "sub",
+      "joined": "joined",
+      "updated": "updated"
+    },
+    "toasts": {
+      "saved": "Profile saved",
+      "saveFailed": "Could not save profile",
+      "avatarUploaded": "Avatar updated",
+      "avatarUploadFailed": "Avatar upload failed",
+      "avatarRemoved": "Avatar removed",
+      "avatarRemoveFailed": "Could not remove avatar"
+    }
+  }
+}
