@@ -1,0 +1,48 @@
+name: Lint
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lint-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  conventional-commits:
+    name: Conventional commit titles
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Validate PR title against Conventional Commits
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          # type(scope): summary       OR     type: summary
+          pattern='^(feat|fix|chore|docs|test|refactor|perf|ci|build|style|revert)(\([a-z0-9._/-]+\))?!?: .+'
+          if echo "$TITLE" | grep -qE "$pattern"; then
+            echo "OK: $TITLE"
+          else
+            echo "::error::PR title '$TITLE' does not match Conventional Commits."
+            echo "Use: <type>(<scope>): <summary>"
+            echo "Allowed types: feat, fix, chore, docs, test, refactor, perf, ci, build, style, revert"
+            exit 1
+          fi
+
+  secret-scan:
+    name: Pre-commit secret scan (gitleaks)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: false

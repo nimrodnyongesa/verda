@@ -1,0 +1,7 @@
+# Mirror of the root CODEOWNERS file.
+#
+# GitHub looks for CODEOWNERS in: root, .github/, and docs/.
+# We keep the canonical copy at the repo root and a pointer here for
+# discoverability.
+
+# See /CODEOWNERS for the full set of rules.

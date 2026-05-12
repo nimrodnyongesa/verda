@@ -1,0 +1,46 @@
+name: Trademark / brand use request
+description: Request permission to use the Verda name or mark.
+title: "[trademark] "
+labels: [trademark]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        See [`TRADEMARK.md`](../TRADEMARK.md) for what is and isn't
+        permitted without asking. Use this form for everything else.
+
+  - type: input
+    id: requester
+    attributes:
+      label: Who you are
+      placeholder: Name and organisation (or "individual / pseudonym")
+    validations:
+      required: true
+
+  - type: textarea
+    id: use
+    attributes:
+      label: Exactly how do you want to use the Verda name / mark?
+      placeholder: Product, service, event, domain, etc.
+    validations:
+      required: true
+
+  - type: input
+    id: jurisdiction
+    attributes:
+      label: Jurisdiction
+      placeholder: e.g. Kenya, EU, US
+    validations:
+      required: true
+
+  - type: textarea
+    id: duration
+    attributes:
+      label: Duration and revocability
+      description: How long? Are you OK with us revoking permission if usage drifts?
+
+  - type: textarea
+    id: mockup
+    attributes:
+      label: Mock-up (optional but helpful)
+      description: Link to a screenshot, logo composition, or sample page.
