@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Verda">
+  <defs>
+    <linearGradient id="verda-tile" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#14223e"/>
+      <stop offset="100%" stop-color="#0a1429"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#verda-tile)"/>
+  <path
+    d="M16 20 L32 46 L48 20"
+    fill="none"
+    stroke="#faf6ec"
+    stroke-width="5.4"
+    stroke-linecap="round"
+    stroke-linejoin="round"/>
+  <circle cx="32" cy="14" r="2.6" fill="#d4a534"/>
+</svg>

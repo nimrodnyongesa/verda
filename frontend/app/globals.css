@@ -1,0 +1,463 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0a1429;
+  --color-ink-soft: #14223e;
+  --color-ink-deeper: #050a18;
+  --color-paper: #faf6ec;
+  --color-paper-deep: #f1ead7;
+  --color-paper-hover: #f6efde;
+  --color-gold: #d4a534;
+  --color-gold-bright: #f0c14b;
+  --color-gold-soft: #fbe9c1;
+  --color-rust: #b85c20;
+  --color-fern: #4f7a4f;
+
+  --font-sans: "Inter", "ui-sans-serif", "system-ui", "-apple-system",
+    "BlinkMacSystemFont", "Segoe UI", "Roboto", sans-serif;
+  --font-serif: "Source Serif 4", "Source Serif Pro", "ui-serif", Georgia,
+    "Cambria", "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", "ui-monospace", "SFMono-Regular", Menlo,
+    Consolas, monospace;
+
+  /* Extended breakpoints — Tailwind ships up to 2xl (1536 px) which leaves
+     a 27"+ monitor showing 30%+ side-margin around our 80rem max width.
+     3xl / 4xl extend the scale to monitor (~1920) and TV / large display
+     (~2560+) so the app shell can grow into the available real estate
+     without the content being marooned in the centre.  */
+  --breakpoint-3xl: 1920px;
+  --breakpoint-4xl: 2560px;
+}
+
+html, body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* Native-app feel on mobile */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none;
+}
+
+html { scroll-padding-top: 80px; }
+
+button, a, [role="button"] {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/*
+ * Pointer cursor on every clickable affordance that does something.
+ *
+ * Allow-list (not blanket): real buttons, links with an href, anything
+ * declaring role="button" or role="link" or role="tab" / "menuitem" / "option"
+ * / "switch" / "checkbox" / "radio", <summary> on a <details>, <label> tied
+ * to a control (checkbox/radio/file input via "for" / inner <input>), and
+ * elements with a [data-clickable] hook.
+ *
+ * Exclude: disabled buttons, aria-disabled controls, plain text inputs,
+ * textarea, range/file inputs (the browser's own caret/native UI is right),
+ * non-interactive labels (e.g. a <label> wrapping a <span> for layout).
+ */
+button:not(:disabled):not([aria-disabled="true"]),
+a[href]:not([aria-disabled="true"]),
+[role="button"]:not([aria-disabled="true"]),
+[role="link"]:not([aria-disabled="true"]),
+[role="tab"]:not([aria-disabled="true"]),
+[role="menuitem"]:not([aria-disabled="true"]),
+[role="option"]:not([aria-disabled="true"]),
+[role="switch"]:not([aria-disabled="true"]),
+[role="checkbox"]:not([aria-disabled="true"]),
+[role="radio"]:not([aria-disabled="true"]),
+summary,
+label:has(input[type="checkbox"]),
+label:has(input[type="radio"]),
+label:has(input[type="file"]),
+label[for],
+[data-clickable]:not([aria-disabled="true"]),
+input[type="checkbox"]:not(:disabled),
+input[type="radio"]:not(:disabled),
+input[type="submit"]:not(:disabled),
+input[type="button"]:not(:disabled),
+input[type="reset"]:not(:disabled),
+input[type="file"]:not(:disabled),
+input[type="image"]:not(:disabled),
+input[type="color"]:not(:disabled),
+select:not(:disabled) {
+  cursor: pointer;
+}
+
+/* Disabled state should look unclickable, regardless of element. */
+button:disabled,
+[aria-disabled="true"],
+[role="button"][aria-disabled="true"],
+[role="tab"][aria-disabled="true"],
+input:disabled,
+select:disabled,
+textarea:disabled {
+  cursor: not-allowed;
+}
+
+/* Range slider — keep the native grab cursor on the thumb. */
+input[type="range"]:not(:disabled) {
+  cursor: grab;
+}
+
+img, svg, video, canvas { max-width: 100%; height: auto; }
+
+/* Hide focus rings on touch input — keep them on keyboard */
+:focus:not(:focus-visible) { outline: none; }
+
+@media (max-width: 640px) {
+  body { font-size: 15px; }
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+.serif { font-family: var(--font-serif); font-feature-settings: "ss01"; }
+.mono { font-family: var(--font-mono); }
+
+.balanced { text-wrap: balance; }
+.pretty { text-wrap: pretty; }
+
+.rule-gold {
+  background-image: linear-gradient(90deg, var(--color-gold) 0%, var(--color-gold) 60%, transparent 100%);
+  height: 2px;
+}
+
+.gold-underline {
+  background-image: linear-gradient(90deg, var(--color-gold), var(--color-gold));
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 2px;
+}
+
+.prose-petition { max-width: 100%; word-break: break-word; overflow-wrap: anywhere; hyphens: auto; }
+.prose-petition h1 { font-size: 1.75rem; font-weight: 700; margin: 1.5rem 0 0.75rem; line-height: 1.2; }
+.prose-petition h2 { font-size: 1.25rem; font-weight: 600; margin: 1.25rem 0 0.5rem; }
+.prose-petition h3 { font-size: 1.05rem; font-weight: 600; margin: 1rem 0 0.5rem; }
+.prose-petition p { margin: 0.5rem 0; line-height: 1.7; max-width: 70ch; }
+.prose-petition pre { white-space: pre-wrap; word-break: break-word; overflow-x: auto; max-width: 100%; }
+.prose-petition a { word-break: break-all; }
+.prose-petition table { display: block; overflow-x: auto; max-width: 100%; }
+.prose-petition ul { list-style: disc; padding-left: 1.5rem; margin: 0.5rem 0; }
+.prose-petition ol { list-style: decimal; padding-left: 1.5rem; margin: 0.5rem 0; }
+.prose-petition li { margin: 0.25rem 0; }
+.prose-petition strong { font-weight: 600; }
+.prose-petition code { font-family: var(--font-mono); background: var(--color-paper-deep); padding: 0 4px; border-radius: 3px; font-size: 0.9em; }
+
+.scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background: rgba(10, 20, 41, 0.2); border-radius: 4px; }
+.scrollbar-thin::-webkit-scrollbar-thumb:hover { background: rgba(10, 20, 41, 0.35); }
+
+/* ---------------------------------------------------------------------------
+ * Responsive shell — single utility class used by every page-level container.
+ *
+ * The default Tailwind `max-w-7xl` (80rem / 1280 px) leaves big monitors
+ * with 30%+ unused side-margin. `.app-shell` scales the shell up at every
+ * breakpoint above lg so a 27" monitor or a TV uses the screen instead of
+ * marooning content in a column. The values are picked to keep line-length
+ * readable (max ~120ch on body text, controlled by `max-w-prose`).
+ * --------------------------------------------------------------------------- */
+.app-shell {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1rem;                /* 16 px gutter on phones */
+  max-width: 80rem;                    /* 1280 px — laptop default */
+}
+@media (min-width: 640px) {
+  .app-shell { padding-inline: 1.5rem; }   /* 24 px */
+}
+@media (min-width: 1280px) {
+  .app-shell { max-width: 88rem; padding-inline: 2rem; }   /* 1408 px */
+}
+@media (min-width: 1536px) {
+  .app-shell { max-width: 100rem; padding-inline: 2.5rem; } /* 1600 px */
+}
+@media (min-width: 1920px) {
+  .app-shell { max-width: 120rem; padding-inline: 3rem; }   /* 1920 px */
+}
+@media (min-width: 2560px) {
+  .app-shell { max-width: 144rem; padding-inline: 4rem; }   /* 2304 px */
+}
+
+/* ---------------------------------------------------------------------------
+ * Mobile native-feel polish.
+ *
+ * The app already sets `touch-action: manipulation` and clears the iOS
+ * tap highlight; the additions below make the in-app interactions feel
+ * closer to a native shell:
+ *   - smooth, momentum-style scrolling everywhere
+ *   - subtle press feedback on buttons (Material/iOS style)
+ *   - bottom-sheet-style modals on small screens (round only the top)
+ *   - safe-area insets on the header / footer
+ * --------------------------------------------------------------------------- */
+html { scroll-behavior: smooth; }
+
+button:not(:disabled):active,
+a:not([aria-disabled="true"]):active {
+  transform: scale(0.985);
+  transition: transform 0.05s ease-in;
+}
+
+/* Touch screens — bump button hit areas to the platform-recommended 44 px
+   without adding visible padding. Tailwind already does this on size="sm"
+   buttons in our UI kit; this is a safety net for ad-hoc anchors. */
+@media (hover: none) and (pointer: coarse) {
+  button, a[role="button"], a[href]:not([aria-disabled="true"]) {
+    min-height: 40px;
+  }
+  /* Hide hover-revealed action clusters that don't make sense on touch. */
+  .touch-hide-hover-only { display: none !important; }
+}
+
+/* Bottom-sheet modal feel on phones. Any element with [data-modal="sheet"]
+   sticks to the bottom edge with rounded top corners + safe-area padding,
+   slides up from below, shows a small handle pill, and locks itself to a
+   90dvh max so very tall content scrolls inside the sheet rather than
+   pushing it off-screen. */
+@keyframes verda-sheet-up {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+@keyframes verda-sheet-down {
+  from { transform: translateY(0); }
+  to   { transform: translateY(100%); }
+}
+@keyframes verda-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes verda-fade-out {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(4px); }
+}
+@keyframes verda-backdrop-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes verda-backdrop-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+/* Backdrop fade — applies to any overlay tagged with data-overlay. */
+[data-overlay] {
+  animation: verda-backdrop-in 0.18s ease-out;
+}
+[data-overlay][data-state="closing"] {
+  animation: verda-backdrop-out 0.18s ease-in forwards;
+  pointer-events: none;
+}
+
+/* Desktop modals (≥ md): fade + tiny lift for the open and close. The
+   sheet positioning rules below stay scoped to phones / small tablets. */
+@media (min-width: 768px) {
+  [data-modal="sheet"] {
+    animation: verda-fade-in 0.18s ease-out;
+  }
+  [data-modal="sheet"][data-state="closing"] {
+    animation: verda-fade-out 0.16s ease-in forwards;
+    pointer-events: none;
+  }
+}
+
+/* Sheet kicks in up to the `md` breakpoint (the same point the
+   bottom-nav appears) — phones AND small tablets get the native sheet
+   pattern. md and up get the centred desktop modal as before. */
+@media (max-width: 767px) {
+  [data-modal="sheet"] {
+    position: fixed !important;
+    inset: auto 0 0 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 1.25rem 1.25rem 0 0 !important;
+    padding-top: 1.5rem !important;
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 1rem) !important;
+    transform: none !important;
+    box-shadow: 0 -16px 48px -12px rgba(10, 20, 41, 0.35) !important;
+    animation: verda-sheet-up 0.24s cubic-bezier(0.2, 0.85, 0.2, 1);
+    max-height: 90dvh !important;
+    overflow-y: auto !important;
+  }
+  [data-modal="sheet"][data-state="closing"] {
+    animation: verda-sheet-down 0.22s cubic-bezier(0.4, 0, 1, 1) forwards !important;
+    pointer-events: none;
+  }
+  /* Drag-handle pill — pure CSS, no markup change required. */
+  [data-modal="sheet"]::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 4px;
+    border-radius: 999px;
+    background: rgba(10, 20, 41, 0.18);
+    pointer-events: none;
+  }
+  /* Pin overlay parents that use `flex items-center` to the bottom edge
+     so the sheet has a natural anchor on small viewports. */
+  .fixed.inset-0[role="dialog"] {
+    align-items: flex-end !important;
+    padding: 0 !important;
+  }
+}
+
+/* Defensive page-wide overflow guard. Mobile and small-tablet viewports
+   are sensitive to one wide child (long unbreakable underscore lines in
+   a drafted motion, a giant SVG, an out-of-shell hero) blowing out the
+   `<body>` width. The shell already uses `overflow-x: clip` on body, but
+   we add `max-width: 100%` on every section/article so a stretchy child
+   has no chance of pushing the page sideways. */
+section, article, main {
+  max-width: 100%;
+}
+
+/* Long unbreakable strings in markdown content (signature underscore
+   lines, long URLs, unbroken tokens) caused the procedure / petition
+   tabs to scroll the whole page sideways even with whitespace-pre-wrap.
+   These rules apply only inside the `data-content="markdown"` opt-in
+   container so they don't leak into the workspace tables (which intend
+   to scroll horizontally) or other panels. */
+[data-content="markdown"] {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+[data-content="markdown"] pre,
+[data-content="markdown"] code {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
+[data-content="markdown"] a {
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}
+
+/* Larger body type on extra-large screens so 4K / TV viewing stays readable
+   from the couch. Caps at 17 px so we don't blow through line-lengths. */
+@media (min-width: 1920px) {
+  body { font-size: 16px; }
+}
+@media (min-width: 2560px) {
+  body { font-size: 17px; }
+}
+
+/* Standalone PWA mode — when the app is installed and launched as a PWA
+   the OS chrome is gone, so we add an extra top inset so the sticky
+   header doesn't collide with the device status bar. */
+@media all and (display-mode: standalone) {
+  body { padding-top: env(safe-area-inset-top, 0px); }
+}
+
+/* Date / timestamp text — every rendered date in the app gets a subtle
+   dotted underline to mark it as derived (machine-formatted) data and
+   distinguish it from plain prose. Apply via the <DateText> helper or by
+   adding the `date-text` class directly to a span. */
+.date-text {
+  border-bottom: 1px dotted rgba(10, 20, 41, 0.35);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Plain underlined "back" link (e.g. "← All cases" in breadcrumbs) — no
+   background, no padding, just text + the gold underline that matches the
+   rest of the brand. */
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-decoration-color: rgba(10, 20, 41, 0.4);
+  text-underline-offset: 3px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+.text-link:hover {
+  color: var(--color-rust);
+  text-decoration-color: var(--color-rust);
+}
+.scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+
+@keyframes wakili-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+.animate-wakili-pulse { animation: wakili-pulse 1.4s ease-in-out infinite; }
+
+@keyframes wakili-slide-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-in { animation: wakili-slide-in 320ms cubic-bezier(.2,.7,.3,1) both; }
+
+@keyframes wakili-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer-text {
+  background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-gold-bright) 50%, var(--color-gold) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: wakili-shimmer 4s ease-in-out infinite;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, rgba(10,20,41,0.06) 0%, rgba(10,20,41,0.12) 50%, rgba(10,20,41,0.06) 100%);
+  background-size: 200% 100%;
+  animation: wakili-shimmer 1.6s linear infinite;
+  border-radius: 0.5rem;
+}
+
+.surface {
+  background: white;
+  border: 1px solid rgba(10, 20, 41, 0.08);
+  border-radius: 0.875rem;
+  box-shadow: 0 1px 0 rgba(10, 20, 41, 0.02), 0 8px 28px -16px rgba(10, 20, 41, 0.18);
+}
+.surface-deep {
+  background: var(--color-paper-deep);
+  border: 1px solid rgba(10, 20, 41, 0.08);
+  border-radius: 0.875rem;
+}
+.surface-ink {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  border: 1px solid rgba(250, 246, 236, 0.06);
+  border-radius: 0.875rem;
+}
+
+.kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.25rem;
+  padding: 0 0.35rem;
+  height: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  border-radius: 4px;
+  background: rgba(10, 20, 41, 0.06);
+  border: 1px solid rgba(10, 20, 41, 0.12);
+  color: rgba(10, 20, 41, 0.7);
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
