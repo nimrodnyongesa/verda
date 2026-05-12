@@ -1,0 +1,97 @@
+name: Bug report
+description: Something doesn't work as documented.
+title: "bug: "
+labels: [bug, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug. **For security
+        issues**, please use [Private Vulnerability Reporting][pvr]
+        instead — see [`SECURITY.md`](../SECURITY.md).
+
+        [pvr]: https://github.com/nyongesa637/verda/security/advisories/new
+
+  - type: checkboxes
+    id: pre-flight
+    attributes:
+      label: Pre-flight
+      options:
+        - label: I searched existing issues and didn't find a duplicate.
+          required: true
+        - label: This is **not** a security issue (I would otherwise use Private Vulnerability Reporting).
+          required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Verda version / commit SHA
+      description: e.g. `git rev-parse HEAD` or the release tag.
+      placeholder: a1b2c3d
+    validations:
+      required: true
+
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Surface
+      options:
+        - Backend (FastAPI / Python)
+        - Frontend (Next.js)
+        - MCP server
+        - Exporter (zip / encrypted / docker / USB)
+        - Auth (Keycloak / OIDC)
+        - Other / unsure
+    validations:
+      required: true
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      placeholder: A clear, factual description of the behaviour you saw.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. `make stack && make stack-wait`
+        2. Sign in as `advocate / advocate`
+        3. Upload `…`
+        4. Click `…`
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / stack traces
+      render: shell
+
+  - type: textarea
+    id: env
+    attributes:
+      label: Environment
+      placeholder: |
+        - OS:      e.g. Ubuntu 24.04, macOS 14.5
+        - Python:  3.12.x
+        - Node:    20.x
+        - Browser: Firefox 128 / Chrome 126
+
+  - type: checkboxes
+    id: code-of-conduct
+    attributes:
+      label: Code of Conduct
+      options:
+        - label: I agree to follow this project's [Code of Conduct](../CODE_OF_CONDUCT.md).
+          required: true
