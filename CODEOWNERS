@@ -1,0 +1,43 @@
+# Verda code owners
+#
+# Reviewers listed here are automatically requested when a PR touches
+# the matching paths. The default catch-all is the project lead.
+#
+# Order matters: later, more specific patterns override earlier ones.
+
+# --- default owner ---
+*                                       @nyongesa637
+
+# --- legal / governance (require lead review) ---
+/LICENSE                                @nyongesa637
+/NOTICE                                 @nyongesa637
+/TRADEMARK.md                           @nyongesa637
+/CODE_OF_CONDUCT.md                     @nyongesa637
+/CONTRIBUTING.md                        @nyongesa637
+/SECURITY.md                            @nyongesa637
+/CODEOWNERS                             @nyongesa637
+
+# --- CI / build / release ---
+/.github/                               @nyongesa637
+/Makefile                               @nyongesa637
+/scripts/                               @nyongesa637
+
+# --- security-critical surface ---
+# Cryptography, auth, audit log, MCP servers, exporters.
+# Touching any of these requires a lead review and a test update.
+/backend/wakili/services/encryption.py  @nyongesa637
+/backend/wakili/services/audit.py       @nyongesa637
+/backend/wakili/services/exporters/     @nyongesa637
+/backend/wakili/auth/                   @nyongesa637
+/backend/wakili/mcp/                    @nyongesa637
+/backend/wakili/mcp_server/             @nyongesa637
+
+# --- jurisdiction content packs ---
+# Adding or modifying a jurisdiction must be reviewed by the project
+# lead until we set up a jurisdiction-owners group.
+/backend/wakili/data/jurisdictions/     @nyongesa637
+
+# --- frontend auth proxy ---
+/frontend/app/api/auth/                 @nyongesa637
+/frontend/app/api/be/                   @nyongesa637
+/frontend/lib/auth/                     @nyongesa637
