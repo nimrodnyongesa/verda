@@ -1,0 +1,25 @@
+[project]
+name = "wakili"
+version = "0.2.0"
+description = "Codex-built litigation toolkits for human rights defenders"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.118",
+    "uvicorn[standard]>=0.32",
+    "python-multipart>=0.0.20",
+    "pydantic>=2.10",
+]
+
+[project.optional-dependencies]
+openai = ["openai>=1.50"]
+test = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["wakili*"]
