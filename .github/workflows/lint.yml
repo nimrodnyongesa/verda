@@ -22,7 +22,17 @@ jobs:
       - name: Validate PR title against Conventional Commits
         env:
           TITLE: ${{ github.event.pull_request.title }}
+          AUTHOR_TYPE: ${{ github.event.pull_request.user.type }}
+          AUTHOR_LOGIN: ${{ github.event.pull_request.user.login }}
         run: |
+          # Bots open PRs with their own title conventions (Dependabot uses
+          # double scopes like `chore(deps)(deps-dev): ...`). Skip the check
+          # for any Bot-authored PR so security and dependency updates flow
+          # through cleanly.
+          if [ "$AUTHOR_TYPE" = "Bot" ]; then
+            echo "::notice::Skipping title check for bot-authored PR (${AUTHOR_LOGIN})."
+            exit 0
+          fi
           # type(scope): summary       OR     type: summary
           pattern='^(feat|fix|chore|docs|test|refactor|perf|ci|build|style|revert)(\([a-z0-9._/-]+\))?!?: .+'
           if echo "$TITLE" | grep -qE "$pattern"; then
