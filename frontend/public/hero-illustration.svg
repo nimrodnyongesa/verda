@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 540" role="img" aria-label="Stack of case documents emerging from a courthouse silhouette, with the Verda mark embedded in the lead petition">
+  <defs>
+    <linearGradient id="vh-paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#faf6ec"/>
+      <stop offset="100%" stop-color="#f1ead7"/>
+    </linearGradient>
+    <linearGradient id="vh-paper-soft" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#faf6ec" stop-opacity="0.92"/>
+      <stop offset="100%" stop-color="#f1ead7" stop-opacity="0.78"/>
+    </linearGradient>
+    <radialGradient id="vh-halo" cx="50%" cy="38%" r="62%">
+      <stop offset="0%" stop-color="#d4a534" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#d4a534" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <circle cx="240" cy="200" r="210" fill="url(#vh-halo)"/>
+
+  <!-- Courthouse silhouette behind: pediment, columns, base. Paper-tinted
+       strokes on the dark hero background read as architectural memory. -->
+  <g opacity="0.42" stroke="#faf6ec" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M120 168 L240 96 L360 168 Z"/>
+    <line x1="120" y1="168" x2="360" y2="168"/>
+    <line x1="120" y1="178" x2="360" y2="178"/>
+    <line x1="148" y1="178" x2="148" y2="320"/>
+    <line x1="186" y1="178" x2="186" y2="320"/>
+    <line x1="224" y1="178" x2="224" y2="320"/>
+    <line x1="262" y1="178" x2="262" y2="320"/>
+    <line x1="300" y1="178" x2="300" y2="320"/>
+    <line x1="338" y1="178" x2="338" y2="320"/>
+    <line x1="108" y1="320" x2="372" y2="320"/>
+    <line x1="96" y1="332" x2="384" y2="332"/>
+  </g>
+
+  <!-- Three case documents fanning out, suggesting evidence converging into
+       a petition. Back-most has a stamp box; middle has a verified gold seal;
+       front carries the Verda shield mark in place of a header glyph. -->
+  <g transform="translate(0, 100)">
+    <g transform="translate(28, 92) rotate(-12, 100, 130)">
+      <rect width="208" height="252" rx="8" fill="url(#vh-paper-soft)" stroke="#0a1429" stroke-width="0.8" stroke-opacity="0.18"/>
+      <rect x="22" y="24" width="120" height="7" rx="3.5" fill="#0a1429" opacity="0.55"/>
+      <rect x="22" y="46" width="166" height="3" rx="1.5" fill="#0a1429" opacity="0.22"/>
+      <rect x="22" y="58" width="148" height="3" rx="1.5" fill="#0a1429" opacity="0.2"/>
+      <rect x="22" y="70" width="156" height="3" rx="1.5" fill="#0a1429" opacity="0.2"/>
+      <rect x="22" y="94" width="170" height="3" rx="1.5" fill="#0a1429" opacity="0.2"/>
+      <rect x="22" y="106" width="130" height="3" rx="1.5" fill="#0a1429" opacity="0.2"/>
+      <rect x="22" y="160" width="68" height="68" rx="6" fill="none" stroke="#b85c20" stroke-width="1.6" stroke-dasharray="5 3"/>
+      <text x="56" y="200" font-family="Source Serif 4, Georgia, serif" font-size="11" font-weight="700" fill="#b85c20" text-anchor="middle" letter-spacing="0.08em">EVIDENCE</text>
+    </g>
+
+    <g transform="translate(132, 64) rotate(2, 100, 130)">
+      <rect width="208" height="272" rx="8" fill="#faf6ec" stroke="#0a1429" stroke-width="0.8" stroke-opacity="0.22"/>
+      <rect x="22" y="24" width="100" height="9" rx="4" fill="#0a1429" opacity="0.78"/>
+      <rect x="22" y="46" width="166" height="3" rx="1.5" fill="#0a1429" opacity="0.26"/>
+      <rect x="22" y="58" width="150" height="3" rx="1.5" fill="#0a1429" opacity="0.24"/>
+      <rect x="22" y="70" width="140" height="3" rx="1.5" fill="#0a1429" opacity="0.24"/>
+      <rect x="22" y="92" width="170" height="3" rx="1.5" fill="#0a1429" opacity="0.24"/>
+      <rect x="22" y="104" width="130" height="3" rx="1.5" fill="#0a1429" opacity="0.24"/>
+      <rect x="22" y="116" width="158" height="3" rx="1.5" fill="#0a1429" opacity="0.24"/>
+      <circle cx="166" cy="218" r="22" fill="none" stroke="#d4a534" stroke-width="2"/>
+      <path d="M155 218 L164 227 L178 211" stroke="#d4a534" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="166" y="252" font-family="Source Serif 4, Georgia, serif" font-size="9" font-weight="600" fill="#d4a534" text-anchor="middle" letter-spacing="0.14em">VERIFIED</text>
+    </g>
+
+    <g transform="translate(228, 110) rotate(14, 100, 120)">
+      <rect width="208" height="252" rx="8" fill="url(#vh-paper)" stroke="#0a1429" stroke-width="0.8" stroke-opacity="0.18"/>
+      <rect x="22" y="24" width="92" height="7" rx="3.5" fill="#0a1429" opacity="0.6"/>
+      <rect x="22" y="46" width="166" height="3" rx="1.5" fill="#0a1429" opacity="0.22"/>
+      <rect x="22" y="58" width="148" height="3" rx="1.5" fill="#0a1429" opacity="0.2"/>
+      <rect x="22" y="70" width="156" height="3" rx="1.5" fill="#0a1429" opacity="0.2"/>
+      <g transform="translate(64, 100)">
+        <rect width="80" height="80" rx="18" fill="#0a1429"/>
+        <path d="M18 26 L40 60 L62 26" fill="none" stroke="#faf6ec" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="40" cy="16" r="3.4" fill="#d4a534"/>
+      </g>
+      <rect x="22" y="206" width="148" height="3" rx="1.5" fill="#0a1429" opacity="0.2"/>
+      <rect x="22" y="218" width="120" height="3" rx="1.5" fill="#0a1429" opacity="0.2"/>
+    </g>
+  </g>
+
+  <!-- Loose paper accents — implies "evidence in motion" rather than a static stack. -->
+  <g>
+    <rect x="14" y="50" width="44" height="56" rx="4" fill="#faf6ec" opacity="0.55" transform="rotate(-18, 36, 78)"/>
+    <line x1="22" y1="68" x2="46" y2="68" stroke="#0a1429" stroke-opacity="0.18" stroke-width="1.5" transform="rotate(-18, 36, 78)"/>
+    <line x1="22" y1="78" x2="42" y2="78" stroke="#0a1429" stroke-opacity="0.16" stroke-width="1.5" transform="rotate(-18, 36, 78)"/>
+    <line x1="22" y1="88" x2="44" y2="88" stroke="#0a1429" stroke-opacity="0.16" stroke-width="1.5" transform="rotate(-18, 36, 78)"/>
+
+    <rect x="416" y="68" width="40" height="52" rx="4" fill="#faf6ec" opacity="0.42" transform="rotate(20, 436, 92)"/>
+    <line x1="424" y1="86" x2="448" y2="86" stroke="#0a1429" stroke-opacity="0.18" stroke-width="1.5" transform="rotate(20, 436, 92)"/>
+    <line x1="424" y1="96" x2="442" y2="96" stroke="#0a1429" stroke-opacity="0.16" stroke-width="1.5" transform="rotate(20, 436, 92)"/>
+
+    <rect x="46" y="438" width="38" height="50" rx="4" fill="#faf6ec" opacity="0.4" transform="rotate(8, 65, 462)"/>
+    <line x1="54" y1="456" x2="76" y2="456" stroke="#0a1429" stroke-opacity="0.18" stroke-width="1.5" transform="rotate(8, 65, 462)"/>
+    <line x1="54" y1="466" x2="72" y2="466" stroke="#0a1429" stroke-opacity="0.16" stroke-width="1.5" transform="rotate(8, 65, 462)"/>
+  </g>
+</svg>

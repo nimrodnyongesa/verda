@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Stack of case files motif">
+  <defs>
+    <linearGradient id="me-paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#faf6ec"/>
+      <stop offset="100%" stop-color="#f1ead7"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(8, 12)">
+    <rect width="86" height="92" rx="6" fill="url(#me-paper)" stroke="#0a1429" stroke-opacity="0.18" stroke-width="0.8" transform="rotate(-8, 43, 46)"/>
+    <rect width="86" height="92" rx="6" fill="#faf6ec" stroke="#0a1429" stroke-opacity="0.22" stroke-width="0.8" transform="translate(12, 4)"/>
+    <g transform="translate(12, 4)">
+      <rect x="12" y="14" width="44" height="5" rx="2.5" fill="#0a1429" opacity="0.55"/>
+      <rect x="12" y="28" width="60" height="2.5" rx="1.25" fill="#0a1429" opacity="0.22"/>
+      <rect x="12" y="36" width="52" height="2.5" rx="1.25" fill="#0a1429" opacity="0.22"/>
+      <rect x="12" y="44" width="58" height="2.5" rx="1.25" fill="#0a1429" opacity="0.22"/>
+      <circle cx="60" cy="68" r="9" fill="none" stroke="#d4a534" stroke-width="1.4"/>
+      <path d="M55 68 L59 72 L65 64" stroke="#d4a534" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+</svg>

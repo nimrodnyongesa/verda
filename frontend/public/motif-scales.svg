@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Scales of justice with verdant accent">
+  <g stroke="#0a1429" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <line x1="60" y1="22" x2="60" y2="92"/>
+    <line x1="42" y1="92" x2="78" y2="92"/>
+    <line x1="20" y1="40" x2="100" y2="40"/>
+    <line x1="60" y1="22" x2="60" y2="40"/>
+    <line x1="32" y1="40" x2="22" y2="64"/>
+    <line x1="32" y1="40" x2="42" y2="64"/>
+    <line x1="88" y1="40" x2="78" y2="64"/>
+    <line x1="88" y1="40" x2="98" y2="64"/>
+    <path d="M18 64 Q32 76 46 64" stroke-opacity="0.35"/>
+    <path d="M74 64 Q88 76 102 64" stroke-opacity="0.35"/>
+  </g>
+  <circle cx="60" cy="22" r="3.4" fill="#d4a534" stroke="none"/>
+  <path d="M58 14 Q62 8 66 12 Q60 18 58 14 Z" fill="#4f7a4f" stroke="none"/>
+</svg>
