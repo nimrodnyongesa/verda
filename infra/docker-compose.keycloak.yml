@@ -1,0 +1,57 @@
+# Local Keycloak for Verda — single-command identity provider.
+#
+#   docker compose -f infra/docker-compose.keycloak.yml up -d
+#
+# Boots Keycloak on http://localhost:8080 with a pre-imported `wakili` realm
+# (the realm slug is intentionally preserved so existing tokens, env vars,
+# and smoke tests keep working) containing:
+#   - a confidential client `wakili-frontend` with PKCE enabled, the redirect
+#     URI Verda uses, and a placeholder client secret you should rotate.
+#   - one demo user (advocate / advocate) with the `lawyer` realm role.
+#
+# Federate Google, Azure, SAML, GitHub, etc. by adding identity providers in
+# the Keycloak admin console — once configured there, every Verda sign-in
+# can use them with no code change.
+#
+# Admin console: http://localhost:8080  (admin / admin · change in prod)
+
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:25.0
+    command:
+      - start-dev
+      - --import-realm
+      - --hostname-strict=false
+    environment:
+      # Both names — old (KEYCLOAK_*) for 24.x compatibility, new (KC_BOOTSTRAP_*) for 25+.
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      KC_HEALTH_ENABLED: "true"
+      KC_HTTP_ENABLED: "true"
+      KC_FEATURES: token-exchange,impersonation,recovery-codes
+      # Theme cache off so edits to infra/keycloak/themes/wakili/** are
+      # visible on the next page reload without restarting the container.
+      # Safe for local dev; the production image should leave caching on.
+      KC_SPI_THEME_STATIC_MAX_AGE: "-1"
+      KC_SPI_THEME_CACHE_THEMES: "false"
+      KC_SPI_THEME_CACHE_TEMPLATES: "false"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./keycloak/realm-wakili.json:/opt/keycloak/data/import/realm-wakili.json:ro
+      # Verda-branded login theme. The directory is mounted directly at
+      # /opt/keycloak/themes/verda because Keycloak resolves themes by
+      # `/opt/keycloak/themes/<themeName>/<themeType>/...`. Read-only so
+      # nothing inside the container can mutate the source on host.
+      - ./keycloak/themes/verda:/opt/keycloak/themes/verda:ro
+      - keycloak-data:/opt/keycloak/data
+    healthcheck:
+      test: ["CMD-SHELL", "exec 3<>/dev/tcp/127.0.0.1/8080 && echo -e 'GET /health/ready HTTP/1.0\\r\\n\\r\\n' >&3 && cat <&3 | head -1 | grep -q '200'"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+
+volumes:
+  keycloak-data: {}
