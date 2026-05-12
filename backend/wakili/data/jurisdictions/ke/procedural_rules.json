@@ -1,0 +1,77 @@
+{
+  "jurisdiction": "ke",
+  "name": "Republic of Kenya",
+  "constitution": "Constitution of Kenya, 2010",
+  "tracks": {
+    "article_22_petition": {
+      "label": "Article 22 Constitutional Petition",
+      "citation": "Articles 22 and 23, Constitution of Kenya, 2010 (Mutunga Rules, 2013)",
+      "court_of_first_instance": "High Court of Kenya (Constitutional and Human Rights Division)",
+      "filings": [
+        {
+          "filing": "Notice of Motion (Article 22)",
+          "purpose": "Initiate the constitutional petition and state the alleged violations.",
+          "rule": "Mutunga Rules r. 4 & r. 7",
+          "offset_days_from_incident": 14,
+          "template": "notice_of_motion.md",
+          "annexures": ["A: List of authorities", "B: Verifying affidavit"]
+        },
+        {
+          "filing": "Supporting Affidavit",
+          "purpose": "Verify the facts pleaded in the petition.",
+          "rule": "Mutunga Rules r. 11; Oaths and Statutory Declarations Act",
+          "offset_days_from_incident": 14,
+          "template": "supporting_affidavit.md",
+          "annexures": ["1: OB extract", "2: Medical report", "3: WhatsApp transcript"]
+        },
+        {
+          "filing": "List of Authorities",
+          "purpose": "Bind the petition to verified Kenya Law precedents.",
+          "rule": "Mutunga Rules r. 12; House style — verified by kenyalaw-mcp",
+          "offset_days_from_incident": 14,
+          "template": "list_of_authorities.md",
+          "annexures": []
+        },
+        {
+          "filing": "Constitutional Petition",
+          "purpose": "Substantive petition setting out rights, facts, and reliefs sought.",
+          "rule": "Mutunga Rules r. 10",
+          "offset_days_from_incident": 14,
+          "template": "article_22_petition.md",
+          "annexures": ["I: Notice of motion", "II: Affidavit", "III: Authorities"]
+        },
+        {
+          "filing": "Inter-partes hearing date",
+          "purpose": "Set a date for inter-partes hearing of the petition.",
+          "rule": "Mutunga Rules r. 20",
+          "offset_days_from_incident": 28,
+          "template": null,
+          "annexures": []
+        }
+      ]
+    },
+    "article_23_petition": {
+      "label": "Article 23 Petition (Conservatory Relief)",
+      "citation": "Article 23(3), Constitution of Kenya, 2010",
+      "court_of_first_instance": "High Court of Kenya",
+      "filings": [
+        {
+          "filing": "Application for Conservatory Orders",
+          "purpose": "Preserve rights pending hearing of the substantive petition.",
+          "rule": "Mutunga Rules r. 23",
+          "offset_days_from_incident": 7,
+          "template": "notice_of_motion.md",
+          "annexures": ["A: Supporting affidavit"]
+        },
+        {
+          "filing": "Constitutional Petition",
+          "purpose": "Substantive petition for declaratory and compensatory relief.",
+          "rule": "Mutunga Rules r. 10",
+          "offset_days_from_incident": 14,
+          "template": "article_22_petition.md",
+          "annexures": ["I: Notice of motion", "II: Affidavit", "III: Authorities"]
+        }
+      ]
+    }
+  }
+}
