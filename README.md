@@ -26,7 +26,7 @@ external services required.
 | IAM           | Keycloak SSO + role/permission matrix + per-case ownership / membership.      |
 
 ```
-wakili/
+verda/
 ├── backend/                          FastAPI + Python 3.12
 │   ├── wakili/
 │   │   ├── api/                      cases, plan, generation, outputs, exports, mcp, audit
@@ -155,4 +155,4 @@ Law Society of Kenya rules of professional conduct are met because the human
 lawyer is the responsible practitioner at every step. `SIGN BEFORE FILING`
 markers in every drafted motion enforce that separation.
 
-Built from Nairobi, not exported to it.
+Built from Nairobi, not exported to it. 🇰🇪
