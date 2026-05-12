@@ -1,0 +1,16 @@
+<!--
+  Placeholder for the Open Society Foundations brand mark.
+
+  When OSF supplies the partner-approved SVG, save it next to this file
+  as `osf-mark.svg` and update the <Image src> in
+  frontend/app/page.tsx to point at it. Until then this neutral
+  wordmark is used so the layout, spacing, and colour story already
+  match the rest of the page.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" role="img" aria-label="Open Society Foundations">
+  <rect x="0.5" y="0.5" width="239" height="79" rx="11.5" fill="#faf6ec" stroke="#0a1429" stroke-opacity="0.12"/>
+  <line x1="38" y1="58" x2="202" y2="58" stroke="#d4a534" stroke-width="1.2"/>
+  <text x="120" y="34" font-family="Source Serif 4, Georgia, serif" font-size="14" font-weight="600" text-anchor="middle" fill="#0a1429" letter-spacing="0.06em">OPEN SOCIETY</text>
+  <text x="120" y="52" font-family="Source Serif 4, Georgia, serif" font-size="14" font-weight="600" text-anchor="middle" fill="#0a1429" letter-spacing="0.06em">FOUNDATIONS</text>
+  <text x="120" y="71" font-family="Inter, sans-serif" font-size="7.5" text-anchor="middle" fill="#0a1429" fill-opacity="0.45" letter-spacing="0.18em">IMPACT PARTNER</text>
+</svg>
