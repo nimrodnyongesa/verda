@@ -171,3 +171,23 @@ v3.0** — see [`LICENSE`](./LICENSE) and [`NOTICE`](./NOTICE).
 the code; it does not grant you the right to use the Verda name or
 mark to brand a fork. See [`TRADEMARK.md`](./TRADEMARK.md) for the
 trademark policy.
+
+## Contributing
+
+Contributions are welcome under the project's
+[Code of Conduct](./CODE_OF_CONDUCT.md). Every commit must be
+**DCO-signed** (`git commit -s`) and **GPG/SSH-signed**. See
+[`CONTRIBUTING.md`](./CONTRIBUTING.md) for the full workflow, branch
+conventions, and pre-PR checklist.
+
+The [`CODEOWNERS`](./CODEOWNERS) file routes reviews automatically.
+Touching anything under `auth/`, `services/encryption.py`, an
+exporter, an MCP server, or a jurisdiction pack triggers a maintainer
+review — security-critical code does not merge without one.
+
+## Security
+
+Please **do not** open a public GitHub issue for security problems.
+Coordinated disclosure instructions, scope, and our commitments are in
+[`SECURITY.md`](./SECURITY.md). GitHub Private Vulnerability Reporting
+is the preferred channel.
