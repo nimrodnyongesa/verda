@@ -129,8 +129,12 @@ def _fetch(url: str, *, retries: int = 2, timeout: int = 25) -> str:
 
 
 def _strip_tags(html: str) -> str:
-    text = re.sub(r"<script[\s\S]*?</script>", " ", html, flags=re.IGNORECASE)
-    text = re.sub(r"<style[\s\S]*?</style>", " ", text, flags=re.IGNORECASE)
+    # The closing tag is matched as `</script\s*>` rather than `</script>`:
+    # HTML permits whitespace before the closing angle bracket, so a page
+    # serving `</script >` would otherwise slip its entire body past the
+    # filter and into the scraped corpus as junk text.
+    text = re.sub(r"<script[\s\S]*?</script\s*>", " ", html, flags=re.IGNORECASE)
+    text = re.sub(r"<style[\s\S]*?</style\s*>", " ", text, flags=re.IGNORECASE)
     text = re.sub(r"<[^>]+>", " ", text)
     text = html_lib.unescape(text)
     text = re.sub(r"\s+", " ", text).strip()
