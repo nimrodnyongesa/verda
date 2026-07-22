@@ -129,8 +129,8 @@ def _fetch(url: str, *, retries: int = 2, timeout: int = 25) -> str:
 
 
 def _strip_tags(html: str) -> str:
-    text = re.sub(r"<script[\s\S]*?</script>", " ", html, flags=re.IGNORECASE)
-    text = re.sub(r"<style[\s\S]*?</style>", " ", text, flags=re.IGNORECASE)
+    text = re.sub(r"<script\b[\s\S]*?</script\b[^>]*>", " ", html, flags=re.IGNORECASE)
+    text = re.sub(r"<style\b[\s\S]*?</style\b[^>]*>", " ", text, flags=re.IGNORECASE)
     text = re.sub(r"<[^>]+>", " ", text)
     text = html_lib.unescape(text)
     text = re.sub(r"\s+", " ", text).strip()
