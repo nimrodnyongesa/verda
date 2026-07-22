@@ -61,6 +61,16 @@ class StripTagsTests(unittest.TestCase):
                 self.assertIn("Before", out)
                 self.assertIn("After", out)
 
+    def test_scriptfoo_does_not_open_an_element(self):
+        # `<scriptfoo>` is not a script tag. Without a word boundary on the
+        # opening tag it would open an element that the later `</script>`
+        # closes, swallowing the real page text sitting between them.
+        out = self.strip("Before<scriptfoo>KEEP_ME</p><script>leak()</script>After")
+        self.assertIn("KEEP_ME", out)
+        self.assertNotIn("leak", out)
+        self.assertIn("Before", out)
+        self.assertIn("After", out)
+
     def test_does_not_treat_scriptfoo_as_an_end_tag(self):
         # `</scriptfoo>` is not an end tag for <script>. The filter must not
         # end the element there, or it would stop stripping too early.

@@ -138,11 +138,15 @@ def _strip_tags(html: str) -> str:
     #
     # The leading `\s` in the optional group is deliberate: it keeps
     # `</scriptfoo>`, which is not an end tag, from matching.
+    #
+    # `\b` on the opening tag matters for the same reason in the other
+    # direction: without it, `<scriptfoo>` would open an element that a
+    # later `</script>` then closes, swallowing real page text in between.
     text = re.sub(
-        r"<script[\s\S]*?</script(?:\s[^>]*)?>", " ", html, flags=re.IGNORECASE
+        r"<script\b[\s\S]*?</script(?:\s[^>]*)?>", " ", html, flags=re.IGNORECASE
     )
     text = re.sub(
-        r"<style[\s\S]*?</style(?:\s[^>]*)?>", " ", text, flags=re.IGNORECASE
+        r"<style\b[\s\S]*?</style(?:\s[^>]*)?>", " ", text, flags=re.IGNORECASE
     )
     text = re.sub(r"<[^>]+>", " ", text)
     text = html_lib.unescape(text)
