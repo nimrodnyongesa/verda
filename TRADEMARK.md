@@ -22,7 +22,7 @@ You may use the Verda Marks to:
   with the original LICENSE, NOTICE, and TRADEMARK files preserved.
 - **Show the mark in editorial / educational contexts** — articles,
   blog posts, conference talks, screenshots, video tutorials.
-- **Link to the project** at https://github.com/nyongesa637/verda using
+- **Link to the project** at https://github.com/nimrodnyongesa/verda using
   the mark as a hyperlink.
 
 In all cases the mark must remain unmodified — same colours, same

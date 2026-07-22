@@ -10,7 +10,7 @@ body:
         issues**, please use [Private Vulnerability Reporting][pvr]
         instead — see [`SECURITY.md`](../SECURITY.md).
 
-        [pvr]: https://github.com/nyongesa637/verda/security/advisories/new
+        [pvr]: https://github.com/nimrodnyongesa/verda/security/advisories/new
 
   - type: checkboxes
     id: pre-flight
