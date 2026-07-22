@@ -1,4 +1,4 @@
-.PHONY: install backend frontend dev test build clean keycloak keycloak-down keycloak-logs keycloak-reset auth-status scrape-kenyalaw stack stack-up stack-wait stack-down stack-logs stack-reset smoke env
+.PHONY: install backend frontend dev test build clean sample-case keycloak keycloak-down keycloak-logs keycloak-reset auth-status scrape-kenyalaw stack stack-up stack-wait stack-down stack-logs stack-reset smoke env
 
 PY := .venv/bin/python
 PIP := .venv/bin/pip
@@ -132,6 +132,15 @@ stack-down:
 # session cookie, and exits non-zero on any failure.
 smoke:
 	@bash scripts/smoke.sh
+
+# Copies the synthetic case fixture somewhere obvious so reviewers and QA
+# testers have something to drag onto the upload zone without digging through
+# backend/tests/. Synthetic data only — never put real case files here.
+sample-case:
+	@rm -rf sample-case
+	@cp -r backend/tests/fixtures/sample_case sample-case
+	@echo "Sample case copied to ./sample-case/ ($$(ls sample-case | wc -l) files)."
+	@echo "Drag that folder onto the upload zone at http://localhost:3000."
 
 clean:
 	rm -rf runtime backend/wakili/__pycache__ backend/wakili/**/__pycache__ backend/tests/__pycache__
