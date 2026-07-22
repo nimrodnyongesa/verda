@@ -34,7 +34,7 @@ jobs:
     steps:
       - name: Dependabot metadata
         id: meta
-        uses: dependabot/fetch-metadata@v2
+        uses: dependabot/fetch-metadata@21025c705c08248db411dc16f3619e6b5f9ea21a # v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -63,7 +63,7 @@ jobs:
             echo "[$i/30] checks: $state"
             case "$state" in
               passed|no_checks)
-                gh pr merge "$PR_URL" --merge --delete-branch
+                gh pr merge "$PR_URL" --merge
                 echo "::notice::Merged Dependabot PR via fallback path."
                 exit 0 ;;
               failed)
