@@ -2,6 +2,6 @@ fastapi>=0.118
 uvicorn[standard]>=0.32
 python-multipart>=0.0.20
 pydantic>=2.10
-PyJWT[crypto]>=2.9
+PyJWT[crypto]>=2.13.0
 cryptography>=42
 mcp>=1.28.1
