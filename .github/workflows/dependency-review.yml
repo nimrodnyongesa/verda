@@ -1,0 +1,46 @@
+# Blocks pull requests that introduce dependencies with known
+# vulnerabilities.
+#
+# Licence policy is deliberately not enforced here. AGPL-3.0 compatibility
+# is more nuanced than a denylist can express (MPL-2.0, for instance, is
+# compatible via its secondary-licence provision), and a wrong entry fails
+# PRs on legitimate dependencies. That call stays with a human.
+#
+# This runs on pull_request only — there is nothing to diff on a direct
+# push, and the action needs a base and head to compare.
+name: Dependency review
+
+on:
+  pull_request:
+    branches: [main, staging]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dependency-review-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    name: Review dependency changes
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      # Lets the action leave a summary comment on the PR.
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Dependency review
+        uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
+        with:
+          # Fail on moderate and above. This project ships to at-risk users
+          # and can be deployed offline to a USB stick, where patching after
+          # the fact is not realistic — so the bar is deliberately low.
+          fail-on-severity: moderate
+          comment-summary-in-pr: on-failure

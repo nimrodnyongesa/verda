@@ -1,0 +1,66 @@
+# CodeQL static analysis.
+#
+# Scans both halves of the stack: the FastAPI backend (python) and the
+# Next.js frontend (javascript-typescript). Neither needs a build step, so
+# the default `none` build mode applies and no autobuild is required.
+#
+# Findings land in the repository's Security → Code scanning tab. The
+# security-extended suite is enabled deliberately: this project handles
+# human rights case evidence, so a slightly noisier ruleset is the right
+# trade against missing an access-control or injection issue.
+name: CodeQL
+
+on:
+  push:
+    branches: [main, staging]
+  pull_request:
+    branches: [main, staging]
+  schedule:
+    # Mondays 05:00 UTC — catches newly published queries against code that
+    # hasn't changed. Deliberately ahead of the Dependabot window (06:00
+    # Africa/Nairobi) so the two don't contend for runners.
+    - cron: "0 5 * * 1"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: codeql-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  analyze:
+    name: Analyze (${{ matrix.language }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      # Required to upload results to the code-scanning API.
+      security-events: write
+      # Required by the CodeQL action to read workflow run status.
+      actions: read
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - language: python
+            build-mode: none
+          - language: javascript-typescript
+            build-mode: none
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@4187e74d05793876e9989daffde9c3e66b4acd07 # v3
+        with:
+          languages: ${{ matrix.language }}
+          build-mode: ${{ matrix.build-mode }}
+          queries: security-extended
+
+      - name: Analyze
+        uses: github/codeql-action/analyze@4187e74d05793876e9989daffde9c3e66b4acd07 # v3
+        with:
+          category: /language:${{ matrix.language }}
