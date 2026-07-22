@@ -20,13 +20,13 @@ puts them at risk before a fix can land.
 Two channels — pick whichever you prefer:
 
 1. **GitHub Private Vulnerability Reporting**
-   <https://github.com/nyongesa637/verda/security/advisories/new>
+   <https://github.com/nimrodnyongesa/verda/security/advisories/new>
    This is the preferred path — it's encrypted in transit, audit-logged,
    and gets a CVE automatically.
 
 2. **Email (PGP-encrypted)**
    `security@verda.invalid` (replace `.invalid` with the actual TLD
-   listed at <https://github.com/nyongesa637/verda#security-contact>).
+   listed at <https://github.com/nimrodnyongesa/verda#security-contact>).
    Encrypt with the PGP key fingerprint published in the same place.
 
 Whichever channel you pick, include:
