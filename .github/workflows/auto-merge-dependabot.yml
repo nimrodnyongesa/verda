@@ -63,7 +63,7 @@ jobs:
             echo "[$i/30] checks: $state"
             case "$state" in
               passed|no_checks)
-                gh pr merge "$PR_URL" --merge --delete-branch
+                gh pr merge "$PR_URL" --merge
                 echo "::notice::Merged Dependabot PR via fallback path."
                 exit 0 ;;
               failed)
