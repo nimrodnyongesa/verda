@@ -57,4 +57,4 @@ Version bumps follow SemVer strictly:
 - **MINOR** — additive features, new jurisdictions, new exporters.
 - **PATCH** — bug fixes, doc updates, dependency bumps.
 
-[Unreleased]: https://github.com/nyongesa637/verda/compare/HEAD...HEAD
+[Unreleased]: https://github.com/nimrodnyongesa/verda/compare/HEAD...HEAD
