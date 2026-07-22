@@ -105,9 +105,13 @@ cd backend
 PYTHONPATH=. ../.venv/bin/python -m unittest discover -s tests -v
 ```
 
-39 tests cover the four generated modules, encryption round-trip + tag
-rejection, packaging, the FastAPI surface, the IAM dependencies, and the
-sample-case end-to-end flow.
+Or just `make test`. 67 tests cover the four generated modules, encryption
+round-trip + tag rejection, packaging, the FastAPI surface, the MCP server,
+folders, the IAM dependencies, and the sample-case end-to-end flow.
+
+Reviewing the project rather than developing it? Start with
+[`docs/QA_TESTATHON.md`](./docs/QA_TESTATHON.md) — bring-up, test accounts,
+sample data, and the list of deliberate stubs.
 
 ## Optional OpenAI integration
 
