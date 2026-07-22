@@ -51,6 +51,24 @@ class StripTagsTests(unittest.TestCase):
         self.assertIn("Before", out)
         self.assertIn("After", out)
 
+    def test_strips_closing_tag_carrying_attribute_junk(self):
+        # An HTML end tag may carry ignored attribute-like content before
+        # the bracket and still close the element.
+        for closing in ('</script foo="bar">', "</script\t\n bar>", "</script  >"):
+            with self.subTest(closing=closing):
+                out = self.strip(f"Before<script>leak(){closing}After")
+                self.assertNotIn("leak", out)
+                self.assertIn("Before", out)
+                self.assertIn("After", out)
+
+    def test_does_not_treat_scriptfoo_as_an_end_tag(self):
+        # `</scriptfoo>` is not an end tag for <script>. The filter must not
+        # end the element there, or it would stop stripping too early.
+        out = self.strip("Before<script>leak()</scriptfoo>still_script</script>After")
+        self.assertNotIn("still_script", out)
+        self.assertIn("Before", out)
+        self.assertIn("After", out)
+
     def test_entities_unescaped_and_whitespace_collapsed(self):
         html = "<p>Rex   &amp;   Republic</p>\n\n<p>v.  Kariuki</p>"
         self.assertEqual(self.strip(html), "Rex & Republic v. Kariuki")

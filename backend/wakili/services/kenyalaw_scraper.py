@@ -129,12 +129,21 @@ def _fetch(url: str, *, retries: int = 2, timeout: int = 25) -> str:
 
 
 def _strip_tags(html: str) -> str:
-    # The closing tag is matched as `</script\s*>` rather than `</script>`:
-    # HTML permits whitespace before the closing angle bracket, so a page
-    # serving `</script >` would otherwise slip its entire body past the
-    # filter and into the scraped corpus as junk text.
-    text = re.sub(r"<script[\s\S]*?</script\s*>", " ", html, flags=re.IGNORECASE)
-    text = re.sub(r"<style[\s\S]*?</style\s*>", " ", text, flags=re.IGNORECASE)
+    # End tags are matched as `</script(?:\s[^>]*)?>` rather than the naive
+    # `</script>`. An HTML end tag may carry whitespace and even ignored
+    # attribute-like junk before the closing bracket — `</script >`,
+    # `</script\n\tfoo="bar">` — and all of those still close the element.
+    # Matching only the bare form let a page slip its entire script body
+    # past the filter and into the scraped corpus as junk tokens.
+    #
+    # The leading `\s` in the optional group is deliberate: it keeps
+    # `</scriptfoo>`, which is not an end tag, from matching.
+    text = re.sub(
+        r"<script[\s\S]*?</script(?:\s[^>]*)?>", " ", html, flags=re.IGNORECASE
+    )
+    text = re.sub(
+        r"<style[\s\S]*?</style(?:\s[^>]*)?>", " ", text, flags=re.IGNORECASE
+    )
     text = re.sub(r"<[^>]+>", " ", text)
     text = html_lib.unescape(text)
     text = re.sub(r"\s+", " ", text).strip()
