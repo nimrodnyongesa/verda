@@ -4,4 +4,4 @@ python-multipart>=0.0.20
 pydantic>=2.10
 PyJWT[crypto]>=2.13.0
 cryptography>=42
-mcp>=1.28.1
+mcp>=2.0.0
